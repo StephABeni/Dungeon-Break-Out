@@ -13,7 +13,12 @@
 /Dungeon Break-Out!/Assets/PolygonFantasyCharacters/
 /Dungeon Break-Out!/Assets/PolygonFantasyRivals/
 /Dungeon Break-Out!/Assets/PolygonKnights/
-/Dungeon Break-Out!/Assets/RPG and MMO UI 5/
+/Dungeon Break-Out!/Assets/RPG and MMO UI 5/Materials/
+/Dungeon Break-Out!/Assets/RPG and MMO UI 5/Animators/
+/Dungeon Break-Out!/Assets/RPG and MMO UI 5/Color Schemes/
+/Dungeon Break-Out!/Assets/RPG and MMO UI 5/Fonts/
+/Dungeon Break-Out!/Assets/RPG and MMO UI 5/Prefabs/
+/Dungeon Break-Out!/Assets/RPG and MMO UI 5/PSD Files/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
