@@ -2,13 +2,20 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+/Dungeon Break-Out!/Assets/PolygonDungeon/
+/Dungeon Break-Out!/Assets/PolygonDungeonMap/
+/Dungeon Break-Out!/Assets/PolygonFantasyCharacters/
+/Dungeon Break-Out!/Assets/PolygonFantasyRivals/
+/Dungeon Break-Out!/Assets/PolygonKnights/
+/Dungeon Break-Out!/Assets/RPG and MMO UI 5/
+/Dungeon Break-Out!/Assets/Warped Fantasy/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
