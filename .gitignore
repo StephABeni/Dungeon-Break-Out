@@ -14,8 +14,6 @@
 /Dungeon Break-Out!/Assets/PolygonFantasyRivals/
 /Dungeon Break-Out!/Assets/PolygonKnights/
 
-/Dungeon Break-Out!/Assets/RPG and MMO UI 5/PSD Files/
-
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
