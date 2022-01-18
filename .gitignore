@@ -11,6 +11,7 @@
 [Mm]emoryCaptures/
 /Dungeon Break-Out!/Assets/RPG and MMO UI 5/PSD Files/RPG & MMO 5 - HUD.psd
 /Dungeon Break-Out!/Assets/RPG and MMO UI 5/PSD Files/RPG & MMO 5.psd
+/Dungeon Break-Out!/Builds/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
