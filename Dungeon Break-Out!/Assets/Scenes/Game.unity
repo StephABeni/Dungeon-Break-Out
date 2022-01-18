@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952169a802d2cdc458088599f02a1e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 5
+  maxTime: 60
   timesUpText: {fileID: 369283653}
 --- !u!114 &264071814
 MonoBehaviour:
