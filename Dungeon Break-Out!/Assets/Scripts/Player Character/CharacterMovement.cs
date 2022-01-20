@@ -15,9 +15,18 @@ public class CharacterMovement : MonoBehaviour
     Transform cameraObject;
     Rigidbody playerRigidBody;
 
+    [Header("Movement Speeds")]
     public float walkSpeed = 4;
     public float runSpeed = 8;
     public float rotationSpeed = 15;
+
+    [Header("Gravity")]
+    public float gravity;
+    public float curGravity;
+    public float maxGravity;
+
+    private Vector3 gravityDirection;
+    private Vector3 gravityMovement;
 
     private void Awake()
     {
