@@ -5,11 +5,12 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     string currentScene;
+
     // Update is called once per frame
     void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene == "Game")
+        if (currentScene != "CharacterSelect")
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(currentScene == "Game")
+        if(currentScene != "CharacterSelect")
         {
             CharacterMovement.instance.HandleAllMovement();
         }
