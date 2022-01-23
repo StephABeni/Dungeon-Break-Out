@@ -198,8 +198,8 @@ MonoBehaviour:
   m_BindingMode: 5
   m_FollowOffset: {x: 0, y: 2.5, z: -6}
   m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 2
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -324,8 +324,8 @@ MonoBehaviour:
   m_BindingMode: 5
   m_FollowOffset: {x: 0, y: 2.5, z: -6}
   m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 2
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 269235613}
   - component: {fileID: 269235612}
   m_Layer: 0
-  m_Name: CM StateDrivenCamera1
+  m_Name: Camera State Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -613,7 +613,9 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 269235613}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras: []
+  m_ChildCameras:
+  - {fileID: 2056459055}
+  - {fileID: 286772025}
   m_Instructions:
   - m_FullHash: 343788716
     m_VirtualCamera: {fileID: 2056459055}
@@ -8072,8 +8074,8 @@ MonoBehaviour:
   m_BindingMode: 5
   m_FollowOffset: {x: 0, y: 2.5, z: -6}
   m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 2
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -8493,9 +8495,9 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 2
-    m_AccelTime: 0.2
-    m_DecelTime: 0.1
+    m_MaxSpeed: 1.5
+    m_AccelTime: 0.05
+    m_DecelTime: 0.05
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
@@ -8517,9 +8519,9 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 250
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_MaxSpeed: 175
+    m_AccelTime: 0.05
+    m_DecelTime: 0.05
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 0

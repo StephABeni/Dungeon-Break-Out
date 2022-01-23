@@ -15,9 +15,9 @@ public class CharacterMovement : MonoBehaviour
     Transform cameraObject;
     Rigidbody playerRigidBody;
 
-    public float walkSpeed = 4;
-    public float runSpeed = 8;
-    public float rotationSpeed = 15;
+    public float walkSpeed = 4f;
+    public float runSpeed = 8f;
+    public float rotationSpeed = 15f;
 
     public GameObject telekinesisFollow;
 
@@ -79,12 +79,11 @@ public class CharacterMovement : MonoBehaviour
         {
             //Horizontal rotation, move entire avatar
             Quaternion desiredRotation = transform.rotation * Quaternion.AngleAxis(inputManager.lookInput.x, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, 50f * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
 
             //vertical rotation, move only telekinesis follow
-            //telekinesisFollow.transform.rotation *= Quaternion.AngleAxis(-inputManager.lookInput.y, Vector3.right);
             desiredRotation = telekinesisFollow.transform.rotation * Quaternion.AngleAxis(-inputManager.lookInput.y, Vector3.right);
-            telekinesisFollow.transform.rotation = Quaternion.Slerp(telekinesisFollow.transform.rotation, desiredRotation, 50f * Time.deltaTime);
+            telekinesisFollow.transform.rotation = Quaternion.Slerp(telekinesisFollow.transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
 
 
             Vector3 angles = telekinesisFollow.transform.localEulerAngles;
@@ -93,14 +92,8 @@ public class CharacterMovement : MonoBehaviour
             float angle = telekinesisFollow.transform.localEulerAngles.x;
 
             //Clamp the Up/Down rotation
-            if (angle > 180 && angle < 320)
-            {
-                angles.x = 320;
-            }
-            else if (angle < 180 && angle > 50)
-            {
-                angles.x = 50;
-            }
+            if (angle > 180 && angle < 320) { angles.x = 320; }
+            else if (angle < 180 && angle > 50) { angles.x = 50; }
 
             telekinesisFollow.transform.localEulerAngles = angles;
         }
