@@ -148,6 +148,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Interaction",
+            "id": "a5058e7e-8385-4440-8a6d-7cdaf433acd5",
+            "actions": [
+                {
+                    "name": "E",
+                    "type": "Button",
+                    "id": "a9e812cb-44d4-4c7f-a3e5-9767b5633d99",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Telekinesis",
+                    "type": "Button",
+                    "id": "3a874103-4e43-48ac-8329-d81c1f85ca57",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RBPickup",
+                    "type": "Button",
+                    "id": "e9249d51-b9f8-4d1e-9191-5ae79fb999af",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d14bdd7c-7471-4c93-b01d-566bb7635380",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "E",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3a1bd8a-f21c-4c7f-8d2c-be544705470a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Telekinesis",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49b6d3ab-8c42-4ecc-8301-21a46b13703d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RBPickup",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
