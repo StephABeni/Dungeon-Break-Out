@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene == "Game")
+        if (currentScene == "Dungeon1")
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(currentScene == "Game")
+        if(currentScene == "Dungeon1")
         {
             CharacterMovement.instance.HandleAllMovement();
         }
