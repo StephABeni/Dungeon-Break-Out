@@ -1,7 +1,9 @@
+using DuloGames.UI;
 using UnityEngine;
 
 public class InteractableItem: MonoBehaviour {
     public Item item;
+    public UIItemInfo itemInfo;
     public bool canInteract;
 
     public virtual void Interact()
@@ -24,7 +26,7 @@ public class InteractableItem: MonoBehaviour {
 
     public void PickUp()
     {
-        Inventory.instance.AddItem(item);
+        Inventory.instance.AddItem(item, itemInfo);
         Destroy(gameObject);
         canInteract = false;
         UIController.instance.DeactivateDialog();

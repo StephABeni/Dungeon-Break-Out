@@ -172,7 +172,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RBPickup",
+                    "name": "Inventory",
                     "type": "Button",
                     "id": "e9249d51-b9f8-4d1e-9191-5ae79fb999af",
                     "expectedControlType": "Button",
@@ -207,11 +207,11 @@
                 {
                     "name": "",
                     "id": "49b6d3ab-8c42-4ecc-8301-21a46b13703d",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RBPickup",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

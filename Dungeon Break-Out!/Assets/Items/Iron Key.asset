@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Iron Key
   m_EditorClassIdentifier: 
   itemName: Iron Key
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e709ec682456b4949b0a00bcf11b515c, type: 3}
   canPickUp: 1
   canInteract: 0

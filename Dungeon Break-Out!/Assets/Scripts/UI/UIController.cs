@@ -10,6 +10,8 @@ public class UIController : MonoBehaviour
     public GameObject reticle;
     public GameObject dialog;
     public Text dialogText;
+    public GameObject InventoryIcon;
+    public GameObject InventoryWindow;
 
     private void Awake()
     {
@@ -34,6 +36,8 @@ public class UIController : MonoBehaviour
     void Update()
     {
         reticle.SetActive(inputManager.rightMousePressed);
+        InventoryWindow.SetActive(inputManager.tabPressed);
+        Time.timeScale = inputManager.tabPressed ? 0 : 1;
     }
 
     public void ActivateDialog(string text)
@@ -45,5 +49,21 @@ public class UIController : MonoBehaviour
     public void DeactivateDialog()
     {
         dialog.SetActive(false);
+    }
+
+    public void ShowInventoryIcon()
+    {
+        StartCoroutine(DelayIcon());
+    }
+
+    public void HideInventoryWindow()
+    {
+        inputManager.tabPressed = false;
+    }
+
+    IEnumerator DelayIcon()
+    {
+        yield return new WaitForSeconds(1f);
+        InventoryIcon.SetActive(!InventoryIcon.activeInHierarchy);
     }
 }

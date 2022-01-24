@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     public bool ePressed;
     public bool leftMousePressed;
     public bool rightMousePressed;
+    public bool tabPressed;
 
     private void Awake()
     {
@@ -47,7 +48,7 @@ public class InputManager : MonoBehaviour
             playerMovement.Interaction.E.performed += i => ePressed = true;
             playerMovement.Interaction.E.canceled += i => ePressed = false;
 
-            playerMovement.Interaction.RBPickup.performed += i => leftMousePressed = !leftMousePressed;
+            playerMovement.Interaction.Inventory.performed += i => tabPressed = !tabPressed;
             playerMovement.Interaction.Telekinesis.performed += i => rightMousePressed = !rightMousePressed;
         }
 

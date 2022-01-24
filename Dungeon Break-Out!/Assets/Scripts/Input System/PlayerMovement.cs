@@ -194,7 +194,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""RBPickup"",
+                    ""name"": ""Inventory"",
                     ""type"": ""Button"",
                     ""id"": ""e9249d51-b9f8-4d1e-9191-5ae79fb999af"",
                     ""expectedControlType"": ""Button"",
@@ -229,11 +229,11 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""49b6d3ab-8c42-4ecc-8301-21a46b13703d"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""RBPickup"",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -256,7 +256,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
         m_Interaction_E = m_Interaction.FindAction("E", throwIfNotFound: true);
         m_Interaction_Telekinesis = m_Interaction.FindAction("Telekinesis", throwIfNotFound: true);
-        m_Interaction_RBPickup = m_Interaction.FindAction("RBPickup", throwIfNotFound: true);
+        m_Interaction_Inventory = m_Interaction.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -425,14 +425,14 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     private IInteractionActions m_InteractionActionsCallbackInterface;
     private readonly InputAction m_Interaction_E;
     private readonly InputAction m_Interaction_Telekinesis;
-    private readonly InputAction m_Interaction_RBPickup;
+    private readonly InputAction m_Interaction_Inventory;
     public struct InteractionActions
     {
         private @PlayerMovement m_Wrapper;
         public InteractionActions(@PlayerMovement wrapper) { m_Wrapper = wrapper; }
         public InputAction @E => m_Wrapper.m_Interaction_E;
         public InputAction @Telekinesis => m_Wrapper.m_Interaction_Telekinesis;
-        public InputAction @RBPickup => m_Wrapper.m_Interaction_RBPickup;
+        public InputAction @Inventory => m_Wrapper.m_Interaction_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Interaction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -448,9 +448,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @Telekinesis.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
                 @Telekinesis.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
                 @Telekinesis.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
-                @RBPickup.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnRBPickup;
-                @RBPickup.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnRBPickup;
-                @RBPickup.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnRBPickup;
+                @Inventory.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_InteractionActionsCallbackInterface = instance;
             if (instance != null)
@@ -461,9 +461,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @Telekinesis.started += instance.OnTelekinesis;
                 @Telekinesis.performed += instance.OnTelekinesis;
                 @Telekinesis.canceled += instance.OnTelekinesis;
-                @RBPickup.started += instance.OnRBPickup;
-                @RBPickup.performed += instance.OnRBPickup;
-                @RBPickup.canceled += instance.OnRBPickup;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -485,6 +485,6 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     {
         void OnE(InputAction.CallbackContext context);
         void OnTelekinesis(InputAction.CallbackContext context);
-        void OnRBPickup(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }
