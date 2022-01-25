@@ -11,7 +11,7 @@ public class unlockBox : MonoBehaviour
         if (other.tag == "Player")
         {
             animator.SetTrigger("unlockBox");
-            Debug.Log("Box unlocked. Remove key from player inventory. Add matches to player inventory.");
+            Debug.Log("Box opened. Add matches to player inventory.");
         }
     }
 }
