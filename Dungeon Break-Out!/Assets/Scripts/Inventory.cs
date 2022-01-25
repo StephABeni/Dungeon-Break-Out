@@ -6,7 +6,6 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    [SerializeField] private List<Item> itemlist;
     public List<UIItemSlot> allInventorySlots;
     public List<UIItemInfo> allInventorySlotInfo = new List<UIItemInfo>();
 
@@ -24,16 +23,10 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void AddItem(UIItemInfo itemInfo)
     {
-        itemlist = new List<Item>();
-    }
-
-    public void AddItem(Item item, UIItemInfo itemInfo)
-    {
-        itemlist.Add(item);
-        Debug.Log("Added " + item.itemName + " to inventory");
+        allInventorySlotInfo.Add(itemInfo);
+        Debug.Log("Added " + itemInfo.Name + " to inventory");
         for (int i = 0; i < allInventorySlots.Count; i++)
         {
             if (!allInventorySlots[i].IsAssigned())
