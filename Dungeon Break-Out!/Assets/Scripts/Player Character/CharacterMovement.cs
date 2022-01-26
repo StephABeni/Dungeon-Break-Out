@@ -22,13 +22,11 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("Gravity")]
     public float gravity;
-    public float constantGravity;
-    public float maxGravity;
+    public float inAirTimer;
 
-    private float curGravity;
     private float distToGround;
     private Vector3 gravityDirection;
-    private Vector3 gravityMovement;
+    //private Vector3 gravityMovement;
     public GameObject telekinesisFollow;
 
     private void Awake()
@@ -63,11 +61,12 @@ public class CharacterMovement : MonoBehaviour
     {
         MoveCharacter();
         RotateCharacter();
+        HandleGravity();
     }
 
     private bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 1.0f);
+        return Physics.Raycast(transform.position + new Vector3(0f, 0.02f, 0f), Vector3.down, .15f);
     }
 
     private Vector3 MovementSetup(Vector3 direction)
@@ -78,22 +77,35 @@ public class CharacterMovement : MonoBehaviour
         direction += cameraObject.right * inputManager.horizontalInput;
         //keep values somewhat consistent with normalize
         direction.Normalize();
-        //make sure they don't float off into the sky
 
+        //make sure they don't float off into the sky
+        direction.y = 0;
+
+        return direction;
+    }
+
+    private void HandleGravity()
+    {
         if (!IsGrounded())
         {
-            direction.y = -1 ;
+            Debug.Log("My Pos:" + gameObject.transform.position);
+
+            Vector3 newPos = gameObject.transform.position +  new Vector3(0, -gravity* inAirTimer, 0);// (gravityDirection * gravity * inAirTimer);
+            inAirTimer += .1f;
+            SetCurrentPosition(newPos);
+            Debug.Log("New Pos:" + newPos);
+            //inAirTimer += Time.deltaTime;
+            //playerRigidBody.AddForce(gravityDirection * gravity * inAirTimer);
         }
         else
         {
-            direction.y = 0;
+            inAirTimer = 0;
         }
-        return direction;
     }
 
     private void MoveCharacter()
     {
-        Vector3 charMovement = MovementSetup(moveDirection);    
+        Vector3 charMovement = MovementSetup(moveDirection);
         charMovement *= inputManager.shiftPressed ? runSpeed : walkSpeed; //adjust character speed on the fly
         playerRigidBody.velocity = charMovement;
     }
