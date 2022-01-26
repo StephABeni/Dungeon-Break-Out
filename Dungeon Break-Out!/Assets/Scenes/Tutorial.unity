@@ -678,9 +678,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261801641}
-  m_Text: "WASD (to walk) + Shift to sprint\nMove Mouse to look\nClick Right Mouse
-    to enter/exit telekinesis mode\n        In TK mode, press 'E' to lift/drop object\nPress
-    'Tab' to open/close inventory"
+  m_Text: "'Esc' to exit fullscreen\nWASD (to walk) + Shift to sprint\nMove Mouse
+    to look\nClick Right Mouse to enter/exit telekinesis mode\n        In TK mode,
+    tap 'E' to lift/drop object\nPress 'Tab' to open/close inventory"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

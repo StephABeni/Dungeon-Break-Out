@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public GameManager instance;
     public GameObject player;
     string currentScene;
+    bool cursorLocked;
 
     private void Awake()
     {
@@ -26,16 +27,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene != "CharacterSelect")
+        if (currentScene != "CharacterSelect" && !InputManager.instance.tabPressed)
         {
-            if (InputManager.instance.tabPressed)
-                UnlockCursor();
-            else
-                LockCursor();
+            if (!cursorLocked) {
+                LockCursor(false);
+            }
         }
         else
         {
-            UnlockCursor();
+            if (cursorLocked) {
+                UnlockCursor(false);
+            }
         }
     }
 
@@ -47,29 +49,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UnlockCursor()
+    public void UnlockCursor(bool delayAnimator)
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        player.GetComponent<Animator>().SetBool("Game", false);
+        if (delayAnimator)
+        {
+            StartCoroutine(DelayedAnimator(false));
+        } else
+        {
+            player.GetComponent<Animator>().SetBool("Game", false);
+        }
+        cursorLocked = true;
     }
 
-    public void LockCursor()
+    public void LockCursor(bool delayAnimator)
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        player.GetComponent<Animator>().SetBool("Game", true);
+        if (delayAnimator)
+        {
+            StartCoroutine(DelayedAnimator(true));
+        } else
+        {
+            player.GetComponent<Animator>().SetBool("Game", true);
+        }
+        cursorLocked = false;
     }
 
-    //Used only when starting game, so animation switch isn't noticable
-    public void DelayedLockFunc()
-    {
-        StartCoroutine(DelayedLock());
-    }
-
-    IEnumerator DelayedLock()
+    IEnumerator DelayedAnimator(bool lockAnimation)
     {
         yield return new WaitForSeconds(1f);
-        LockCursor();
+        player.GetComponent<Animator>().SetBool("Game", lockAnimation);
     }
 }
