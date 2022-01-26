@@ -22,9 +22,11 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("Gravity")]
     public float gravity;
-    public float curGravity;
+    public float constantGravity;
     public float maxGravity;
 
+    private float curGravity;
+    private float distToGround;
     private Vector3 gravityDirection;
     private Vector3 gravityMovement;
 
@@ -40,6 +42,8 @@ public class CharacterMovement : MonoBehaviour
                 Destroy(this);
             }
         }
+
+        gravityDirection = Vector3.down;
     }
 
     private void Start()
@@ -60,6 +64,11 @@ public class CharacterMovement : MonoBehaviour
         RotateCharacter();
     }
 
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 1.0f);
+    }
+
     private Vector3 MovementSetup(Vector3 direction)
     {
         //move character forward/backwards in the direction the camera is facing
@@ -69,7 +78,15 @@ public class CharacterMovement : MonoBehaviour
         //keep values somewhat consistent with normalize
         direction.Normalize();
         //make sure they don't float off into the sky
-        direction.y = 0;
+
+        if (!IsGrounded())
+        {
+            direction.y = -1 ;
+        }
+        else
+        {
+            direction.y = 0;
+        }
         return direction;
     }
 
