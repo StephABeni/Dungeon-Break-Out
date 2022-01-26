@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public GameManager instance;
     public GameObject player;
     string currentScene;
-    bool cursorLocked;
+    public bool cursorLocked;
 
     private void Awake()
     {
@@ -27,9 +27,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene != "CharacterSelect" && !InputManager.instance.tabPressed)
+        if (currentScene != "CharacterSelect")
         {
-            if (!cursorLocked) {
+            if (InputManager.instance.tabPressed && cursorLocked) {
+                UnlockCursor(false);
+            } else if (!InputManager.instance.tabPressed && !cursorLocked) {
                 LockCursor(false);
             }
         }
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(currentScene != "CharacterSelect" && !InputManager.instance.tabPressed)
+        if (currentScene != "CharacterSelect" && !InputManager.instance.tabPressed)
         {
             CharacterMovement.instance.HandleAllMovement();
         }
@@ -51,30 +53,32 @@ public class GameManager : MonoBehaviour
 
     public void UnlockCursor(bool delayAnimator)
     {
+        cursorLocked = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         if (delayAnimator)
         {
             StartCoroutine(DelayedAnimator(false));
-        } else
+        }
+        else
         {
             player.GetComponent<Animator>().SetBool("Game", false);
         }
-        cursorLocked = true;
     }
 
     public void LockCursor(bool delayAnimator)
     {
+        cursorLocked = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         if (delayAnimator)
         {
             StartCoroutine(DelayedAnimator(true));
-        } else
+        }
+        else
         {
             player.GetComponent<Animator>().SetBool("Game", true);
         }
-        cursorLocked = false;
     }
 
     IEnumerator DelayedAnimator(bool lockAnimation)
