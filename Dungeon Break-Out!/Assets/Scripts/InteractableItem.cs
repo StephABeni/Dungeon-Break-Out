@@ -12,6 +12,7 @@ public class InteractableItem: MonoBehaviour {
 
     private void Update()
     {
+        //AlternateTriggerEnter();
         if (InputManager.instance.ePressed && canInteract)
         {
             if (itemInfo.ItemType == 1) {
@@ -33,7 +34,7 @@ public class InteractableItem: MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             canInteract = true;
             UIController.instance.ActivateDialog("[Press 'E'] Pick Up " + itemInfo.Name);

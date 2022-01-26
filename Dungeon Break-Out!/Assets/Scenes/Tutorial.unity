@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 294143786}
   m_Layer: 0
   m_Name: Gem Pick Up
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1218,7 +1218,7 @@ GameObject:
   - component: {fileID: 501379835476800894}
   m_Layer: 0
   m_Name: Key Pick Up
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
