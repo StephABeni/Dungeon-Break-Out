@@ -12,21 +12,35 @@ public class GameManager : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().name;
         if (currentScene != "CharacterSelect")
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            player.GetComponent<Animator>().SetBool("Game", true);
+            if (InputManager.instance.tabPressed)     
+                UnlockCursor();          
+            else
+                LockCursor();
         } else {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            player.GetComponent<Animator>().SetBool("Game", false);
+            UnlockCursor();
         }          
     }
 
     private void FixedUpdate()
     {
-        if(currentScene != "CharacterSelect")
+        if(currentScene != "CharacterSelect" && !InputManager.instance.tabPressed)
         {
             CharacterMovement.instance.HandleAllMovement();
         }
+    }
+
+    private void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        player.GetComponent<Animator>().SetBool("Game", false);
+    }
+
+    private void LockCursor()
+    {
+        if (InputManager.instance.tabPressed)
+            Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        player.GetComponent<Animator>().SetBool("Game", true);
     }
 }

@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
 
     public Vector2 movementInput;
     public Vector2 lookInput;
+    public Vector2 mousePosition;
     private float moveAmount;
     public float verticalInput;
     public float horizontalInput;
@@ -16,6 +17,7 @@ public class InputManager : MonoBehaviour
     public bool ePressed;
     public bool leftMousePressed;
     public bool rightMousePressed;
+    public bool tabPressed;
 
     private void Awake()
     {
@@ -37,6 +39,7 @@ public class InputManager : MonoBehaviour
             playerMovement = new PlayerMovement();
             playerMovement.Movement.Move.performed += i => movementInput = i.ReadValue<Vector2>();
             playerMovement.Mouse.MouseLook.performed += i => lookInput = i.ReadValue<Vector2>();
+            playerMovement.Mouse.MousePosition.performed += i => mousePosition = i.ReadValue<Vector2>();
 
             playerMovement.Movement.Run.performed += i => shiftPressed = true;
             playerMovement.Movement.Run.canceled += i => shiftPressed = false;
@@ -47,7 +50,7 @@ public class InputManager : MonoBehaviour
             playerMovement.Interaction.E.performed += i => ePressed = true;
             playerMovement.Interaction.E.canceled += i => ePressed = false;
 
-            playerMovement.Interaction.RBPickup.performed += i => leftMousePressed = !leftMousePressed;
+            playerMovement.Interaction.Inventory.performed += i => tabPressed = !tabPressed;
             playerMovement.Interaction.Telekinesis.performed += i => rightMousePressed = !rightMousePressed;
         }
 

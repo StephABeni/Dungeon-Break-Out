@@ -317,7 +317,7 @@ namespace DuloGames.UI
                 return;
             }
 
-            UIModalBox box = UIModalBoxManager.Instance.Create(this.gameObject);
+/*            UIModalBox box = UIModalBoxManager.Instance.Create(this.gameObject);
             if (box != null)
             {
                 box.SetText1("Do you really want to destroy \"" + this.m_ItemInfo.Name + "\"?");
@@ -325,7 +325,7 @@ namespace DuloGames.UI
                 box.SetConfirmButtonText("DESTROY");
                 box.onConfirm.AddListener(Unassign);
                 box.Show();
-            }
+            }*/
         }
 
         /// <summary>
