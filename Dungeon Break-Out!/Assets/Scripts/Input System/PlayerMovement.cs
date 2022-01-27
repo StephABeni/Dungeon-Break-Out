@@ -155,6 +155,15 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b249a0a8-3c85-4e76-90d9-a41c10d71a06"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -166,6 +175,85 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MouseLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce0798f0-6f10-47d7-bf01-25a651a29eb9"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Interaction"",
+            ""id"": ""a5058e7e-8385-4440-8a6d-7cdaf433acd5"",
+            ""actions"": [
+                {
+                    ""name"": ""E"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9e812cb-44d4-4c7f-a3e5-9767b5633d99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Telekinesis"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a874103-4e43-48ac-8329-d81c1f85ca57"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""e9249d51-b9f8-4d1e-9191-5ae79fb999af"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d14bdd7c-7471-4c93-b01d-566bb7635380"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""E"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3a1bd8a-f21c-4c7f-8d2c-be544705470a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Telekinesis"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49b6d3ab-8c42-4ecc-8301-21a46b13703d"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -184,6 +272,12 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         // Mouse
         m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
         m_Mouse_MouseLook = m_Mouse.FindAction("MouseLook", throwIfNotFound: true);
+        m_Mouse_MousePosition = m_Mouse.FindAction("MousePosition", throwIfNotFound: true);
+        // Interaction
+        m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
+        m_Interaction_E = m_Interaction.FindAction("E", throwIfNotFound: true);
+        m_Interaction_Telekinesis = m_Interaction.FindAction("Telekinesis", throwIfNotFound: true);
+        m_Interaction_Inventory = m_Interaction.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -318,11 +412,13 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Mouse;
     private IMouseActions m_MouseActionsCallbackInterface;
     private readonly InputAction m_Mouse_MouseLook;
+    private readonly InputAction m_Mouse_MousePosition;
     public struct MouseActions
     {
         private @PlayerMovement m_Wrapper;
         public MouseActions(@PlayerMovement wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseLook => m_Wrapper.m_Mouse_MouseLook;
+        public InputAction @MousePosition => m_Wrapper.m_Mouse_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_Mouse; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -335,6 +431,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @MouseLook.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
                 @MouseLook.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
                 @MouseLook.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
+                @MousePosition.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_MouseActionsCallbackInterface = instance;
             if (instance != null)
@@ -342,10 +441,62 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @MouseLook.started += instance.OnMouseLook;
                 @MouseLook.performed += instance.OnMouseLook;
                 @MouseLook.canceled += instance.OnMouseLook;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
     public MouseActions @Mouse => new MouseActions(this);
+
+    // Interaction
+    private readonly InputActionMap m_Interaction;
+    private IInteractionActions m_InteractionActionsCallbackInterface;
+    private readonly InputAction m_Interaction_E;
+    private readonly InputAction m_Interaction_Telekinesis;
+    private readonly InputAction m_Interaction_Inventory;
+    public struct InteractionActions
+    {
+        private @PlayerMovement m_Wrapper;
+        public InteractionActions(@PlayerMovement wrapper) { m_Wrapper = wrapper; }
+        public InputAction @E => m_Wrapper.m_Interaction_E;
+        public InputAction @Telekinesis => m_Wrapper.m_Interaction_Telekinesis;
+        public InputAction @Inventory => m_Wrapper.m_Interaction_Inventory;
+        public InputActionMap Get() { return m_Wrapper.m_Interaction; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InteractionActions set) { return set.Get(); }
+        public void SetCallbacks(IInteractionActions instance)
+        {
+            if (m_Wrapper.m_InteractionActionsCallbackInterface != null)
+            {
+                @E.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnE;
+                @E.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnE;
+                @E.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnE;
+                @Telekinesis.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
+                @Telekinesis.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
+                @Telekinesis.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
+                @Inventory.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
+            }
+            m_Wrapper.m_InteractionActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @E.started += instance.OnE;
+                @E.performed += instance.OnE;
+                @E.canceled += instance.OnE;
+                @Telekinesis.started += instance.OnTelekinesis;
+                @Telekinesis.performed += instance.OnTelekinesis;
+                @Telekinesis.canceled += instance.OnTelekinesis;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
+            }
+        }
+    }
+    public InteractionActions @Interaction => new InteractionActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -358,5 +509,12 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     public interface IMouseActions
     {
         void OnMouseLook(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
+    }
+    public interface IInteractionActions
+    {
+        void OnE(InputAction.CallbackContext context);
+        void OnTelekinesis(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }

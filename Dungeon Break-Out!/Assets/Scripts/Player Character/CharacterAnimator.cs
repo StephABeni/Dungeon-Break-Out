@@ -26,5 +26,5 @@ public class CharacterAnimator : MonoBehaviour
             snappedAnimation = 0f;
         }
         animator.SetFloat(vertical, snappedAnimation, 0.1f, Time.deltaTime);
-    }       
+    }
 }

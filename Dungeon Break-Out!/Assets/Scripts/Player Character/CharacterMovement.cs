@@ -15,9 +15,11 @@ public class CharacterMovement : MonoBehaviour
     Transform cameraObject;
     Rigidbody playerRigidBody;
 
-    public float walkSpeed = 4;
-    public float runSpeed = 8;
-    public float rotationSpeed = 15;
+    public float walkSpeed = 4f;
+    public float runSpeed = 8f;
+    public float rotationSpeed = 15f;
+
+    public GameObject telekinesisFollow;
 
     private void Awake()
     {
@@ -73,12 +75,36 @@ public class CharacterMovement : MonoBehaviour
 
     private void RotateCharacter()
     {
-        Vector3 rotateDirection = MovementSetup(Vector3.zero);
-        //Leave character facing the direction you controlled them to face
-        if (rotateDirection == Vector3.zero) rotateDirection = transform.forward;
+        if (inputManager.rightMousePressed)
+        {
+            //Horizontal rotation, move entire avatar
+            Quaternion desiredRotation = transform.rotation * Quaternion.AngleAxis(inputManager.lookInput.x, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
 
-        Quaternion desiredRotation = Quaternion.LookRotation(rotateDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
+            //vertical rotation, move only telekinesis follow
+            desiredRotation = telekinesisFollow.transform.rotation * Quaternion.AngleAxis(-inputManager.lookInput.y, Vector3.right);
+            telekinesisFollow.transform.rotation = Quaternion.Slerp(telekinesisFollow.transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
+
+
+            Vector3 angles = telekinesisFollow.transform.localEulerAngles;
+            angles.z = 0;
+
+            float angle = telekinesisFollow.transform.localEulerAngles.x;
+
+            //Clamp the Up/Down rotation
+            if (angle > 180 && angle < 320) { angles.x = 320; }
+            else if (angle < 180 && angle > 50) { angles.x = 50; }
+
+            telekinesisFollow.transform.localEulerAngles = angles;
+        } else {
+            Vector3 rotateDirection = MovementSetup(Vector3.zero);
+
+            //Leave character facing the direction you controlled them to face
+            if (rotateDirection == Vector3.zero) rotateDirection = transform.forward;
+
+            Quaternion desiredRotation = Quaternion.LookRotation(rotateDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 
     public void SetCurrentPosition(Vector3 position)
