@@ -155,6 +155,15 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b249a0a8-3c85-4e76-90d9-a41c10d71a06"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -166,6 +175,17 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MouseLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce0798f0-6f10-47d7-bf01-25a651a29eb9"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -194,7 +214,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""RBPickup"",
+                    ""name"": ""Inventory"",
                     ""type"": ""Button"",
                     ""id"": ""e9249d51-b9f8-4d1e-9191-5ae79fb999af"",
                     ""expectedControlType"": ""Button"",
@@ -229,11 +249,11 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""49b6d3ab-8c42-4ecc-8301-21a46b13703d"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""RBPickup"",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -252,11 +272,12 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         // Mouse
         m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
         m_Mouse_MouseLook = m_Mouse.FindAction("MouseLook", throwIfNotFound: true);
+        m_Mouse_MousePosition = m_Mouse.FindAction("MousePosition", throwIfNotFound: true);
         // Interaction
         m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
         m_Interaction_E = m_Interaction.FindAction("E", throwIfNotFound: true);
         m_Interaction_Telekinesis = m_Interaction.FindAction("Telekinesis", throwIfNotFound: true);
-        m_Interaction_RBPickup = m_Interaction.FindAction("RBPickup", throwIfNotFound: true);
+        m_Interaction_Inventory = m_Interaction.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -391,11 +412,13 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Mouse;
     private IMouseActions m_MouseActionsCallbackInterface;
     private readonly InputAction m_Mouse_MouseLook;
+    private readonly InputAction m_Mouse_MousePosition;
     public struct MouseActions
     {
         private @PlayerMovement m_Wrapper;
         public MouseActions(@PlayerMovement wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseLook => m_Wrapper.m_Mouse_MouseLook;
+        public InputAction @MousePosition => m_Wrapper.m_Mouse_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_Mouse; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -408,6 +431,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @MouseLook.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
                 @MouseLook.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
                 @MouseLook.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
+                @MousePosition.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_MouseActionsCallbackInterface = instance;
             if (instance != null)
@@ -415,6 +441,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @MouseLook.started += instance.OnMouseLook;
                 @MouseLook.performed += instance.OnMouseLook;
                 @MouseLook.canceled += instance.OnMouseLook;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
@@ -425,14 +454,14 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     private IInteractionActions m_InteractionActionsCallbackInterface;
     private readonly InputAction m_Interaction_E;
     private readonly InputAction m_Interaction_Telekinesis;
-    private readonly InputAction m_Interaction_RBPickup;
+    private readonly InputAction m_Interaction_Inventory;
     public struct InteractionActions
     {
         private @PlayerMovement m_Wrapper;
         public InteractionActions(@PlayerMovement wrapper) { m_Wrapper = wrapper; }
         public InputAction @E => m_Wrapper.m_Interaction_E;
         public InputAction @Telekinesis => m_Wrapper.m_Interaction_Telekinesis;
-        public InputAction @RBPickup => m_Wrapper.m_Interaction_RBPickup;
+        public InputAction @Inventory => m_Wrapper.m_Interaction_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Interaction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -448,9 +477,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @Telekinesis.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
                 @Telekinesis.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
                 @Telekinesis.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnTelekinesis;
-                @RBPickup.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnRBPickup;
-                @RBPickup.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnRBPickup;
-                @RBPickup.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnRBPickup;
+                @Inventory.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_InteractionActionsCallbackInterface = instance;
             if (instance != null)
@@ -461,9 +490,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @Telekinesis.started += instance.OnTelekinesis;
                 @Telekinesis.performed += instance.OnTelekinesis;
                 @Telekinesis.canceled += instance.OnTelekinesis;
-                @RBPickup.started += instance.OnRBPickup;
-                @RBPickup.performed += instance.OnRBPickup;
-                @RBPickup.canceled += instance.OnRBPickup;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -480,11 +509,12 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     public interface IMouseActions
     {
         void OnMouseLook(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
     public interface IInteractionActions
     {
         void OnE(InputAction.CallbackContext context);
         void OnTelekinesis(InputAction.CallbackContext context);
-        void OnRBPickup(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }
