@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class portal : MonoBehaviour
 {
+    public string sceneName;
+    public Vector3 spawnLocation;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
             Debug.Log("Collide");
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene(sceneName);
+            CharacterMovement.instance.SetCurrentPosition(spawnLocation);
         }
     }
 }
