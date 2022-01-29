@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class unlockBox : MonoBehaviour
 {
+
     public Animator animator;
 
     void OnTriggerEnter(Collider other)
