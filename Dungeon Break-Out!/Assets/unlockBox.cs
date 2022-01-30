@@ -5,6 +5,7 @@ using UnityEngine;
 public class unlockBox : MonoBehaviour
 {
 
+
     public Animator animator;
 
     void OnTriggerEnter(Collider other)
@@ -14,5 +15,6 @@ public class unlockBox : MonoBehaviour
             animator.SetTrigger("unlockBox");
             Debug.Log("Box opened. Add matches to player inventory.");
         }
+
     }
 }
