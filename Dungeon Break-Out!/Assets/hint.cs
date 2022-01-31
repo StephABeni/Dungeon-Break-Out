@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Hint : MonoBehaviour
 {
-    //private Renderer visible;
-    //private GameObject hints;
     private GameObject glowHint;
     private SkinnedMeshRenderer visibility;
     private int num_items;
@@ -14,19 +12,24 @@ public class Hint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            num_items = Inventory.instance.allInventorySlots.Count;
+            num_items = Inventory.instance.allInventorySlotInfo.Count;
+            if (num_items == 0)
             {
-                for (int i = 0; i < num_items; i++)
+                ShowHint("Key_Hint_LightRay_Cube");
+            }
+            for (int i = 0; i < num_items; i++)
+            {
+                if (Inventory.instance.allInventorySlotInfo[i].Name == "Iron Key")
                 {
-                    if (Inventory.instance.allInventorySlotInfo[i].Name == "Iron Key")
+                    if (unlockBox.instance.boxOpened == false)
                     {
-                        if (unlockBox.instance.boxOpened == false)
-                        {
-                            glowHint = GameObject.Find("Box_Hint_LightRay_Cube");
-                            visibility = glowHint.GetComponent<SkinnedMeshRenderer>();
-                            visibility.enabled = true;
-                            Debug.Log("Showing hint");
-                        }
+                        ShowHint("Box_Hint_LightRay_Cube");
+                        break;
+                    }
+                    else if (unlockdoor.instance.jail_opened == false)
+                    {
+                        ShowHint("Jail_Hint_LightRay_Cube");
+                        break;
                     }
                 }
             }
@@ -37,21 +40,23 @@ public class Hint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //hints = GameObject.Find("FX_Spiral 1");
-            //visible = hints.GetComponent<Renderer>();
-            //visible.enabled = false;
             Debug.Log("hiding hint in 5 seconds");
             StartCoroutine(DelayCode());
-            Debug.Log("hint hidden");
         }
+    }
+
+    void ShowHint(string hintObjectString)
+    {
+        glowHint = GameObject.Find(hintObjectString);
+        visibility = glowHint.GetComponent<SkinnedMeshRenderer>();
+        visibility.enabled = true;
+        Debug.Log("Showing hint");
     }
 
     IEnumerator DelayCode()
     {
-        yield return new WaitForSeconds(5f); //amount of time
-                                             //do the code you want delayed here
-        glowHint = GameObject.Find("Box_Hint_LightRay_Cube");
-        visibility = glowHint.GetComponent<SkinnedMeshRenderer>();
+        yield return new WaitForSeconds(5f);
         visibility.enabled = false;
+        Debug.Log("hint hidden");
     }
 }

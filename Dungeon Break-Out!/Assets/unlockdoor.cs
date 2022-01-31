@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class unlockdoor : MonoBehaviour
 {
+    public static unlockdoor instance;
     private int num_items;
     public bool jail_opened = false;
     public Animator animator;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        if (instance == null) instance = this;
+        else
+        {
+            if (instance != this)
+            {
+                Debug.Log("Multiple Inventory Instances.");
+                Destroy(this);
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
