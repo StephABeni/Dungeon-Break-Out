@@ -133,6 +133,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "PassThrough",
+                    "id": "b249a0a8-3c85-4e76-90d9-a41c10d71a06",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -144,6 +153,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce0798f0-6f10-47d7-bf01-25a651a29eb9",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -172,7 +192,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RBPickup",
+                    "name": "Inventory",
                     "type": "Button",
                     "id": "e9249d51-b9f8-4d1e-9191-5ae79fb999af",
                     "expectedControlType": "Button",
@@ -207,11 +227,11 @@
                 {
                     "name": "",
                     "id": "49b6d3ab-8c42-4ecc-8301-21a46b13703d",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RBPickup",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -140,9 +140,7 @@ public class CharacterMovement : MonoBehaviour
             else if (angle < 180 && angle > 50) { angles.x = 50; }
 
             telekinesisFollow.transform.localEulerAngles = angles;
-        }
-        else
-        {
+        } else {
             Vector3 rotateDirection = MovementSetup(Vector3.zero);
 
             //Leave character facing the direction you controlled them to face
