@@ -1,55 +1,131 @@
+using DuloGames.UI;
+using DuloGames.UI.Tweens;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public static Timer instance;
-
-    private Slider slider;
-
-    public float FillSpeed = 0.01f;
-    private float targetProgress = 1.0f;
-    public GameObject timesUpText;
-
-    private void Awake()
+    //public static Timer instance;
+    public enum TextVariant
     {
-        DontDestroyOnLoad(gameObject);
-
-        if (instance == null) instance = this;
-        else
-        {
-            if (instance != this)
-            {
-                Debug.Log("Multiple ProgressBar Instances.");
-                Destroy(this);
-            }
-        }
-
-        slider = gameObject.GetComponent<Slider>();
+        Percent,
+        Value,
+        ValueMax
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        timesUpText.SetActive(false);
+    public UIProgressBar bar;
+    public float Duration = 50f;
+    public TweenEasing Easing = TweenEasing.Linear;
+    public Text m_Text;
+    public TextVariant m_TextVariant = TextVariant.Percent;
+    public int m_TextValue = 0;
+    public string m_TextValueFormat = "0";
 
-        targetProgress = slider.value - 1.0f;
+    protected Timer()
+    {
+        if (this.m_FloatTweenRunner == null)
+            this.m_FloatTweenRunner = new TweenRunner<FloatTween>();
+
+        this.m_FloatTweenRunner.Init(this);
+    }
+
+    // Tween controls
+    [NonSerialized] private readonly TweenRunner<FloatTween> m_FloatTweenRunner;
+
+    public float FillSpeed = 0.01f;
+    public GameObject timesUpText;
+
+    //private void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+
+    //    //if (instance == null) instance = this;
+    //    //else
+    //    //{
+    //    //    if (instance != this)
+    //    //    {
+    //    //        Debug.Log("Multiple Timer Bar Instances.");
+    //    //        Destroy(this);
+    //    //    }
+    //    //}
+
+    //    slider = gameObject.GetComponent<Slider>();
+    //}
+
+    // Start is called before the first frame update
+    //void Start()
+    //{
+    //    SetupTimer();
+    //}
+
+    protected void OnEnable()
+    {
+        if (this.bar == null)
+            return;
+
+        this.StartTween(0f, (this.bar.fillAmount * this.Duration));
     }
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    if (slider.value > 0)
+    //    {
+    //        slider.value -= FillSpeed * Time.deltaTime;
+    //    }
+    //    else
+    //    {
+    //        timesUpText.SetActive(true);
+    //    }
+    //}
+
+
+    protected void SetFillAmount(float amount)
     {
-        if (slider.value > targetProgress)
+        if (this.bar == null)
+            return;
+
+        this.bar.fillAmount = amount;
+
+        if (this.m_Text != null)
         {
-            slider.value -= FillSpeed * Time.deltaTime;
+            if (this.m_TextVariant == TextVariant.Percent)
+            {
+                this.m_Text.text = Mathf.RoundToInt(amount * 100f).ToString() + "%";
+            }
+            else if (this.m_TextVariant == TextVariant.Value)
+            {
+                this.m_Text.text = ((float)this.m_TextValue * amount).ToString(this.m_TextValueFormat);
+            }
+            else if (this.m_TextVariant == TextVariant.ValueMax)
+            {
+                this.m_Text.text = ((float)this.m_TextValue * amount).ToString(this.m_TextValueFormat) + "/" + this.m_TextValue;
+            }
         }
-        else
-        {
-            timesUpText.SetActive(true);
-
-        }
+    }
 
 
+    protected void OnTweenFinished()
+    {
+        if (this.bar == null)
+            return;
+
+        timesUpText.SetActive(true);
+    }
+
+
+    protected void StartTween(float targetFloat, float duration)
+    {
+        if (this.bar == null)
+            return;
+
+        var floatTween = new FloatTween { duration = duration, startFloat = this.bar.fillAmount, targetFloat = targetFloat };
+        floatTween.AddOnChangedCallback(SetFillAmount);
+        floatTween.AddOnFinishCallback(OnTweenFinished);
+        floatTween.ignoreTimeScale = true;
+        floatTween.easing = this.Easing;
+        this.m_FloatTweenRunner.StartTween(floatTween);
     }
 }
 

@@ -7,7 +7,7 @@ public class ProgressBarScript : MonoBehaviour
 
     private Slider slider;
 
-    public float FillSpeed = 0.5f;
+    public float FillSpeed = 0.1f;
     private float targetProgress = 0;
 
     private void Awake()

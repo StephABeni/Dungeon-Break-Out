@@ -25,7 +25,7 @@ public class CharacterMovement : MonoBehaviour
     public float inAirTimer;
 
     private float distToGround;
-    private Vector3 gravityDirection;
+    private bool gravityDown;
     //private Vector3 gravityMovement;
     public GameObject telekinesisFollow;
 
@@ -42,7 +42,7 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        gravityDirection = Vector3.down;
+        gravityDown = true;
     }
 
     private void Start()
@@ -66,7 +66,10 @@ public class CharacterMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics.Raycast(transform.position + new Vector3(0f, 0.02f, 0f), Vector3.down, .15f);
+        if (gravityDown)
+            return Physics.Raycast(transform.position + new Vector3(0f, 0.02f, 0f), Vector3.down, .15f);
+        else
+            return Physics.Raycast(transform.position + new Vector3(0f, 0.02f, 0f), Vector3.up, .15f);
     }
 
     private Vector3 MovementSetup(Vector3 direction)
@@ -90,12 +93,16 @@ public class CharacterMovement : MonoBehaviour
         {
             Debug.Log("My Pos:" + gameObject.transform.position);
 
-            Vector3 newPos = gameObject.transform.position +  new Vector3(0, -gravity* inAirTimer, 0);// (gravityDirection * gravity * inAirTimer);
             inAirTimer += .1f;
+
+            Vector3 newPos;
+            if (gravityDown)
+                newPos = gameObject.transform.position +  new Vector3(0, -gravity* inAirTimer, 0);// (gravityDirection * gravity * inAirTimer);
+            else
+                newPos = gameObject.transform.position + new Vector3(0, gravity * inAirTimer, 0);// (gravityDirection * gravity * inAirTimer);
+
             SetCurrentPosition(newPos);
             Debug.Log("New Pos:" + newPos);
-            //inAirTimer += Time.deltaTime;
-            //playerRigidBody.AddForce(gravityDirection * gravity * inAirTimer);
         }
         else
         {

@@ -17,7 +17,7 @@ namespace DuloGames.UI
 
 		public UIProgressBar bar;
 		public float Duration = 5f;
-		public TweenEasing Easing = TweenEasing.InOutQuint;
+		public TweenEasing Easing = TweenEasing.Linear;
 		public Text m_Text;
 		public TextVariant m_TextVariant = TextVariant.Percent;
 		public int m_TextValue = 0;
