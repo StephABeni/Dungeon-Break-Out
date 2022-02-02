@@ -6,15 +6,24 @@ using UnityEngine.SceneManagement;
 public class portal : MonoBehaviour
 {
     public string sceneName;
+    public int newSong;
     public Vector3 spawnLocation;
+    private LevelLoader levelLoader;
+
+    private void Awake()
+    {
+        levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            Debug.Log("Collide");
-            SceneManager.LoadScene(sceneName);
-            CharacterMovement.instance.SetCurrentPosition(spawnLocation);
+            CharacterMovement.instance.SetCurrentPosition(spawnLocation, true);
+            levelLoader.LoadLevel(sceneName);
+            if(newSong > 0) {
+                levelLoader.ChangeMusic(newSong);
+            }
         }
     }
 }

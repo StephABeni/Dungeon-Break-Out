@@ -5,19 +5,29 @@ https://www.youtube.com/watch?v=YiNCqmAF3Lc&list=PLD_vBJjpCwJsqpD8QRPNPMfVUpPFLV
 */
 public class CharacterAnimator : MonoBehaviour
 {
-    Animator animator;
+    public static CharacterAnimator instance;
+    public Animator animator;
     int vertical;
+    public float snappedAnimation;
 
     private void Awake()
     {
+        if (instance == null) instance = this;
+        else
+        {
+            if (instance != this)
+            {
+                Debug.Log("Multiple CharacterAnimator Instances.");
+                Destroy(this);
+            }
+        }
+
         animator = GetComponent<Animator>();
         vertical = Animator.StringToHash("Vertical");
     }
 
     public void UpdateAnimatorValues(float runSpeed)
     {
-        float snappedAnimation;
-
         if (runSpeed > 0f && InputManager.instance.shiftPressed)  {
             snappedAnimation = 2f;
         } else if (runSpeed > 0 && runSpeed <= 1f) {

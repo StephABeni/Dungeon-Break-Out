@@ -40,6 +40,9 @@ public class Telekinesis : MonoBehaviour
             }
         } else {
             stateDrivenCamera.Play("Player Freelook");
+            if (currentlyHeldObject) {
+                DropObject();
+            }
         }
     }
 

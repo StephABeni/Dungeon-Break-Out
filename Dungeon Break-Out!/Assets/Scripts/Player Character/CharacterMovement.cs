@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 /* Some code based on Sebastian Graves Youtube tutorials: 
@@ -107,13 +108,23 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void SetCurrentPosition(Vector3 position)
+    public void SetCurrentPosition(Vector3 position, bool delayChange)
     {
-        gameObject.transform.position = position;
+        if (!delayChange)
+            gameObject.transform.position = position;
+        else
+            StartCoroutine(DelayPositionChange(position));
     }
 
     public Vector3 GetCurrentPosition()
     {
         return transform.position;
+    }
+
+    IEnumerator DelayPositionChange(Vector3 position)
+    {
+        yield return new WaitForSeconds(0.9f);
+        Debug.Log("Changing Position");
+        gameObject.transform.position = position;
     }
 }
