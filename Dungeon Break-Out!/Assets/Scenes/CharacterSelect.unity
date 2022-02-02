@@ -19783,7 +19783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959b67fb9a8114844be9fb9b7999d8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instance: {fileID: 0}
   player: {fileID: 717472821}
   cursorLocked: 0
 --- !u!4 &2077360429

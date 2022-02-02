@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager instance;
+    public static GameManager instance;
     public GameObject player;
     string currentScene;
     public bool cursorLocked;
@@ -29,15 +29,19 @@ public class GameManager : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().name;
         if (currentScene != "CharacterSelect")
         {
-            if (InputManager.instance.tabPressed && cursorLocked) {
+            if (InputManager.instance.tabPressed && cursorLocked)
+            {
                 UnlockCursor(false);
-            } else if (!InputManager.instance.tabPressed && !cursorLocked) {
+            }
+            else if (!InputManager.instance.tabPressed && !cursorLocked)
+            {
                 LockCursor(false);
             }
         }
         else
         {
-            if (cursorLocked) {
+            if (cursorLocked)
+            {
                 UnlockCursor(false);
             }
         }
@@ -85,5 +89,10 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         player.GetComponent<Animator>().SetBool("Game", lockAnimation);
+    }
+
+    public void EnableMovement(bool command)
+    {
+        CharacterMovement.instance.enabled = command;
     }
 }
