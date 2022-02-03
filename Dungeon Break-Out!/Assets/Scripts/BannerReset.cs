@@ -10,7 +10,7 @@ namespace Assets.Scripts
 {
     public class BannerReset : MonoBehaviour
     {
-        public GameObject[] rings;
+        public GameObject[] banners;
         public bool ringsOff;
         public UIItemInfo itemInfo;
 
@@ -23,11 +23,13 @@ namespace Assets.Scripts
         {
             if (itemInfo.Pushed)
             {
-                foreach (GameObject ring in rings)
+                foreach (GameObject banner in banners)
                 {
-                    ring.SetActive(false);
+                    banner.GetComponent<InteractableItem>().itemInfo.Pushed = false;
                 }
             }
+
+            itemInfo.Pushed = false;
         }
     }
 }
