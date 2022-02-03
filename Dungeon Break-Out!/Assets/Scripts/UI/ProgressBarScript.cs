@@ -5,15 +5,11 @@ public class ProgressBarScript : MonoBehaviour
 {
     public static ProgressBarScript instance;
 
-    private Slider slider;
-
     public float FillSpeed = 0.1f;
     private float targetProgress = 0;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-
         if (instance == null) instance = this;
         else
         {
@@ -23,11 +19,9 @@ public class ProgressBarScript : MonoBehaviour
                 Destroy(this);
             }
         }
-        
-        slider = gameObject.GetComponent<Slider>();
     }
 
-    // Start is called before the first frame update
+/*    // Start is called before the first frame update
     void Start()
     {
         targetProgress = slider.value + 1.0f;
@@ -42,5 +36,5 @@ public class ProgressBarScript : MonoBehaviour
         }
 
 
-    }
+    }*/
 }

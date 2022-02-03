@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager instance;
+    public static GameManager instance;
     public GameObject player;
-    string currentScene;
+    public string currentScene;
     public bool cursorLocked;
 
     private void Awake()
