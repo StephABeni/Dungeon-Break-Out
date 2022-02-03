@@ -102,7 +102,7 @@ public class CharacterMovement : MonoBehaviour
             else
                 newPos = gameObject.transform.position + new Vector3(0, gravity * inAirTimer, 0);// (gravityDirection * gravity * inAirTimer);
 
-            SetCurrentPosition(newPos);
+            SetCurrentPosition(newPos, false);
             //Debug.Log("New Pos:" + newPos);
         }
         else
