@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject player;
-    string currentScene;
+    public string currentScene;
     public bool cursorLocked;
 
     private void Awake()
@@ -27,22 +27,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene != "CharacterSelect")
-        {
-            if (InputManager.instance.tabPressed && cursorLocked)
-            {
-                UnlockCursor(false);
-            }
-            else if (!InputManager.instance.tabPressed && !cursorLocked)
-            {
-                LockCursor(false);
-            }
+        if (currentScene == "CharacterSelect" || currentScene == "StartPage") {
+            cursorLocked = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
-            if (cursorLocked)
-            {
+            if (InputManager.instance.tabPressed) {
                 UnlockCursor(false);
+            }
+            else {
+                LockCursor(false);
             }
         }
     }
@@ -58,7 +54,7 @@ public class GameManager : MonoBehaviour
     public void UnlockCursor(bool delayAnimator)
     {
         cursorLocked = false;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         if (delayAnimator)
         {
@@ -89,10 +85,5 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         player.GetComponent<Animator>().SetBool("Game", lockAnimation);
-    }
-
-    public void EnableMovement(bool command)
-    {
-        CharacterMovement.instance.enabled = command;
     }
 }

@@ -5,18 +5,22 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    private AudioSource audio;
+    public AudioSource audioSource;
+    public AudioClip[] backgroundMusic;
+    public AudioClip currentBackgroundMusic;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         if (instance == null) instance = this;
         else { if (instance != this) Debug.Log("Multiple AudioManager Instances."); }
+        audioSource = GetComponent<AudioSource>();
     }
 
-    void Start()
+    public void ChangeBackgroundMusic(int song)
     {
-        audio = GetComponent<AudioSource>();
-        audio.Play();
+        audioSource.Stop();
+        audioSource.clip = backgroundMusic[song];
+        audioSource.Play();
     }
 }
