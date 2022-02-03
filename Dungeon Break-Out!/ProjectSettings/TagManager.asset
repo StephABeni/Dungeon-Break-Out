@@ -7,6 +7,9 @@ TagManager:
   - Item
   - Hint
   - tomb_cube
+  - tomb_sword
+  - tomb_circle
+  - tomb_skull
   layers:
   - Default
   - TransparentFX
