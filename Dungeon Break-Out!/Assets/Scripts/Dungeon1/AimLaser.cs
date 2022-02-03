@@ -5,10 +5,15 @@ using UnityEngine;
 public class AimLaser : MonoBehaviour
 {
     public GameObject child;
-    public GameObject parent;
-    public bool canInteract;
-    public bool rotateActive = false;
+    private GameObject MainCamera;
+    private bool canInteract;
+    private bool rotateActive = false;
     private float Speed = 0.5f;
+
+    private void Awake()
+    {
+        MainCamera = GameObject.Find("Main Camera");
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -31,15 +36,12 @@ public class AimLaser : MonoBehaviour
         }
     }
 
-
-    private void Update()
+    private void FixedUpdate()
     {
         if (canInteract == true && InputManager.instance.ePressed && rotateActive == false)
         {
             UIController.instance.DeactivateDialog();
             GameManager.instance.EnableMovement(false);
-            child = GameObject.Find("Mirror 1");
-            parent = GameObject.Find("Main Camera");
             rotateActive = true;
             
         } else if (canInteract == true && InputManager.instance.ePressed && rotateActive == true)
@@ -52,7 +54,7 @@ public class AimLaser : MonoBehaviour
         if (rotateActive == true)
         {
             //https://forum.unity.com/threads/rotate-gameobject-to-where-camera-is-facing.501460/
-            child.transform.rotation = Quaternion.Lerp(child.transform.rotation, parent.transform.rotation, Speed * Time.deltaTime);
+            child.transform.rotation = Quaternion.Lerp(child.transform.rotation, MainCamera.transform.rotation, Speed * Time.deltaTime);
         }
     }
 }

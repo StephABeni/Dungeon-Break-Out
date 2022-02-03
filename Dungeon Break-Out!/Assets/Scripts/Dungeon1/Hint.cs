@@ -55,7 +55,7 @@ public class Hint : MonoBehaviour
 
     IEnumerator DelayCode()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         visibility.enabled = false;
         Debug.Log("hint hidden");
     }
