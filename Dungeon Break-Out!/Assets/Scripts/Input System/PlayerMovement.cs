@@ -221,6 +221,15 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Enter"",
+                    ""type"": ""Button"",
+                    ""id"": ""b854dcc3-704a-49a2-b81b-b98f61517072"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -256,6 +265,17 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""222ad313-ba23-49e2-9317-777a844cdf77"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Enter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -278,6 +298,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         m_Interaction_E = m_Interaction.FindAction("E", throwIfNotFound: true);
         m_Interaction_Telekinesis = m_Interaction.FindAction("Telekinesis", throwIfNotFound: true);
         m_Interaction_Inventory = m_Interaction.FindAction("Inventory", throwIfNotFound: true);
+        m_Interaction_Enter = m_Interaction.FindAction("Enter", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -455,6 +476,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
     private readonly InputAction m_Interaction_E;
     private readonly InputAction m_Interaction_Telekinesis;
     private readonly InputAction m_Interaction_Inventory;
+    private readonly InputAction m_Interaction_Enter;
     public struct InteractionActions
     {
         private @PlayerMovement m_Wrapper;
@@ -462,6 +484,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         public InputAction @E => m_Wrapper.m_Interaction_E;
         public InputAction @Telekinesis => m_Wrapper.m_Interaction_Telekinesis;
         public InputAction @Inventory => m_Wrapper.m_Interaction_Inventory;
+        public InputAction @Enter => m_Wrapper.m_Interaction_Enter;
         public InputActionMap Get() { return m_Wrapper.m_Interaction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -480,6 +503,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @Inventory.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInventory;
+                @Enter.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnEnter;
+                @Enter.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnEnter;
+                @Enter.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnEnter;
             }
             m_Wrapper.m_InteractionActionsCallbackInterface = instance;
             if (instance != null)
@@ -493,6 +519,9 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
+                @Enter.started += instance.OnEnter;
+                @Enter.performed += instance.OnEnter;
+                @Enter.canceled += instance.OnEnter;
             }
         }
     }
@@ -516,5 +545,6 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
         void OnE(InputAction.CallbackContext context);
         void OnTelekinesis(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnEnter(InputAction.CallbackContext context);
     }
 }
