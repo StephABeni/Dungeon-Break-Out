@@ -5,7 +5,7 @@ public class InteractableItem : MonoBehaviour
 {
     public UIItemInfo itemInfo;
     public bool canInteract;
-
+    public string dialogText;
     public virtual void Interact()
     {
         Debug.Log("Interacting with " + transform.name);
@@ -35,7 +35,7 @@ public class InteractableItem : MonoBehaviour
     {
         itemInfo.Pushed = !itemInfo.Pushed;
         Debug.Log("You pushed " + itemInfo.Pushed);
-        //canInteract = false;
+        canInteract = false;
         UIController.instance.DeactivateDialog();
     }
 
@@ -49,10 +49,13 @@ public class InteractableItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Player")
         {
+            if (string.IsNullOrEmpty(dialogText)) dialogText = "[Press 'E'] Pick Up ";
+
+            UIController.instance.ActivateDialog(dialogText + itemInfo.Name);
             canInteract = true;
-            UIController.instance.ActivateDialog("[Press 'E'] Pick Up " + itemInfo.Name);
         }
     }
 

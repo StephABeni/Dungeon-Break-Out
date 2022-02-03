@@ -91,7 +91,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (!IsGrounded())
         {
-            Debug.Log("My Pos:" + gameObject.transform.position);
+            //Debug.Log("My Pos:" + gameObject.transform.position);
 
             inAirTimer += .1f;
 
@@ -102,7 +102,7 @@ public class CharacterMovement : MonoBehaviour
                 newPos = gameObject.transform.position + new Vector3(0, gravity * inAirTimer, 0);// (gravityDirection * gravity * inAirTimer);
 
             SetCurrentPosition(newPos);
-            Debug.Log("New Pos:" + newPos);
+            //Debug.Log("New Pos:" + newPos);
         }
         else
         {
