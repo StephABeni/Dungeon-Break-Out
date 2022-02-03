@@ -9205,6 +9205,11 @@ MonoBehaviour:
   currentlyHeldObject: {fileID: 0}
   stateDrivenCamera: {fileID: 269235613}
   moveForce: 150
+  FX: {fileID: 188748, guid: 9844404222ea7574cbdd3fe075ea2560, type: 3}
+  instantiatedFX: {fileID: 0}
+  TKLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &717472823
 MonoBehaviour:
   m_ObjectHideFlags: 0

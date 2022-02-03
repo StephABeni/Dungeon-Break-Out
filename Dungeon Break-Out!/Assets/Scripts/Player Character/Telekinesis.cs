@@ -11,6 +11,9 @@ public class Telekinesis : MonoBehaviour
     Transform cameraObject;
     public Animator stateDrivenCamera;
     public float moveForce = 150f;
+    public GameObject FX;
+    public GameObject instantiatedFX;
+    public LayerMask TKLayer;
 
 
     private void Start()
@@ -23,25 +26,40 @@ public class Telekinesis : MonoBehaviour
     {
         if (inputManager.rightMousePressed) {
             stateDrivenCamera.Play("Telekinesis");
-            if(inputManager.ePressed) {
-                if (currentlyHeldObject == null) {
-                    RaycastHit hit;
-                    if (Physics.Raycast(cameraObject.position, cameraObject.forward, out hit, pickUpRange))
+            if(currentlyHeldObject == null)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(cameraObject.position, cameraObject.forward, out hit, pickUpRange, TKLayer))
+                {
+                    if (!instantiatedFX)
+                    {
+                        instantiatedFX = Instantiate(FX, hit.transform);
+                    }
+                    if (inputManager.ePressed)
                     {
                         Debug.Log("E Pressed. Hit Object: " + hit.transform.gameObject.name);
                         StartCoroutine(DelayInteraction(hit.transform.gameObject));
                     }
                 } else {
+                    if (instantiatedFX)
+                    {
+                        Destroy(instantiatedFX);
+                        instantiatedFX = null;
+                    }
+                }
+            } else {
+                MoveObject();
+                if (inputManager.ePressed)
+                {
                     StartCoroutine(DelayInteraction(null));
                 }
-            }
-            if (currentlyHeldObject) {
-                MoveObject();
             }
         } else {
             stateDrivenCamera.Play("Player Freelook");
             if (currentlyHeldObject) {
                 DropObject();
+                Destroy(instantiatedFX);
+                instantiatedFX = null;
             }
         }
     }
