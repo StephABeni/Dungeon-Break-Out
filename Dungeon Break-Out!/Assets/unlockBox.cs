@@ -8,7 +8,7 @@ public class unlockBox : MonoBehaviour
 
     public Animator animator;
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {

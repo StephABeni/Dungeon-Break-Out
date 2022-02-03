@@ -21,7 +21,14 @@ public class InteractableItem: MonoBehaviour {
             {
                 Debug.Log("You inspect " + itemInfo.Name);
             }
+            if (itemInfo.ItemType == 3) {
+                Press();
+            }
         }
+    }
+
+    public void Press() {
+        canInteract = true;
     }
 
     public void PickUp()

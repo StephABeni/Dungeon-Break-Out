@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - Hint
+  - tomb_cube
   layers:
   - Default
   - TransparentFX
