@@ -1,76 +1,153 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
+    public static TutorialManager instance;
     public GameObject tutorialPopUp;
     public GameObject enterToContinue;
     public Text titleText;
     public Text descriptionText;
-    int currentStage = 0;
-    bool tutorialFinished = false;
-    bool taskComplete = false;
+    public int currentStage = 0;
+    public bool taskComplete = false;
+
+    public bool tutorialPuzzle1Complete;
+    public bool tutorialPuzzle2Complete;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        if (instance == null) instance = this;
+        else
+        {
+            if (instance != this)
+            {
+                Debug.Log("Multiple TutorialManager Instances.");
+                Destroy(this);
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!tutorialFinished)
+        TutorialStage1();
+        TutorialStage2();
+    }
+
+    private void TutorialStage1()
+    {
+        if (currentStage < 6)
         {
             tutorialPopUp.SetActive(true);
 
-            if (currentStage == 0) { //walk
+            if (currentStage == 0)
+            { //walk
                 titleText.text = "How To: Walk";
                 descriptionText.text = "You've found yourself in a strange dungeon! How you got here is anyone's guess..." +
                     "\n\nUse the WASD keys to walk around and try and find a way out.";
                 if (InputManager.instance.movementInput != Vector2.zero)
                     taskComplete = true;
-            } 
-            if (currentStage == 1) { // run
+            }
+            if (currentStage == 1)
+            { // run
                 titleText.text = "How To: Run";
                 descriptionText.text = "Perhaps you should move with a bit more urgency?" +
                     "\n\nPress 'Shift' while walking to run";
                 if (CharacterAnimator.instance.snappedAnimation == 2f)
                     taskComplete = true;
-            } 
-            if (currentStage == 2) { // mouselook
+            }
+            if (currentStage == 2)
+            { // mouselook
                 titleText.text = "How To: Look Around";
                 descriptionText.text = "It's important to take in your surroundings when trying to find a way out." +
                     "\n\n Move the mouse to look in different directions. " +
                     "\nIf you move the mouse while walking, you will move relative to the direction you're looking.";
                 if (InputManager.instance.lookInput != Vector2.zero)
                     taskComplete = true;
-            } 
-            if (currentStage == 3) { //telekinesis mode
+            }
+            if (currentStage == 3)
+            { //telekinesis mode
                 titleText.text = "How To: Move Objects (1/3)";
-                descriptionText.text = "Sometimes to progress, you will need to move an object somewhere else." +
+                descriptionText.text = "Sometimes to progress, you will need to move an object somewhere else (Note: Not all objects are movable). You can either push an object by " +
+                    "walking into it, or you can move it with your mind!" +
                     "\n\nClick the right mouse button to concentrate! ";
                 if (InputManager.instance.rightMousePressed == true)
                     taskComplete = true;
-            } 
-            if (currentStage == 4) { //pick up object in tk
+            }
+            if (currentStage == 4)
+            { //pick up object in tk
                 titleText.text = "How To: Move Objects (2/3)";
                 descriptionText.text = "While concentrating, look at a nearby object (for example, the golden cube)." +
-                    "\n\nIf it sparkles, you can press 'E' to lift it up!";
+                    "\n\nIf it sparkles, you can press 'E' to lift it up! If it doesn't sparkle at first, try walking closer to it.";
                 if (GameObject.Find("Player").GetComponent<Telekinesis>().currentlyHeldObject != null)
                     taskComplete = true;
             }
-            if (currentStage == 5) { //drop object in tk
+            if (currentStage == 5)
+            { //drop object in tk
                 titleText.text = "How To: Move Objects (3/3)";
                 descriptionText.text = "You can move while holding this object, but you probably don't want to hang onto it forever, right?" +
                     "\n\nPress 'E' again to drop the item, or break your concentration by clicking the right mouse button again.";
                 if (GameObject.Find("Player").GetComponent<Telekinesis>().currentlyHeldObject == null)
                     taskComplete = true;
-            }
-            if (currentStage == 6) {   //pick up inventory item
-                titleText.text = "";
-                if(Inventory.instance.allInventorySlotInfo[0] != null)
+            } 
+            EnterToContinue();
+        }
+        else
+        {
+            tutorialPopUp.SetActive(false);
+        }
+    }
+
+    private void TutorialStage2()
+    {
+        if (currentStage < 11)
+        {
+            tutorialPopUp.SetActive(true);
+            if (currentStage == 6) { 
+                titleText.text = "Exit the Room";
+                descriptionText.text = "Figure out how to open the door to get out.";
+                if (tutorialPuzzle1Complete)
                     taskComplete = true;
             }
+            if (currentStage == 7)
+            {   //pick up inventory item
+                titleText.text = "How To: Pick Up Objects(1/3)";
+                descriptionText.text = "You won't always be able to progress just by moving some objects around. Sometimes you need to have a " +
+                    "special item in your inventory!\n\n Look around the room for a key to open the next door.";
+                if (UIController.instance.dialogText.text == "[Press 'E'] Pick Up Tutorial Key" ||
+                    Inventory.instance.allInventorySlotInfo[0].Name != "")
+                    taskComplete = true;
+            }
+            if (currentStage == 8)
+            {
+                titleText.text = "How To: Pick Up Objects(2/3)";
+                descriptionText.text = "You found it! Go ahead and pick it up.";
+                if (Inventory.instance.allInventorySlotInfo[0].Name != "")
+                    taskComplete = true;
 
+            }
+            if (currentStage == 9) {
+                titleText.text = "How To: Pick Up Objects(3/3)";
+                descriptionText.text = "You can Open/Close your inventory to see what items you have by pressing 'Tab'." +
+                    "\n\nYou can move your items by clicking and dragging them. You can also read their descriptions " +
+                    "by hovering over the icons.";
+                if (InputManager.instance.tabPressed)
+                    taskComplete = true;
+            }
+            if(currentStage == 10)
+            {
+                titleText.text = "Leave the Tutorial";
+                descriptionText.text = "You have everything you need! When you're ready, open the door and step onto the teleporter to leave.";
+                if(GameManager.instance.currentScene != "Tutorial")
+                {
+                    currentStage++;
+                }
+            }
             EnterToContinue();
-        } else {
+        }
+        else
+        {
             tutorialPopUp.SetActive(false);
         }
     }

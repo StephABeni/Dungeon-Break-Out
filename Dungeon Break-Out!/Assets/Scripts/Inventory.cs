@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     public List<UIItemSlot> allInventorySlots;
-    public List<UIItemInfo> allInventorySlotInfo = new List<UIItemInfo>();
+    public List<UIItemInfo> allInventorySlotInfo = new List<UIItemInfo>(20);
 
     private void Awake()
     {
