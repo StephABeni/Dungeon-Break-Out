@@ -1723,16 +1723,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 36ac510fd1f880c44b751e31a79ed4f3, type: 3}
-    m_FontSize: 20
+    m_FontSize: 130
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 130
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'You''ve found yourself in a strange dungeon! How you got here is anyone''s
     guess...
@@ -1756,15 +1756,15 @@ RectTransform:
   m_GameObject: {fileID: 139948293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.13, y: 0.13, z: 0}
   m_Children: []
   m_Father: {fileID: 2128163105}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.70659, y: -9.733269}
-  m_SizeDelta: {x: 587.53, y: 179.7941}
+  m_AnchoredPosition: {x: 5.1086, y: -12.5059}
+  m_SizeDelta: {x: 4572.54, y: 1440.4993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &172466202
 GameObject:
@@ -4705,14 +4705,14 @@ RectTransform:
   m_GameObject: {fileID: 472637804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
   m_Children: []
   m_Father: {fileID: 2128163105}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7067, y: 109.266685}
+  m_AnchoredPosition: {x: -244, y: 126}
   m_SizeDelta: {x: 587.5258, y: 32.6419}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &472637806
@@ -4745,16 +4745,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 79cb662f273c9614684a8b9febeeb553, type: 3}
-    m_FontSize: 25
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 150
     m_Alignment: 0
     m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'How To: Walk'
 --- !u!1 &486102804
@@ -5624,7 +5624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &542003250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15294,16 +15294,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 79cb662f273c9614684a8b9febeeb553, type: 3}
-    m_FontSize: 19
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 150
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Task complete! Click the left mouse button to continue tutorial.
 --- !u!222 &1150231777
@@ -15323,15 +15323,15 @@ RectTransform:
   m_GameObject: {fileID: 1150231775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 1}
   m_Children: []
   m_Father: {fileID: 542003254}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 557.51, y: 228}
-  m_SizeDelta: {x: 685.43, y: 49.8013}
+  m_AnchoredPosition: {x: 555.87317, y: 228.4148}
+  m_SizeDelta: {x: 5303.9126, y: 382.6043}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1165564334
 GameObject:
@@ -17360,7 +17360,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405579970}
-  m_LocalRotation: {x: 0.049460895, y: -0.000000002148165, z: 1.0638037e-10, w: 0.9987761}
+  m_LocalRotation: {x: 0.049460895, y: 0.000000002148165, z: -1.0638037e-10, w: 0.9987761}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
