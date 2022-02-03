@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 /* Some code based on Sebastian Graves Youtube tutorials: 
@@ -15,10 +16,18 @@ public class CharacterMovement : MonoBehaviour
     Transform cameraObject;
     Rigidbody playerRigidBody;
 
+    [Header("Movement Speeds")]
     public float walkSpeed = 4f;
     public float runSpeed = 8f;
     public float rotationSpeed = 15f;
 
+    [Header("Gravity")]
+    public float gravity;
+    public float inAirTimer;
+
+    private float distToGround;
+    private bool gravityDown;
+    //private Vector3 gravityMovement;
     public GameObject telekinesisFollow;
 
     private void Awake()
@@ -33,6 +42,8 @@ public class CharacterMovement : MonoBehaviour
                 Destroy(this);
             }
         }
+
+        gravityDown = true;
     }
 
     private void Start()
@@ -51,6 +62,15 @@ public class CharacterMovement : MonoBehaviour
     {
         MoveCharacter();
         RotateCharacter();
+        HandleGravity();
+    }
+
+    private bool IsGrounded()
+    {
+        if (gravityDown)
+            return Physics.Raycast(transform.position + new Vector3(0f, 0.02f, 0f), Vector3.down, .15f);
+        else
+            return Physics.Raycast(transform.position + new Vector3(0f, 0.02f, 0f), Vector3.up, .15f);
     }
 
     private Vector3 MovementSetup(Vector3 direction)
@@ -61,14 +81,39 @@ public class CharacterMovement : MonoBehaviour
         direction += cameraObject.right * inputManager.horizontalInput;
         //keep values somewhat consistent with normalize
         direction.Normalize();
+
         //make sure they don't float off into the sky
         direction.y = 0;
+
         return direction;
+    }
+
+    private void HandleGravity()
+    {
+        if (!IsGrounded())
+        {
+            //Debug.Log("My Pos:" + gameObject.transform.position);
+
+            inAirTimer += .1f;
+
+            Vector3 newPos;
+            if (gravityDown)
+                newPos = gameObject.transform.position +  new Vector3(0, -gravity* inAirTimer, 0);// (gravityDirection * gravity * inAirTimer);
+            else
+                newPos = gameObject.transform.position + new Vector3(0, gravity * inAirTimer, 0);// (gravityDirection * gravity * inAirTimer);
+
+            SetCurrentPosition(newPos, false);
+            //Debug.Log("New Pos:" + newPos);
+        }
+        else
+        {
+            inAirTimer = 0;
+        }
     }
 
     private void MoveCharacter()
     {
-        Vector3 charMovement = MovementSetup(moveDirection);    
+        Vector3 charMovement = MovementSetup(moveDirection);
         charMovement *= inputManager.shiftPressed ? runSpeed : walkSpeed; //adjust character speed on the fly
         playerRigidBody.velocity = charMovement;
     }
@@ -107,13 +152,23 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void SetCurrentPosition(Vector3 position)
+    public void SetCurrentPosition(Vector3 position, bool delayChange)
     {
-        gameObject.transform.position = position;
+        if (!delayChange)
+            gameObject.transform.position = position;
+        else
+            StartCoroutine(DelayPositionChange(position));
     }
 
     public Vector3 GetCurrentPosition()
     {
         return transform.position;
+    }
+
+    IEnumerator DelayPositionChange(Vector3 position)
+    {
+        yield return new WaitForSeconds(0.9f);
+        Debug.Log("Changing Position");
+        gameObject.transform.position = position;
     }
 }

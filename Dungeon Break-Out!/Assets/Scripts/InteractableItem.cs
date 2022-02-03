@@ -1,10 +1,11 @@
 using DuloGames.UI;
 using UnityEngine;
 
-public class InteractableItem: MonoBehaviour {
+public class InteractableItem : MonoBehaviour
+{
     public UIItemInfo itemInfo;
     public bool canInteract;
-
+    public string dialogText;
     public virtual void Interact()
     {
         Debug.Log("Interacting with " + transform.name);
@@ -15,20 +16,27 @@ public class InteractableItem: MonoBehaviour {
         //AlternateTriggerEnter();
         if (InputManager.instance.ePressed && canInteract)
         {
-            if (itemInfo.ItemType == 1) {
-                PickUp();
-            } else
+            switch (itemInfo.ItemType)
             {
-                Debug.Log("You inspect " + itemInfo.Name);
-            }
-            if (itemInfo.ItemType == 3) {
-                Press();
+                case 1:
+                    PickUp();
+                    break;
+                case 2:
+                    Push();
+                    break;
+                default:
+                    Debug.Log("You inspect " + itemInfo.Name);
+                    break;
             }
         }
     }
 
-    public void Press() {
-        canInteract = true;
+    public void Push()
+    {
+        itemInfo.Pushed = !itemInfo.Pushed;
+        Debug.Log("You pushed " + itemInfo.Pushed);
+        canInteract = false;
+        UIController.instance.DeactivateDialog();
     }
 
     public void PickUp()
@@ -41,10 +49,13 @@ public class InteractableItem: MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Player")
         {
+            if (string.IsNullOrEmpty(dialogText)) dialogText = "[Press 'E'] Pick Up ";
+
+            UIController.instance.ActivateDialog(dialogText + itemInfo.Name);
             canInteract = true;
-            UIController.instance.ActivateDialog("[Press 'E'] Pick Up " + itemInfo.Name);
         }
     }
 

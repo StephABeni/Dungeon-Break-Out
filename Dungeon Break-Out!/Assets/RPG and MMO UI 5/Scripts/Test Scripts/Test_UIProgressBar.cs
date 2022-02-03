@@ -40,7 +40,7 @@ namespace DuloGames.UI
 			if (this.bar == null)
 				return;
 			
-			this.StartTween(0f, (this.bar.fillAmount * this.Duration));
+			this.StartTween(1f, (this.bar.fillAmount * this.Duration));
 		}
 		
 		protected void SetFillAmount(float amount)

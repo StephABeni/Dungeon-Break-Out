@@ -8,7 +8,10 @@ namespace DuloGames.UI
 	{
 		public int ID;
 		public string Name;
-		public Sprite Icon;
+
+		public bool Pushed;
+
+        public Sprite Icon;
 		public string Description;
         public UIItemQuality Quality;
         public UIEquipmentType EquipType;
