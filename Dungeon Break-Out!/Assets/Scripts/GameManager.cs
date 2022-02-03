@@ -86,4 +86,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         player.GetComponent<Animator>().SetBool("Game", lockAnimation);
     }
+
+    public void EnableMovement(bool command)
+    {
+        CharacterMovement.instance.enabled = command;
+    }
 }
