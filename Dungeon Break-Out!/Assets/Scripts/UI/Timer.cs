@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour
     [NonSerialized] private readonly TweenRunner<FloatTween> m_FloatTweenRunner;
 
     public float FillSpeed = 0.01f;
-    public GameObject timesUpText;
+    //public GameObject timesUpText;
 
     //private void Awake()
     //{
@@ -111,7 +111,7 @@ public class Timer : MonoBehaviour
         if (this.bar == null)
             return;
 
-        timesUpText.SetActive(true);
+        //timesUpText.SetActive(true);
     }
 
 

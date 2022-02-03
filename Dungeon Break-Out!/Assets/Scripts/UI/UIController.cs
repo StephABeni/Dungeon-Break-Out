@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     public GameObject InventoryWindow;
     public GameObject TimerUI;
     public GameObject GameOver;
+    public GameObject Tutorial;
 
     private void Awake()
     {
@@ -40,7 +41,15 @@ public class UIController : MonoBehaviour
         reticle.SetActive(inputManager.rightMousePressed);
         InventoryWindow.SetActive(inputManager.tabPressed);
         Time.timeScale = inputManager.tabPressed ? 0 : 1;
-        TimerUI.SetActive(GameManager.instance.currentScene != "StartPage" && GameManager.instance.currentScene != "CharacterSelect");
+        if(GameManager.instance.currentScene != "StartPage" && GameManager.instance.currentScene != "CharacterSelect")
+        {
+            if(GameManager.instance.currentScene != "Tutorial")
+                TimerUI.SetActive(true);
+            Tutorial.SetActive(true);
+        } else {
+            TimerUI.SetActive(false);
+            Tutorial.SetActive(false);
+        }
     }
 
     public void ActivateDialog(string text)

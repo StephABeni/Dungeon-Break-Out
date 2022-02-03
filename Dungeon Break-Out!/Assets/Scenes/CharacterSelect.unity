@@ -1683,6 +1683,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &139948293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 139948296}
+  - component: {fileID: 139948295}
+  - component: {fileID: 139948294}
+  m_Layer: 5
+  m_Name: Instructions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &139948294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139948293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 36ac510fd1f880c44b751e31a79ed4f3, type: 3}
+    m_FontSize: 130
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 130
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'You''ve found yourself in a strange dungeon! How you got here is anyone''s
+    guess...
+
+
+    Use the WASD keys to walk around and try and find a way out.'
+--- !u!222 &139948295
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139948293}
+  m_CullTransparentMesh: 1
+--- !u!224 &139948296
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139948293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.13, y: 0.13, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2128163105}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5.1086, y: -12.5059}
+  m_SizeDelta: {x: 4572.54, y: 1440.4993}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &172466202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,6 +3237,7 @@ RectTransform:
   - {fileID: 962115835}
   - {fileID: 1404074833}
   - {fileID: 1810207012}
+  - {fileID: 542003254}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3193,6 +3277,7 @@ MonoBehaviour:
   InventoryWindow: {fileID: 1635556824}
   TimerUI: {fileID: 1810207011}
   GameOver: {fileID: 761982526}
+  Tutorial: {fileID: 542003249}
 --- !u!114 &328131981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4593,6 +4678,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472363084}
   m_CullTransparentMesh: 0
+--- !u!1 &472637804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 472637805}
+  - component: {fileID: 472637806}
+  - component: {fileID: 472637807}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &472637805
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472637804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
+  m_Children: []
+  m_Father: {fileID: 2128163105}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -244, y: 126}
+  m_SizeDelta: {x: 587.5258, y: 32.6419}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &472637806
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472637804}
+  m_CullTransparentMesh: 1
+--- !u!114 &472637807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472637804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 79cb662f273c9614684a8b9febeeb553, type: 3}
+    m_FontSize: 150
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 150
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'How To: Walk'
 --- !u!1 &486102804
 GameObject:
   m_ObjectHideFlags: 0
@@ -5441,6 +5605,128 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527112218}
   m_CullTransparentMesh: 1
+--- !u!1 &542003249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542003254}
+  - component: {fileID: 542003253}
+  - component: {fileID: 542003252}
+  - component: {fileID: 542003251}
+  - component: {fileID: 542003250}
+  m_Layer: 5
+  m_Name: Tutorial Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &542003250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542003249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392e708594a8da64f89f8b6c09735422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialPopUp: {fileID: 2128163104}
+  enterToContinue: {fileID: 1150231775}
+  titleText: {fileID: 472637807}
+  descriptionText: {fileID: 139948294}
+  currentStage: 0
+  taskComplete: 0
+  tutorialPuzzle1Complete: 0
+  tutorialPuzzle2Complete: 0
+--- !u!114 &542003251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542003249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &542003252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542003249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &542003253
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542003249}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &542003254
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542003249}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children:
+  - {fileID: 2128163105}
+  - {fileID: 1150231778}
+  m_Father: {fileID: 328131978}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &554976358
 GameObject:
   m_ObjectHideFlags: 0
@@ -9583,7 +9869,367 @@ MonoBehaviour:
   - {fileID: 1334781980}
   - {fileID: 299453538}
   - {fileID: 1981093000}
-  allInventorySlotInfo: []
+  allInventorySlotInfo:
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
+  - ID: 0
+    Name: 
+    Pushed: 0
+    Icon: {fileID: 0}
+    Description: 
+    Quality: 0
+    EquipType: 0
+    ItemType: 0
+    Type: 
+    Subtype: 
+    Damage: 0
+    AttackSpeed: 0
+    Block: 0
+    Armor: 0
+    Stamina: 0
+    Strength: 0
+    Durability: 0
+    RequiredLevel: 0
 --- !u!114 &717472824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14608,6 +15254,85 @@ Transform:
   m_Father: {fileID: 717549339}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1150231775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150231778}
+  - component: {fileID: 1150231777}
+  - component: {fileID: 1150231776}
+  m_Layer: 5
+  m_Name: Enter To Continue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1150231776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150231775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 79cb662f273c9614684a8b9febeeb553, type: 3}
+    m_FontSize: 150
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 150
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Task complete! Click the left mouse button to continue tutorial.
+--- !u!222 &1150231777
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150231775}
+  m_CullTransparentMesh: 1
+--- !u!224 &1150231778
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150231775}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 1}
+  m_Children: []
+  m_Father: {fileID: 542003254}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 555.87317, y: 228.4148}
+  m_SizeDelta: {x: 5303.9126, y: 382.6043}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1165564334
 GameObject:
   m_ObjectHideFlags: 0
@@ -19323,7 +20048,6 @@ MonoBehaviour:
   m_TextValue: 0
   m_TextValueFormat: 0
   FillSpeed: 0.01
-  timesUpText: {fileID: 761982526}
 --- !u!1 &1813643745
 GameObject:
   m_ObjectHideFlags: 0
@@ -21133,6 +21857,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103365967}
   m_CullTransparentMesh: 0
+--- !u!1 &2128163104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128163105}
+  - component: {fileID: 2128163107}
+  - component: {fileID: 2128163106}
+  m_Layer: 5
+  m_Name: Tutorial PopUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2128163105
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128163104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 472637805}
+  - {fileID: 139948296}
+  m_Father: {fileID: 542003254}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 557.5083, y: 355.73328}
+  m_SizeDelta: {x: -1234.5637, y: -762.921}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2128163106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128163104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f1ea779529506454b974048c4133b6af, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2128163107
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128163104}
+  m_CullTransparentMesh: 1
 --- !u!1 &2136648009
 GameObject:
   m_ObjectHideFlags: 0
