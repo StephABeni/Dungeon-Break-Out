@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// code adapted from https://www.youtube.com/watch?v=pNE3rfMGEAw
 public class LaserBeam
 {
     Vector3 pos, dir;
