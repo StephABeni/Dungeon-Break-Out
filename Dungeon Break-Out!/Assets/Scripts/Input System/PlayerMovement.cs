@@ -269,7 +269,7 @@ public partial class @PlayerMovement : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""222ad313-ba23-49e2-9317-777a844cdf77"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

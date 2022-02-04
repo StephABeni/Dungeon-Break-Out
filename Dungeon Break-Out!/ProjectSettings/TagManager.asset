@@ -6,10 +6,8 @@ TagManager:
   tags:
   - Item
   - Hint
-  - tomb_cube
-  - tomb_sword
-  - tomb_circle
-  - tomb_skull
+  - Mirror
+  - TutorialPuzzle1
   layers:
   - Default
   - TransparentFX
