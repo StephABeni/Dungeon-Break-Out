@@ -5,6 +5,8 @@ using UnityEngine;
 public class getKey : MonoBehaviour
 {
     public static getKey instance;
+    public bool keyObtained = false;
+    public GameObject key;
 
     private void Awake()
     {
@@ -19,12 +21,24 @@ public class getKey : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        key = GameObject.Find("Key Pick Up");
+        key.SetActive(false);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-
-            Debug.Log("Key obtained. Add key to player inventory.");
+            if (LightCandle.instance.CandleLit)
+            {
+                key.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("It's too dark to look here. Maybe light some candles");
+            }
         }
     }
 }

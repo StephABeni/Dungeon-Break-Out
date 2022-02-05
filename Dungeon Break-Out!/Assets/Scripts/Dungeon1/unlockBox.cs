@@ -7,6 +7,7 @@ public class unlockBox : MonoBehaviour
     public static unlockBox instance;
     public bool boxOpened = false;
     public Animator animator;
+    public GameObject matches;
 
     private void Awake()
     {
@@ -21,13 +22,19 @@ public class unlockBox : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        matches = GameObject.Find("Matches Pick Up");
+        matches.SetActive(false);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             animator.SetTrigger("unlockBox");
             boxOpened = true;
-            Debug.Log("Box opened. Add matches to player inventory.");
+            matches.SetActive(true);
         }
     }
 }

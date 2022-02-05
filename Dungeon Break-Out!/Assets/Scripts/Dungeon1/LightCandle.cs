@@ -7,7 +7,6 @@ public class LightCandle : MonoBehaviour
     public static LightCandle instance;
     public bool CandleLit = false;
     public Inventory playerInventory;
-    public List<string> playerInventoryItems;
 
     private void Awake()
     {
@@ -26,31 +25,38 @@ public class LightCandle : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //playerInventoryItems = ScavengerHunt.instance.GetCurrentItems();
+            
+            if (CandleLit)
+            {
+                return;
+            }
+
             playerInventory = Inventory.instance;
-            for (int i = 0; i < 20; i++) {
-                if (playerInventory.allInventorySlotInfo[i].Name != "")
+
+            for (int i = 0; i < 20; i++)
+            {
+                if (playerInventory.allInventorySlotInfo[i].Name == "Matches")
                 {
-                    playerInventoryItems.Add(playerInventory.allInventorySlotInfo[i].Name);
+                    Debug.Log("Trying to light candle");
+                    GameObject candle = GameObject.Find("Puzzle 1 Candle");
+                    ParticleSystem candleflames = GameObject.Find("SM_Prop_Candles_01_Preset").GetComponent<ParticleSystem>();
+
+                    candle.GetComponent<Light>().range = 5.0f;
+                    candle.GetComponent<Light>().intensity = 3.0f;
+                    candleflames.Play(true);
+                    CandleLit = true;
+                    playerInventory.allInventorySlotInfo[i].Name = null;
+                    playerInventory.allInventorySlotInfo[i].Description = null;
+                    playerInventory.allInventorySlotInfo[i].Icon = null;
+                    playerInventory.allInventorySlotInfo[i].ItemType = 0;
+                    Debug.Log("Candle lit. Removed matches from player inventory.");
+                    break;
                 }
             }
-
-            Debug.Log("Trying to light candles");
-            Debug.Log(playerInventoryItems.Contains("Matches"));
-                                        
-            if (playerInventoryItems.Contains("Matches"))
+            if (!CandleLit)
             {
-                Debug.Log("Trying to light candle");
-                GameObject candle = GameObject.Find("Puzzle 1 Candle");
-                ParticleSystem candleflames = GameObject.Find("SM_Prop_Candles_01_Preset").GetComponent<ParticleSystem>();
-
-                candle.GetComponent<Light>().range = 5.0f;
-                candle.GetComponent<Light>().intensity = 3.0f;
-                candleflames.Play(true);
-                CandleLit = true;
-                Debug.Log("Candle lit. Remove matches from player inventory.");
+                Debug.Log("Pick up matches to light candle");
             }
-            
         }
     }
 }

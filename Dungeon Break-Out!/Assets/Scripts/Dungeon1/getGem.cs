@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class getMatches : MonoBehaviour
+public class getGem : MonoBehaviour
 {
-    public static getMatches instance;
-    public bool matchesObtained = false;
+    public static getGem instance;
+    public bool gemObtained = false;
+    public GameObject gem;
 
     private void Awake()
     {
@@ -20,17 +21,19 @@ public class getMatches : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        gem = GameObject.Find("Gem Pick Up");
+        gem.SetActive(false);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            if (unlockBox.instance.boxOpened)
+            if (unlockdoor.instance.jail_opened)
             {
-                GameObject.Find("Matches Pick Up").SetActive(true);
-            }
-            else
-            {
-                Debug.Log("Open box before obtaining matches");
+                gem.SetActive(true);
             }
         }
     }
