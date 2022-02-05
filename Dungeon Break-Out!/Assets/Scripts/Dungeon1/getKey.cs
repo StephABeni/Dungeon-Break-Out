@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class getKey : MonoBehaviour
 {
+    public static getKey instance;
+
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+        else
+        {
+            if (instance != this)
+            {
+                Debug.Log("Multiple Inventory Instances.");
+                Destroy(this);
+            }
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
