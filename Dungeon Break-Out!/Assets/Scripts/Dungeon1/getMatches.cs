@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class getKey : MonoBehaviour
+public class getMatches : MonoBehaviour
 {
-    public static getKey instance;
+    public static getMatches instance;
+    public bool matchesObtained = false;
 
     private void Awake()
     {
@@ -23,8 +24,12 @@ public class getKey : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
-            Debug.Log("Key obtained. Add key to player inventory.");
+            if (unlockBox.instance.boxOpened == true)
+            {
+                matchesObtained = true;
+                Debug.Log("Candles lit. Remove matches from player inventory.");
+            }
+            
         }
     }
 }

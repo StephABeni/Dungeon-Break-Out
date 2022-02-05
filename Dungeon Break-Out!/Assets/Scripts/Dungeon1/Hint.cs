@@ -7,26 +7,29 @@ public class Hint : MonoBehaviour
     private GameObject glowHint;
     private SkinnedMeshRenderer visibility;
     private int num_items = 0;
-    public List<DuloGames.UI.UIItemInfo> playerInventory;
+    public Inventory playerInventory;
     public List<string> playerInventoryItems;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            playerInventory = Inventory.instance.allInventorySlotInfo;
-            num_items = GetCurrentInventoryCount(playerInventory, playerInventoryItems);
+            playerInventory = ScavengerHunt.instance.GetPlayerInventory();
+            num_items = ScavengerHunt.instance.GetCurrentInventoryCount(playerInventory);
+            playerInventoryItems = ScavengerHunt.instance.GetCurrentItems();
 
             if (num_items == 0)
             {
-                ShowHint("Key_Hint_LightRay_Cube");
+                ShowHint("Box_Hint_LightRay_Cube");
             }
 
-            if (playerInventoryItems.Contains("Iron Key"))
+            if (playerInventoryItems.Contains("Matches"))
             {
+                ShowHint("Candle_Hint_LightRay_Cube");
+
                 if (unlockBox.instance.boxOpened == false)
                 {
-                    ShowHint("Box_Hint_LightRay_Cube");
+                    ShowHint("Key_Hint_LightRay_Cube");
                 }
                 else if (unlockdoor.instance.jail_opened == false)
                 {
@@ -58,20 +61,5 @@ public class Hint : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         visibility.enabled = false;
         Debug.Log("hint hidden");
-    }
-
-    int GetCurrentInventoryCount(List<DuloGames.UI.UIItemInfo>currentInventory, List<string>currentItems)
-    {
-        int count = 0;
-
-        for (int i = 0; i < 20; i++)
-        {
-            if (currentInventory[i].Name != "")
-            {
-                currentItems.Add(currentInventory[i].Name);
-                count++;
-            }
-        }
-        return count;
     }
 }
