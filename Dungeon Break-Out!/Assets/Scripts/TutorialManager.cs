@@ -78,7 +78,7 @@ public class TutorialManager : MonoBehaviour
             if (currentStage == 4)
             { //pick up object in tk
                 titleText.text = "How To: Move Objects (2/3)";
-                descriptionText.text = "While concentrating, look at a nearby object (for example, the golden cube)." +
+                descriptionText.text = "While concentrating, look at a nearby object (for example, the golden cube on the ground)." +
                     "\n\nIf it sparkles, you can press 'E' to lift it up! If it doesn't sparkle at first, try walking closer to it.";
                 if (GameObject.Find("Player").GetComponent<Telekinesis>().currentlyHeldObject != null)
                     taskComplete = true;
@@ -114,7 +114,7 @@ public class TutorialManager : MonoBehaviour
             {   //pick up inventory item
                 titleText.text = "How To: Pick Up Objects(1/3)";
                 descriptionText.text = "You won't always be able to progress just by moving some objects around. Sometimes you need to have a " +
-                    "special item in your inventory!\n\n Look around the room for a key to open the next door.";
+                    "special item in your inventory!\n\n Look around the next room for a key to open the next door.";
                 if (UIController.instance.dialogText.text == "[Press 'E'] Pick Up Tutorial Key" ||
                     Inventory.instance.allInventorySlotInfo[0].Name != "")
                     taskComplete = true;
