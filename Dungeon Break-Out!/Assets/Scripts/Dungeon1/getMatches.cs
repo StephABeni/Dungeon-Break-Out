@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class unlockBox : MonoBehaviour
+public class getMatches : MonoBehaviour
 {
-    public static unlockBox instance;
-    public bool boxOpened = false;
-    public Animator animator;
-    public GameObject matches;
+    public static getMatches instance;
+    public bool matchesObtained = false;
 
     private void Awake()
     {
@@ -22,19 +20,18 @@ public class unlockBox : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        matches = GameObject.Find("Matches Pick Up");
-        matches.SetActive(false);
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            animator.SetTrigger("unlockBox");
-            boxOpened = true;
-            matches.SetActive(true);
+            if (unlockBox.instance.boxOpened)
+            {
+                GameObject.Find("Matches Pick Up").SetActive(true);
+            }
+            else
+            {
+                Debug.Log("Open box before obtaining matches");
+            }
         }
     }
 }

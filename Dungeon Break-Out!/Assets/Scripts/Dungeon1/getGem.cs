@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class unlockBox : MonoBehaviour
+public class getGem : MonoBehaviour
 {
-    public static unlockBox instance;
-    public bool boxOpened = false;
-    public Animator animator;
-    public GameObject matches;
+    public static getGem instance;
+    public bool gemObtained = false;
+    public GameObject gem;
 
     private void Awake()
     {
@@ -24,17 +23,18 @@ public class unlockBox : MonoBehaviour
 
     private void Start()
     {
-        matches = GameObject.Find("Matches Pick Up");
-        matches.SetActive(false);
+        gem = GameObject.Find("Gem Pick Up");
+        gem.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            animator.SetTrigger("unlockBox");
-            boxOpened = true;
-            matches.SetActive(true);
+            if (unlockdoor.instance.jail_opened)
+            {
+                gem.SetActive(true);
+            }
         }
     }
 }
