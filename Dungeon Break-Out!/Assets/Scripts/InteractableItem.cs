@@ -70,6 +70,9 @@ public class InteractableItem : MonoBehaviour
                 successfulInteraction = true;
             }
         }
+        if (!successfulInteraction) {
+            UIController.instance.ActivateDialog(itemInfo.Name + " won't open... ");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
