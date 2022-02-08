@@ -2533,6 +2533,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 486684, guid: c44fafd591a0f624c9d8a67a72cc6652, type: 3}
   m_PrefabInstance: {fileID: 604883975}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &604883979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604883976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f0b1c9ac7979843b5059ca82d36e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containedScene: Tutorial
 --- !u!1001 &622922331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2916,6 +2929,7 @@ MonoBehaviour:
     RequiredLevel: 0
   canInteract: 0
   dialogText: '[Press ''E''] Open '
+  replacingObject: {fileID: 0}
   keyName: Tutorial Key
   successfulInteraction: 0
 --- !u!1 &704282839
@@ -10981,6 +10995,7 @@ MonoBehaviour:
     RequiredLevel: 0
   canInteract: 0
   dialogText: 
+  replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
 --- !u!4 &8294077874187188800
