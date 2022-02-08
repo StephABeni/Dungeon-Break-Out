@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class InteractableItem : MonoBehaviour
 {
+    [Header("Object Information")]
     public UIItemInfo itemInfo;
     public bool canInteract;
     public string dialogText;
+    public GameObject replacingObject;
     public string keyName;
     public bool successfulInteraction;
 
@@ -35,6 +37,9 @@ public class InteractableItem : MonoBehaviour
                 case 2:
                     Push();
                     break;
+                case 3:
+                    Break();
+                    break;
                 case 5:
                     Open();
                     break;
@@ -49,6 +54,18 @@ public class InteractableItem : MonoBehaviour
     {
         itemInfo.Pushed = !itemInfo.Pushed;
         Debug.Log("You pushed " + itemInfo.Pushed);
+        canInteract = false;
+        UIController.instance.DeactivateDialog();
+    }
+
+    public void Break()
+    {
+        gameObject.SetActive(false);
+        replacingObject.SetActive(true);
+        
+        //Destroy(gameObject);
+
+        Debug.Log("You broke " + itemInfo.Pushed);
         canInteract = false;
         UIController.instance.DeactivateDialog();
     }
