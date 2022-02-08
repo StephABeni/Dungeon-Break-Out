@@ -45,6 +45,8 @@ public class LightCandle : MonoBehaviour
                     candle.GetComponent<Light>().intensity = 3.0f;
                     candleflames.Play(true);
                     CandleLit = true;
+
+                    //playerInventory.allInventorySlotInfo[i] = new DuloGames.UI.UIItemInfo();
                     playerInventory.allInventorySlotInfo[i].Name = null;
                     playerInventory.allInventorySlotInfo[i].Description = null;
                     playerInventory.allInventorySlotInfo[i].Icon = null;
