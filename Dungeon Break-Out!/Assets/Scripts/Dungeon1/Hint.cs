@@ -6,32 +6,39 @@ public class Hint : MonoBehaviour
 {
     private GameObject glowHint;
     private SkinnedMeshRenderer visibility;
-    private int num_items;
+    private int num_items = 0;
+    public Inventory playerInventory;
+    public List<string> playerItemsName;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            num_items = Inventory.instance.allInventorySlotInfo.Count;
-            if (num_items == 0)
+            playerInventory = Inventory.instance;
+
+            for (int i = 0; i < 20; i++)
+            {
+                if (playerInventory.allInventorySlotInfo[i] != null)
+                {
+                    playerItemsName.Add(playerInventory.allInventorySlotInfo[i].Name);
+                }
+            }
+
+            if ((unlockBox.instance.boxOpened == false || playerItemsName.Contains("Matches") == false) && LightCandle.instance.CandleLit == false)
+            {
+                ShowHint("Box_Hint_LightRay_Cube");
+            } else if (!LightCandle.instance.CandleLit)
+            {
+                ShowHint("Candle_Hint_LightRay_Cube");
+            } else if (playerItemsName.Contains("Iron Key") == false)
             {
                 ShowHint("Key_Hint_LightRay_Cube");
-            }
-            for (int i = 0; i < num_items; i++)
+            } else if (unlockdoor.instance.jail_opened == false)
             {
-                if (Inventory.instance.allInventorySlotInfo[i].Name == "Iron Key")
-                {
-                    if (unlockBox.instance.boxOpened == false)
-                    {
-                        ShowHint("Box_Hint_LightRay_Cube");
-                        break;
-                    }
-                    else if (unlockdoor.instance.jail_opened == false)
-                    {
-                        ShowHint("Jail_Hint_LightRay_Cube");
-                        break;
-                    }
-                }
+                ShowHint("Jail_Hint_LightRay_Cube");
+            } else if (unlockdoor.instance.jail_opened == true)
+            {
+                ShowHint("Gem_Hint_LightRay_Cube");
             }
         }
     }
@@ -40,7 +47,8 @@ public class Hint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("hiding hint in 5 seconds");
+            Debug.Log("hiding hint in 1.5 seconds");
+            playerItemsName.Clear();
             StartCoroutine(DelayCode());
         }
     }
@@ -55,7 +63,7 @@ public class Hint : MonoBehaviour
 
     IEnumerator DelayCode()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         visibility.enabled = false;
         Debug.Log("hint hidden");
     }

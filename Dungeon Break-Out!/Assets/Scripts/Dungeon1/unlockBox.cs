@@ -5,13 +5,12 @@ using UnityEngine;
 public class unlockBox : MonoBehaviour
 {
     public static unlockBox instance;
-    private int numItems;
     public bool boxOpened = false;
     public Animator animator;
+    public GameObject matches;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (instance == null) instance = this;
         else
         {
@@ -23,24 +22,19 @@ public class unlockBox : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        matches = GameObject.Find("Matches Pick Up");
+        matches.SetActive(false);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            numItems = Inventory.instance.allInventorySlotInfo.Count;
-            Debug.Log(numItems);
-            if (boxOpened == false)
-            {
-                for (int i = 0; i < numItems; i++)
-                {
-                    if (Inventory.instance.allInventorySlotInfo[i].Name == "Iron Key")
-                    {
-                        animator.SetTrigger("unlockBox");
-                        boxOpened = true;
-                        Debug.Log("Box opened. Add matches to player inventory.");
-                    }
-                }
-            }
+            animator.SetTrigger("unlockBox");
+            boxOpened = true;
+            matches.SetActive(true);
         }
     }
 }
