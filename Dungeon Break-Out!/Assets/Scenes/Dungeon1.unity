@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 32214905}
   - component: {fileID: 32214904}
   - component: {fileID: 32214903}
+  - component: {fileID: 32214906}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -261,13 +262,32 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32214902}
-  m_LocalRotation: {x: 0.093302056, y: 0.87767804, z: -0.1905626, w: 0.42972317}
-  m_LocalPosition: {x: -22, y: 7, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -18.4, y: 6.85, z: -20.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 24.5, y: 127.826, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!95 &32214906
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32214902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1060656339ea27e40941569a83187e89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &33267570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 449052, guid: 939f27c57ef13654eafcf37ff873a454, type: 3}
@@ -1095,6 +1115,7 @@ MonoBehaviour:
     RequiredLevel: 0
   canInteract: 0
   dialogText: 
+  replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
 --- !u!135 &129327968
@@ -2802,6 +2823,7 @@ MonoBehaviour:
     RequiredLevel: 0
   canInteract: 0
   dialogText: 
+  replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
 --- !u!135 &602615204
@@ -12066,7 +12088,7 @@ MonoBehaviour:
     ID: 0
     Name: Gem
     Pushed: 0
-    Icon: {fileID: 21300000, guid: e709ec682456b4949b0a00bcf11b515c, type: 3}
+    Icon: {fileID: 21300000, guid: dd582f931ad48bc44968ad8be06e372e, type: 3}
     Description: A gem that appears to store an enourmus amount  of energy.
     Quality: 0
     EquipType: 0
@@ -12083,6 +12105,7 @@ MonoBehaviour:
     RequiredLevel: 0
   canInteract: 0
   dialogText: 
+  replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
 --- !u!135 &2129121537
