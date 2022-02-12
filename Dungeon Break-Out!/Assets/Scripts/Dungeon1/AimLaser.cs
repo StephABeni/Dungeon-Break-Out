@@ -9,7 +9,7 @@ public class AimLaser : MonoBehaviour
     private GameObject MainCamera;
     private bool canInteract;
     private bool rotateActive = false;
-    private float speed = 0.5f;
+    private float speed = 0.1f;
 
     private void Awake()
     {
@@ -42,6 +42,7 @@ public class AimLaser : MonoBehaviour
         if (canInteract == true && InputManager.instance.ePressed && rotateActive == false)
         {
             UIController.instance.DeactivateDialog();
+            UIController.instance.ActivateDialog("Use ['W', 'A', 'S', 'D'] keys to aim mirror\nPress ['E'] to exit");
             GameManager.instance.EnableMovement(false);
             rotateActive = true;
             
@@ -50,7 +51,8 @@ public class AimLaser : MonoBehaviour
             rotateActive = false;
             child.transform.SetParent(null);
             GameManager.instance.EnableMovement(true);
-            UIController.instance.ActivateDialog("[Press 'E'] to control mirror");
+            UIController.instance.DeactivateDialog();
+            UIController.instance.ActivateDialog("Press ['E'] to control mirror");
         }
         if (rotateActive == true)
         {
