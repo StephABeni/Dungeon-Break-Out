@@ -8,6 +8,7 @@ TagManager:
   - Hint
   - Mirror
   - TutorialPuzzle1
+  - LaserTarget
   layers:
   - Default
   - TransparentFX

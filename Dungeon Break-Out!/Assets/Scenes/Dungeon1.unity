@@ -150,14 +150,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1270978036}
-  - {fileID: 2029349878}
-  - {fileID: 860882425}
-  - {fileID: 1401292793}
   - {fileID: 1626474843}
+  - {fileID: 1401292793}
   - {fileID: 633043064}
+  - {fileID: 860882425}
   - {fileID: 80715414}
+  - {fileID: 2029349878}
   - {fileID: 2002628684}
+  - {fileID: 1270978036}
   m_Father: {fileID: 600124444}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -587,7 +587,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 185766, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_04 (4)
+      value: 4 - Type 4
       objectReference: {fileID: 0}
     - target: {fileID: 185766, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_Layer
@@ -595,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465798, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 465798, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_LocalScale.x
@@ -748,6 +748,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6162949
   m_Center: {x: 0.0000076293945, y: 0.18035325, z: 0}
+--- !u!114 &83315039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83315037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75a64a339599d947bb1b5ba4ecba1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRune: Type 2
+  correct: 0
 --- !u!1 &98813928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,6 +2285,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6162949
   m_Center: {x: 0.0000076293945, y: 0.18035325, z: 0}
+--- !u!114 &300376854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300376852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75a64a339599d947bb1b5ba4ecba1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRune: Type 1
+  correct: 0
 --- !u!1001 &306528756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3115,14 +3143,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1414658474}
-  - {fileID: 1308831445}
-  - {fileID: 606825151}
   - {fileID: 1197357268}
-  - {fileID: 966974305}
   - {fileID: 905074583}
-  - {fileID: 762492450}
+  - {fileID: 606825151}
   - {fileID: 2076280044}
+  - {fileID: 1308831445}
+  - {fileID: 762492450}
+  - {fileID: 1414658474}
+  - {fileID: 966974305}
   m_Father: {fileID: 600124444}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3517,6 +3545,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6162949
   m_Center: {x: 0.0000076293945, y: 0.18035325, z: 0}
+--- !u!114 &440808584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440808582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75a64a339599d947bb1b5ba4ecba1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRune: Type 3
+  correct: 0
 --- !u!1001 &449787114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4064,13 +4106,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lasersOn: 0
   playerInventory: {fileID: 0}
-  laser: {fileID: 0}
-  blueLights: {fileID: 0}
-  electricity: {fileID: 0}
-  mirrors: {fileID: 0}
-  mirrorPad1: {fileID: 0}
-  mirrorPad2: {fileID: 0}
-  mirrorPad3: {fileID: 0}
+  laser: {fileID: 1220624493}
+  blueLights: {fileID: 863130639}
+  electricity: {fileID: 246448417}
+  mirrors: {fileID: 967544063}
+  mirrorPad1: {fileID: 2051303009}
+  mirrorPad2: {fileID: 338830138}
+  mirrorPad3: {fileID: 1299700832}
 --- !u!4 &507869205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 462106, guid: cd0f01e625e553e4da51ffa4b8e3848d, type: 3}
@@ -4981,7 +5023,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 185766, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_04 (2)
+      value: 2 - Type 4 - Given
       objectReference: {fileID: 0}
     - target: {fileID: 465798, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_RootOrder
@@ -5388,6 +5430,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6162949
   m_Center: {x: 0.0000076293945, y: 0.18035325, z: 0}
+--- !u!114 &622366433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622366431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75a64a339599d947bb1b5ba4ecba1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRune: Type 3
+  correct: 0
 --- !u!1001 &627791276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5530,7 +5586,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 157320, guid: 6fe276a1b9aa90845966335a4f11e000, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_03 (2)
+      value: 2 - Type 3
       objectReference: {fileID: 0}
     - target: {fileID: 157320, guid: 6fe276a1b9aa90845966335a4f11e000, type: 3}
       propertyPath: m_Layer
@@ -5538,7 +5594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 416802, guid: 6fe276a1b9aa90845966335a4f11e000, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 416802, guid: 6fe276a1b9aa90845966335a4f11e000, type: 3}
       propertyPath: m_LocalScale.x
@@ -5753,6 +5809,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6162949
   m_Center: {x: 0.0000076293945, y: 0.18035325, z: 0}
+--- !u!114 &640257097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640257095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75a64a339599d947bb1b5ba4ecba1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRune: Type 1
+  correct: 0
 --- !u!1001 &642471841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6694,7 +6764,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 157320, guid: 6fe276a1b9aa90845966335a4f11e000, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_03 (1)
+      value: 5 - Type 3
       objectReference: {fileID: 0}
     - target: {fileID: 157320, guid: 6fe276a1b9aa90845966335a4f11e000, type: 3}
       propertyPath: m_Layer
@@ -6702,7 +6772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 416802, guid: 6fe276a1b9aa90845966335a4f11e000, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 416802, guid: 6fe276a1b9aa90845966335a4f11e000, type: 3}
       propertyPath: m_LocalScale.x
@@ -7185,7 +7255,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120462, guid: f254298f50dcd524fa00543fb8b5dab9, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Tiles_Rune_01 (4)
+      value: Mirror Pad 2
       objectReference: {fileID: 0}
     - target: {fileID: 402868, guid: f254298f50dcd524fa00543fb8b5dab9, type: 3}
       propertyPath: m_RootOrder
@@ -7481,11 +7551,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 193704, guid: 2da838c9213cecc48a512514d0b309e5, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Square_05 (1)
+      value: 3 - Type 5 - Given
       objectReference: {fileID: 0}
     - target: {fileID: 404720, guid: 2da838c9213cecc48a512514d0b309e5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 404720, guid: 2da838c9213cecc48a512514d0b309e5, type: 3}
       propertyPath: m_LocalScale.x
@@ -7956,7 +8026,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 122346, guid: 918140ecd8c16404690f5d505be8710b, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Square_02 (2)
+      value: 1 - Type 2
       objectReference: {fileID: 0}
     - target: {fileID: 122346, guid: 918140ecd8c16404690f5d505be8710b, type: 3}
       propertyPath: m_Layer
@@ -7964,7 +8034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 496344, guid: 918140ecd8c16404690f5d505be8710b, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 496344, guid: 918140ecd8c16404690f5d505be8710b, type: 3}
       propertyPath: m_LocalScale.x
@@ -8469,7 +8539,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 176470, guid: 20d02011d3ef30948998521deaf36884, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Square_01 (1)
+      value: 7 - Type 1
       objectReference: {fileID: 0}
     - target: {fileID: 176470, guid: 20d02011d3ef30948998521deaf36884, type: 3}
       propertyPath: m_Layer
@@ -8477,7 +8547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 468278, guid: 20d02011d3ef30948998521deaf36884, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 468278, guid: 20d02011d3ef30948998521deaf36884, type: 3}
       propertyPath: m_LocalScale.x
@@ -11158,11 +11228,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189258, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_01 (2)
+      value: 0 - Type 1 - Given
       objectReference: {fileID: 0}
     - target: {fileID: 451534, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 451534, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_LocalScale.x
@@ -11511,7 +11581,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220624493}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12011,11 +12081,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 176470, guid: 20d02011d3ef30948998521deaf36884, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Square_01 (2)
+      value: 7 - Type 1 - Given
       objectReference: {fileID: 0}
     - target: {fileID: 468278, guid: 20d02011d3ef30948998521deaf36884, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 468278, guid: 20d02011d3ef30948998521deaf36884, type: 3}
       propertyPath: m_LocalScale.x
@@ -12204,7 +12274,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120462, guid: f254298f50dcd524fa00543fb8b5dab9, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Tiles_Rune_01 (1)
+      value: Mirror Pad 3
       objectReference: {fileID: 0}
     - target: {fileID: 402868, guid: f254298f50dcd524fa00543fb8b5dab9, type: 3}
       propertyPath: m_RootOrder
@@ -12371,11 +12441,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 122346, guid: 918140ecd8c16404690f5d505be8710b, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Square_02 (1)
+      value: 4 - Type 2 - Given
       objectReference: {fileID: 0}
     - target: {fileID: 496344, guid: 918140ecd8c16404690f5d505be8710b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 496344, guid: 918140ecd8c16404690f5d505be8710b, type: 3}
       propertyPath: m_LocalScale.x
@@ -13063,6 +13133,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6162949
   m_Center: {x: 0.0000076293945, y: 0.18035325, z: 0}
+--- !u!114 &1387763494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387763492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75a64a339599d947bb1b5ba4ecba1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRune: Type 2
+  correct: 0
 --- !u!1001 &1396531242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13137,11 +13221,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 185766, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_04 (3)
+      value: 1 - Type 4 - Given
       objectReference: {fileID: 0}
     - target: {fileID: 465798, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 465798, guid: 0ec7644112f041e46b981eeac940037a, type: 3}
       propertyPath: m_LocalScale.x
@@ -13343,11 +13427,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 154542, guid: ccd0c9e4e6aeaaa4694f0ee6f25aa330, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_05 (1)
+      value: 6 - Type 5 - Given
       objectReference: {fileID: 0}
     - target: {fileID: 407110, guid: ccd0c9e4e6aeaaa4694f0ee6f25aa330, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 407110, guid: ccd0c9e4e6aeaaa4694f0ee6f25aa330, type: 3}
       propertyPath: m_LocalScale.x
@@ -15409,7 +15493,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189258, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_01 (4)
+      value: 0 - Type 1
       objectReference: {fileID: 0}
     - target: {fileID: 189258, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_Layer
@@ -15417,7 +15501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 451534, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 451534, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_LocalScale.x
@@ -18799,7 +18883,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 106372, guid: 6bc582bf93468484ea9c25423850ecf6, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_02 (1)
+      value: 6 - Type 2
       objectReference: {fileID: 0}
     - target: {fileID: 106372, guid: 6bc582bf93468484ea9c25423850ecf6, type: 3}
       propertyPath: m_Layer
@@ -18807,7 +18891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 498240, guid: 6bc582bf93468484ea9c25423850ecf6, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 498240, guid: 6bc582bf93468484ea9c25423850ecf6, type: 3}
       propertyPath: m_LocalScale.x
@@ -18944,11 +19028,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189258, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_01 (3)
+      value: 5 - Type 1 - Given
       objectReference: {fileID: 0}
     - target: {fileID: 451534, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 451534, guid: 6b7c63da8f83bca49b2da996b980802b, type: 3}
       propertyPath: m_LocalScale.x
@@ -19195,6 +19279,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6162949
   m_Center: {x: 0.0000076293945, y: 0.18035325, z: 0}
+--- !u!114 &2031919265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031919263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75a64a339599d947bb1b5ba4ecba1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRune: Type 5
+  correct: 0
 --- !u!1 &2038508980
 GameObject:
   m_ObjectHideFlags: 0
@@ -19356,7 +19454,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120462, guid: f254298f50dcd524fa00543fb8b5dab9, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Tiles_Rune_01 (2)
+      value: Mirror Pad 1
       objectReference: {fileID: 0}
     - target: {fileID: 402868, guid: f254298f50dcd524fa00543fb8b5dab9, type: 3}
       propertyPath: m_RootOrder
@@ -19675,6 +19773,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.6162949
   m_Center: {x: 0.0000076293945, y: 0.18035325, z: 0}
+--- !u!114 &2065475017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065475015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75a64a339599d947bb1b5ba4ecba1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRune: Type 4
+  correct: 0
 --- !u!1001 &2065591603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19870,7 +19982,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 154542, guid: ccd0c9e4e6aeaaa4694f0ee6f25aa330, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Rune_Rounded_05 (2)
+      value: 3 - Type  5
       objectReference: {fileID: 0}
     - target: {fileID: 154542, guid: ccd0c9e4e6aeaaa4694f0ee6f25aa330, type: 3}
       propertyPath: m_Layer
@@ -19878,7 +19990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 407110, guid: ccd0c9e4e6aeaaa4694f0ee6f25aa330, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 407110, guid: ccd0c9e4e6aeaaa4694f0ee6f25aa330, type: 3}
       propertyPath: m_LocalScale.x
@@ -19948,7 +20060,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 194524, guid: 70463c54c1faa4342b83e79634b02013, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Tiles_Rune_04
+      value: Laser Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 194524, guid: 70463c54c1faa4342b83e79634b02013, type: 3}
+      propertyPath: m_TagString
+      value: LaserTarget
       objectReference: {fileID: 0}
     - target: {fileID: 424002, guid: 70463c54c1faa4342b83e79634b02013, type: 3}
       propertyPath: m_RootOrder
@@ -20006,6 +20122,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2322640, guid: 70463c54c1faa4342b83e79634b02013, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70463c54c1faa4342b83e79634b02013, type: 3}
 --- !u!4 &2087641426 stripped
@@ -20013,6 +20133,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 424002, guid: 70463c54c1faa4342b83e79634b02013, type: 3}
   m_PrefabInstance: {fileID: 2087641425}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2087641427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 194524, guid: 70463c54c1faa4342b83e79634b02013, type: 3}
+  m_PrefabInstance: {fileID: 2087641425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2087641428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087641427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd41e37aee89f2449cf6e88d67a32fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runeData:
+  - {fileID: 640257097}
+  - {fileID: 1387763494}
+  - {fileID: 622366433}
+  - {fileID: 2031919265}
+  - {fileID: 2065475017}
+  - {fileID: 440808584}
+  - {fileID: 83315039}
+  - {fileID: 300376854}
+  target: {fileID: 2087641427}
 --- !u!4 &2108484472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 449052, guid: 939f27c57ef13654eafcf37ff873a454, type: 3}
