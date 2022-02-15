@@ -107,6 +107,9 @@ public class EnableLasers : MonoBehaviour
 
     public void DisableLasers()
     {
+        GameManager.instance.EnableMovement(true);
+        UIController.instance.DeactivateDialog();
+
         laser.SetActive(false);
 
         blueLights.SetActive(false);
