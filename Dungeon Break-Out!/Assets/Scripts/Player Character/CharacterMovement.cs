@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 /* Some code based on Sebastian Graves Youtube tutorials: 
 https://www.youtube.com/watch?v=suU4aBdBjKA&list=PLD_vBJjpCwJsqpD8QRPNPMfVUpPFLVGg4&index=3
@@ -14,6 +15,7 @@ public class CharacterMovement : MonoBehaviour
 
     Vector3 moveDirection;
     Transform cameraObject;
+    public CinemachineFreeLook thirdPersonCam;
     Rigidbody playerRigidBody;
 
     [Header("Movement Speeds")]
@@ -29,6 +31,8 @@ public class CharacterMovement : MonoBehaviour
     private bool gravityDown;
     //private Vector3 gravityMovement;
     public GameObject telekinesisFollow;
+
+    private bool viewSwitched;
 
     private void Awake()
     {
@@ -122,6 +126,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (inputManager.rightMousePressed)
         {
+            viewSwitched = true;
             //Horizontal rotation, move entire avatar
             Quaternion desiredRotation = transform.rotation * Quaternion.AngleAxis(inputManager.lookInput.x, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
@@ -142,6 +147,14 @@ public class CharacterMovement : MonoBehaviour
 
             telekinesisFollow.transform.localEulerAngles = angles;
         } else {
+            if (viewSwitched) {
+                thirdPersonCam.m_Heading.m_Definition = CinemachineOrbitalTransposer.Heading.HeadingDefinition.TargetForward;
+                thirdPersonCam.m_RecenterToTargetHeading.m_enabled = true;
+                thirdPersonCam.m_YAxisRecentering.m_enabled = true;
+                viewSwitched = false;
+            }
+            StartCoroutine(DelayCameraChange());
+
             Vector3 rotateDirection = MovementSetup(Vector3.zero);
 
             //Leave character facing the direction you controlled them to face
@@ -170,5 +183,12 @@ public class CharacterMovement : MonoBehaviour
         yield return new WaitForSeconds(0.9f);
         Debug.Log("Changing Position");
         gameObject.transform.position = position;
+    }
+
+    IEnumerator DelayCameraChange() {
+        yield return new WaitForSeconds(0.05f);
+        thirdPersonCam.m_Heading.m_Definition = CinemachineOrbitalTransposer.Heading.HeadingDefinition.WorldForward;
+        thirdPersonCam.m_RecenterToTargetHeading.m_enabled = false;
+        thirdPersonCam.m_YAxisRecentering.m_enabled = false;
     }
 }
