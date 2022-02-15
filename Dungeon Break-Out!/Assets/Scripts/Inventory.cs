@@ -38,6 +38,15 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void RemoveItem(string itemName) {
+        for (int i = 0; i < allInventorySlotInfo.Count; i++) {
+            if (allInventorySlotInfo[i].Name == itemName) {
+                allInventorySlots[i].Unassign();
+                break;
+            }
+        }
+    }
+
     public void UpdateSlotInfo()
     {
         allInventorySlotInfo.Clear();
