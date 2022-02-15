@@ -6,15 +6,10 @@ using UnityEngine.InputSystem;
 public class AimLaser : MonoBehaviour
 {
     public GameObject child;
-    private GameObject MainCamera;
     private bool canInteract;
     private bool rotateActive = false;
     private float speed = 0.1f;
 
-    private void Awake()
-    {
-        MainCamera = GameObject.Find("Main Camera");
-    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -49,7 +44,7 @@ public class AimLaser : MonoBehaviour
         } else if (canInteract == true && InputManager.instance.ePressed && rotateActive == true)
         {
             rotateActive = false;
-            child.transform.SetParent(null);
+            //child.transform.SetParent(null);
             GameManager.instance.EnableMovement(true);
             UIController.instance.DeactivateDialog();
             UIController.instance.ActivateDialog("Press ['E'] to control mirror");

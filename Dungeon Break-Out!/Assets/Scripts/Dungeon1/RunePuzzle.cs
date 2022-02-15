@@ -43,7 +43,6 @@ public class RunePuzzle : MonoBehaviour
         }
         if (count == 8)
         {
-            Debug.Log("Winner Winner Chicken Dinner!");
             target.GetComponent<MeshRenderer>().enabled = true;
             puzzleComplete = true;
         }
