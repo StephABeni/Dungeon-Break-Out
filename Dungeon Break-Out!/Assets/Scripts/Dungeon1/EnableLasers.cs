@@ -30,23 +30,16 @@ public class EnableLasers : MonoBehaviour
 
     private void Start()
     {
-        laser = GameObject.Find("Laser Pointer");
         laser.SetActive(false);
 
-        blueLights = GameObject.Find("Electricity Lights");
         blueLights.SetActive(false);
 
-        electricity = GameObject.Find("Laser Electricity");
         electricity.SetActive(false);
 
-        mirrors = GameObject.Find("Mirrors");
         mirrors.SetActive(false);
 
-        mirrorPad1 = GameObject.Find("SM_Env_Tiles_Rune_01 (1)");
         mirrorPad1.GetComponent<SphereCollider>().enabled = false;
-        mirrorPad2 = GameObject.Find("SM_Env_Tiles_Rune_01 (2)");
         mirrorPad2.GetComponent<SphereCollider>().enabled = false;
-        mirrorPad3 = GameObject.Find("SM_Env_Tiles_Rune_01 (3)");
         mirrorPad3.GetComponent<SphereCollider>().enabled = false;
 
     }
@@ -67,34 +60,63 @@ public class EnableLasers : MonoBehaviour
             {
                 if (playerInventory.allInventorySlotInfo[i].Name == "Gem")
                 {
-                    Debug.Log("Trying to light lasers");
+                    if (RunePuzzle.instance.puzzleComplete)
+                    {
+                        Debug.Log("Trying to light lasers");
 
-                    laser.SetActive(true);
+                        laser.SetActive(true);
 
-                    blueLights.SetActive(true);
+                        blueLights.SetActive(true);
 
-                    electricity.SetActive(true);
+                        electricity.SetActive(true);
 
-                    mirrors.SetActive(true);
+                        mirrors.SetActive(true);
 
-                    mirrorPad1.GetComponent<SphereCollider>().enabled = true;
-                    mirrorPad2.GetComponent<SphereCollider>().enabled = true;
-                    mirrorPad3.GetComponent<SphereCollider>().enabled = true;
+                        mirrorPad1.GetComponent<SphereCollider>().enabled = true;
+                        mirrorPad2.GetComponent<SphereCollider>().enabled = true;
+                        mirrorPad3.GetComponent<SphereCollider>().enabled = true;
 
-                    lasersOn = true;
+                        lasersOn = true;
 
-                    playerInventory.allInventorySlotInfo[i].Name = null;
-                    playerInventory.allInventorySlotInfo[i].Description = null;
-                    playerInventory.allInventorySlotInfo[i].Icon = null;
-                    playerInventory.allInventorySlotInfo[i].ItemType = 0;
-                    Debug.Log("Lasers on. Removed Gem from player inventory.");
-                    break;
+                        playerInventory.allInventorySlotInfo[i].Name = null;
+                        playerInventory.allInventorySlotInfo[i].Description = null;
+                        playerInventory.allInventorySlotInfo[i].Icon = null;
+                        playerInventory.allInventorySlotInfo[i].ItemType = 0;
+                        Debug.Log("Lasers on. Removed Gem from player inventory.");
+                        break;
+                    } else
+                    {
+                        UIController.instance.ActivateDialog("I need somethihng to point the laser at.\nMaybe I should complete another puzzle");
+                    }
                 }
             }
+
+            UIController.instance.ActivateDialog("Hmmm ... Looks like I need a powerful stone to power this thing");
+
             if (!lasersOn)
             {
                 Debug.Log("Pick up Gem to see what happens");
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        UIController.instance.DeactivateDialog();
+    }
+
+    public void DisableLasers()
+    {
+        laser.SetActive(false);
+
+        blueLights.SetActive(false);
+
+        electricity.SetActive(false);
+
+        mirrors.SetActive(false);
+
+        mirrorPad1.GetComponent<SphereCollider>().enabled = false;
+        mirrorPad2.GetComponent<SphereCollider>().enabled = false;
+        mirrorPad3.GetComponent<SphereCollider>().enabled = false;
     }
 }
