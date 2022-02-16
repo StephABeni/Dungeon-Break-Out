@@ -9,6 +9,7 @@ TagManager:
   - Mirror
   - TutorialPuzzle1
   - LaserTarget
+  - Rune
   layers:
   - Default
   - TransparentFX
