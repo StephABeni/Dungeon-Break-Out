@@ -9,6 +9,11 @@ public class RunePuzzle : MonoBehaviour
     private int count;
     public bool puzzleComplete = false;
     public GameObject target;
+    public GameObject dustFX;
+    public GameObject[] runes;
+    public Animator runeAnimator;
+    public Animator shelfAnimator;
+    public Animator targetAnimator;
 
     private void Awake()
     {
@@ -17,35 +22,75 @@ public class RunePuzzle : MonoBehaviour
         {
             if (instance != this)
             {
-                Debug.Log("Multiple Inventory Instances.");
                 Destroy(this);
             }
         }
     }
 
-    // Start is called before the first frame update
+    // hide traget until puzzle is completed
     void Start()
     {
-        target.GetComponent<MeshRenderer>().enabled = false;
+        //target.GetComponent<MeshRenderer>().enabled = false;
         count = 0;
+
+        dustFX.SetActive(false);
+        runes = GameObject.FindGameObjectsWithTag("Rune");
+
     }
 
-    // Update is called once per frame
+    // check if puzzle is completed
     void Update()
     {
-        count = 0;
-        for (int i = 0; i < 8; i++)
+        if (puzzleComplete != true)
         {
-            if (runeData[i].correct)
+            count = 0;
+            for (int i = 0; i < 8; i++)
             {
-                count++;
+                if (runeData[i].correct)
+                {
+                    count++;
+                }
+            }
+            // puzzle comlpete
+            if (count == 8)
+            {
+                puzzleComplete = true;
+                EndPuzzle();
             }
         }
-        if (count == 8)
+    }
+
+    void EndPuzzle()
+    {
+        //target.GetComponent<MeshRenderer>().enabled = true;
+        dustFX.SetActive(true);
+        runeAnimator.SetTrigger("runeDisappear");
+        shelfAnimator.SetTrigger("shelfDisappear");
+        targetAnimator.SetTrigger("showTarget");
+
+        
+        
+        foreach (GameObject child in runes)
         {
-            Debug.Log("Winner Winner Chicken Dinner!");
-            target.GetComponent<MeshRenderer>().enabled = true;
-            puzzleComplete = true;
+            StartCoroutine(FadeOutMaterial(5f, child));
+            
         }
+    }
+
+    IEnumerator FadeOutMaterial(float fadeSpeed, GameObject child)
+    {
+        Debug.Log(child.name);
+        Renderer rend = child.gameObject.transform.GetComponent<Renderer>();
+        Color matColor = rend.material.color;
+        float alphaValue = rend.material.color.a;
+
+        while (rend.material.color.a > 0f)
+        {
+            alphaValue -= Time.deltaTime / fadeSpeed;
+            rend.material.color = new Color(matColor.r, matColor.g, matColor.b, alphaValue);
+            yield return null;
+        }
+        rend.material.color = new Color(matColor.r, matColor.g, matColor.b, 0f);
+        child.gameObject.SetActive(false);
     }
 }

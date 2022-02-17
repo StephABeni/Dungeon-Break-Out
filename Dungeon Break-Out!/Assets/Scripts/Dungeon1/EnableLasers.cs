@@ -22,12 +22,12 @@ public class EnableLasers : MonoBehaviour
         {
             if (instance != this)
             {
-                Debug.Log("Multiple Inventory Instances.");
                 Destroy(this);
             }
         }
     }
 
+    // Deactivate all puzzle components
     private void Start()
     {
         laser.SetActive(false);
@@ -56,14 +56,14 @@ public class EnableLasers : MonoBehaviour
 
             playerInventory = Inventory.instance;
 
+            // loop through player inventory to find Gem
             for (int i = 0; i < 20; i++)
             {
                 if (playerInventory.allInventorySlotInfo[i].Name == "Gem")
                 {
                     if (RunePuzzle.instance.puzzleComplete)
                     {
-                        Debug.Log("Trying to light lasers");
-
+                        // activate puzzle components
                         laser.SetActive(true);
 
                         blueLights.SetActive(true);
@@ -86,27 +86,33 @@ public class EnableLasers : MonoBehaviour
                         break;
                     } else
                     {
-                        UIController.instance.ActivateDialog("I need somethihng to point the laser at.\nMaybe I should complete another puzzle");
+                        // if player hasn't completed the rune puzzle
+                        UIController.instance.ActivateDialog("I need something to point the laser at.\nMaybe I should complete another puzzle");
                     }
                 }
             }
 
-            UIController.instance.ActivateDialog("Hmmm ... Looks like I need a powerful stone to power this thing");
-
             if (!lasersOn)
             {
-                Debug.Log("Pick up Gem to see what happens");
+                // if player hasn't obtained gem
+                UIController.instance.ActivateDialog("Looks like I need a powerful stone to power this thing");
             }
         }
     }
 
+    // turn off any UI pop ups
     private void OnTriggerExit(Collider other)
     {
         UIController.instance.DeactivateDialog();
     }
 
+    // disable all components after puzzle has been completed
     public void DisableLasers()
     {
+        
+        GameManager.instance.EnableMovement(true);
+        UIController.instance.DeactivateDialog();
+
         laser.SetActive(false);
 
         blueLights.SetActive(false);
@@ -114,6 +120,8 @@ public class EnableLasers : MonoBehaviour
         electricity.SetActive(false);
 
         mirrors.SetActive(false);
+
+        this.GetComponent<SphereCollider>().enabled = false;
 
         mirrorPad1.GetComponent<SphereCollider>().enabled = false;
         mirrorPad2.GetComponent<SphereCollider>().enabled = false;

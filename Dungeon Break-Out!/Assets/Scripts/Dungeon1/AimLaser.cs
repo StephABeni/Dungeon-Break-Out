@@ -6,15 +6,10 @@ using UnityEngine.InputSystem;
 public class AimLaser : MonoBehaviour
 {
     public GameObject child;
-    private GameObject MainCamera;
     private bool canInteract;
     private bool rotateActive = false;
     private float speed = 0.1f;
 
-    private void Awake()
-    {
-        MainCamera = GameObject.Find("Main Camera");
-    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +21,7 @@ public class AimLaser : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -39,6 +35,7 @@ public class AimLaser : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // when player is rotating mirror
         if (canInteract == true && InputManager.instance.ePressed && rotateActive == false)
         {
             UIController.instance.DeactivateDialog();
@@ -46,18 +43,19 @@ public class AimLaser : MonoBehaviour
             GameManager.instance.EnableMovement(false);
             rotateActive = true;
             
-        } else if (canInteract == true && InputManager.instance.ePressed && rotateActive == true)
+        }
+        // if player deactivates rotating mirror
+        else if (canInteract == true && InputManager.instance.ePressed && rotateActive == true)
         {
             rotateActive = false;
-            child.transform.SetParent(null);
             GameManager.instance.EnableMovement(true);
             UIController.instance.DeactivateDialog();
             UIController.instance.ActivateDialog("Press ['E'] to control mirror");
         }
+
+        // controls when rotating mirror
         if (rotateActive == true)
         {
-            //https://forum.unity.com/threads/rotate-gameobject-to-where-camera-is-facing.501460/
-            //child.transform.rotation = Quaternion.Lerp(child.transform.rotation, MainCamera.transform.rotation, speed * Time.deltaTime);
             if (Keyboard.current.wKey.IsPressed())
             {
                 child.transform.Rotate(speed, 0, 0);
