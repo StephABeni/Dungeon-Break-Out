@@ -155,7 +155,7 @@ public class TutorialManager : MonoBehaviour
                 titleText.text = "Get out of here!";
                 descriptionText.text = "The way across has opened up! Only a measly door stands in your way now. You already know everything you need to move forward from here.";
                 if (GameManager.instance.currentScene != "Tutorial") {
-                    taskComplete = true;
+                    currentStage++;
                 }
             }
             EnterToContinue();
