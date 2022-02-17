@@ -14,7 +14,6 @@ public class getMatches : MonoBehaviour
         {
             if (instance != this)
             {
-                Debug.Log("Multiple Inventory Instances.");
                 Destroy(this);
             }
         }
