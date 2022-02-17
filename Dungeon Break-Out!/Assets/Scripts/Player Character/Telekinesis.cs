@@ -37,7 +37,6 @@ public class Telekinesis : MonoBehaviour
                     }
                     if (inputManager.ePressed)
                     {
-                        Debug.Log("E Pressed. Hit Object: " + hit.transform.gameObject.name);
                         StartCoroutine(DelayInteraction(hit.transform.gameObject));
                     }
                 } else {

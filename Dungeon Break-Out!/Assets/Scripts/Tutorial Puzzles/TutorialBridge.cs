@@ -21,6 +21,7 @@ public class TutorialBridge : MonoBehaviour
     public void Activate() {
         if (gem.activeInHierarchy) {
             leverAnimator.SetTrigger("raise");
+            gameObject.GetComponent<AudioSource>().Play();
             StartCoroutine(DelayBridgeAnimation());
             UIController.instance.DeactivateDialog();
         }
