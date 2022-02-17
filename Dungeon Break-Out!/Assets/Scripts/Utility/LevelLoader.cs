@@ -21,7 +21,6 @@ public class LevelLoader : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Quitting Game");
         Application.Quit();
     }
 

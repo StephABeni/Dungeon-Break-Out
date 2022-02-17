@@ -9,11 +9,12 @@ public class GemPillar : MonoBehaviour
     public GameObject placedGem;
     public string itemName;
     public Collider triggerCollider;
+    bool puzzleComplete;
 
     // Update is called once per frame
     void Update()
     {
-        if (canInteract && InputManager.instance.ePressed) {
+        if (canInteract && InputManager.instance.ePressed && !puzzleComplete) {
             for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++) {
                 if (Inventory.instance.allInventorySlotInfo[i].Name == itemName) {
                     successfulInteraction = true;
@@ -21,6 +22,8 @@ public class GemPillar : MonoBehaviour
                     Inventory.instance.RemoveItem(itemName);
                     Destroy(triggerCollider);
                     TutorialManager.instance.tutorialGemPlaced = true;
+                    puzzleComplete = true;
+                    UIController.instance.DeactivateDialog();
                     break;
                 }
             }
