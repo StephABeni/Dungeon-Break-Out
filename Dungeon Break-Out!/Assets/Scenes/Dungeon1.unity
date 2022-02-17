@@ -4829,7 +4829,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CandleLit: 0
-  playerInventory: {fileID: 0}
+  itemName: Matches
+  candle: {fileID: 2030012411}
+  candleflames: {fileID: 525943724}
+  triggerCollider: {fileID: 0}
+--- !u!198 &525943724 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19800454, guid: 55840dab9023bc04896b090858141038, type: 3}
+  m_PrefabInstance: {fileID: 525943720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &529789884
 PrefabInstance:
   m_ObjectHideFlags: 0

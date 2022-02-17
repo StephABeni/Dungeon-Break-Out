@@ -31,7 +31,7 @@ public class getKey : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (LightCandle.instance.CandleLit)
+            if (LightCandle.instance.candleLit)
             {
                 key.SetActive(true);
             }

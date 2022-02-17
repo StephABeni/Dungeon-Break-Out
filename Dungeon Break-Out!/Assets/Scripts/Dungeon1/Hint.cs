@@ -24,10 +24,10 @@ public class Hint : MonoBehaviour
                 }
             }
 
-            if ((unlockBox.instance.boxOpened == false || playerItemsName.Contains("Matches") == false) && LightCandle.instance.CandleLit == false)
+            if ((unlockBox.instance.boxOpened == false || playerItemsName.Contains("Matches") == false) && LightCandle.instance.candleLit == false)
             {
                 ShowHint("Box_Hint_LightRay_Cube");
-            } else if (!LightCandle.instance.CandleLit)
+            } else if (!LightCandle.instance.candleLit)
             {
                 ShowHint("Candle_Hint_LightRay_Cube");
             } else if (playerItemsName.Contains("Iron Key") == false)
