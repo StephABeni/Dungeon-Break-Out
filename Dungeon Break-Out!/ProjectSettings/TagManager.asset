@@ -8,6 +8,7 @@ TagManager:
   - Hint
   - Mirror
   - TutorialPuzzle1
+  - rollingBall
   layers:
   - Default
   - TransparentFX
