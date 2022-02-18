@@ -18,7 +18,6 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (instance == null) instance = this;
         else
         {
@@ -142,14 +141,14 @@ public class TutorialManager : MonoBehaviour
                 descriptionText.text = "Now that you have an item in your inventory, you will be able to interact with something you weren't able to before." +
                     "Figure out where the crystal goes and place it.";
                 if (tutorialGemPlaced) {
-                    currentStage++;
+                    taskComplete = true;
                 }
             }
             if (currentStage == 11) {
                 titleText.text = "Lift the Bridge";
                 descriptionText.text = "Great work! Now, see if you can get that bridge to raise up so you can cross.";
                 if (bridgeRaised) {
-                    currentStage++;
+                    taskComplete = true;
                 }
             }
             if (currentStage == 12) {

@@ -75,11 +75,12 @@ public class InteractableItem : MonoBehaviour
 
     public void Open()
     {
-        for(int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
-        {
-            if (Inventory.instance.allInventorySlotInfo[i].Name == keyName)
-            {
+        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++) {
+            if (Inventory.instance.allInventorySlotInfo[i] != null
+                && Inventory.instance.allInventorySlotInfo[i].Name == keyName) {
                 successfulInteraction = true;
+                UIController.instance.DeactivateDialog();
+                break;
             }
         }
         if (!successfulInteraction) {
@@ -91,6 +92,7 @@ public class InteractableItem : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            if (itemInfo.ItemType == 5 && successfulInteraction) return;
             UIController.instance.ActivateDialog(dialogText + itemInfo.Name);
             canInteract = true;
         }
