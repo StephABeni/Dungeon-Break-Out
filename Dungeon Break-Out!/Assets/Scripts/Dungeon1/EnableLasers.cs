@@ -14,6 +14,9 @@ public class EnableLasers : MonoBehaviour
     public GameObject mirrorPad1;
     public GameObject mirrorPad2;
     public GameObject mirrorPad3;
+    public Animator targetAnimator;
+    public Animator largePortalAnimator;
+    public Animator smallPortalAnimator;
 
     private void Awake()
     {
@@ -126,5 +129,9 @@ public class EnableLasers : MonoBehaviour
         mirrorPad1.GetComponent<SphereCollider>().enabled = false;
         mirrorPad2.GetComponent<SphereCollider>().enabled = false;
         mirrorPad3.GetComponent<SphereCollider>().enabled = false;
+
+        targetAnimator.SetTrigger("hideTarget");
+        largePortalAnimator.SetTrigger("openLargePortal");
+        smallPortalAnimator.SetTrigger("openSmallPortal");
     }
 }

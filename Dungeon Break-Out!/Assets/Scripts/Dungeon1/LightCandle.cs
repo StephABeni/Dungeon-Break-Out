@@ -29,16 +29,9 @@ public class LightCandle : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
+            if (ItemSlotNumber(itemName) >= 0)
             {
-                if (Inventory.instance.allInventorySlotInfo[i].Name == itemName)
-                {
-                    hasMatches = true;
-                    break;
-                }
-            }
-            if (hasMatches)
-            {
+                hasMatches = true;
                 UIController.instance.ActivateDialog("[Press 'E'] to light candles");
             }
             else
@@ -55,6 +48,15 @@ public class LightCandle : MonoBehaviour
         {
             canInteract = false;
             UIController.instance.DeactivateDialog();
+
+            if (candleLit)
+            {
+                int num = ItemSlotNumber(itemName);
+                Inventory.instance.allInventorySlotInfo[num].Name = null;
+                Inventory.instance.allInventorySlotInfo[num].Icon = null;
+                Inventory.instance.allInventorySlotInfo[num].Description = null;
+                Destroy(triggerCollider);
+            }
         }
     }
 
@@ -67,11 +69,27 @@ public class LightCandle : MonoBehaviour
             candle.GetComponent<Light>().range = 5.0f;
             candle.GetComponent<Light>().intensity = 3.0f;
             candleflames.Play(true);
-            candleLit = true;
-            hasMatches = false;
-            Inventory.instance.RemoveItem(itemName);
             Debug.Log("Candle lit. Removed matches from player inventory.");
-            Destroy(triggerCollider);
+            candleLit = true;
+            canInteract = false;
+            hasMatches = false;
         }
+    }
+
+    void RemoveItem()
+    {
+        Inventory.instance.RemoveItem(itemName);
+    }
+
+    int ItemSlotNumber(string item)
+    {
+        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
+        {
+            if (Inventory.instance.allInventorySlotInfo[i].Name == item)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }
