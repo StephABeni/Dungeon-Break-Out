@@ -8,6 +8,8 @@ TagManager:
   - Hint
   - Mirror
   - TutorialPuzzle1
+  - LaserTarget
+  - Rune
   - rollingBall
   layers:
   - Default
