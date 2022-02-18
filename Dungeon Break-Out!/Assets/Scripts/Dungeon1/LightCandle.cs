@@ -69,16 +69,11 @@ public class LightCandle : MonoBehaviour
             candle.GetComponent<Light>().range = 5.0f;
             candle.GetComponent<Light>().intensity = 3.0f;
             candleflames.Play(true);
-            Debug.Log("Candle lit. Removed matches from player inventory.");
+            Inventory.instance.RemoveItem(itemName);
             candleLit = true;
             canInteract = false;
             hasMatches = false;
         }
-    }
-
-    void RemoveItem()
-    {
-        Inventory.instance.RemoveItem(itemName);
     }
 
     int ItemSlotNumber(string item)
