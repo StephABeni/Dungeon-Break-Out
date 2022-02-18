@@ -68,7 +68,6 @@ public class RunePuzzle : MonoBehaviour
         foreach (GameObject child in runes)
         {
             StartCoroutine(FadeOutMaterial(5f, child));
-            
         }
     }
     // https://stackoverflow.com/questions/54042904/how-to-fade-out-disapear-a-gameobject-slowly
