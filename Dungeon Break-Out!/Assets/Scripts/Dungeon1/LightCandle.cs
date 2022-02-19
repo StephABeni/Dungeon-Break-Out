@@ -10,6 +10,7 @@ public class LightCandle : MonoBehaviour
     public bool hasMatches;
     public string itemName;
     public GameObject candle;
+    public GameObject key;
     public ParticleSystem candleflames;
     public Collider triggerCollider;
 
@@ -23,6 +24,11 @@ public class LightCandle : MonoBehaviour
                 Destroy(this);
             }
         }
+    }
+
+    private void Start()
+    {
+        key.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -56,6 +62,7 @@ public class LightCandle : MonoBehaviour
                 Inventory.instance.allInventorySlotInfo[num].Icon = null;
                 Inventory.instance.allInventorySlotInfo[num].Description = null;
                 Destroy(triggerCollider);
+                key.SetActive(true);
             }
         }
     }

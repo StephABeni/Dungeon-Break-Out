@@ -6,8 +6,10 @@ public class unlockBox : MonoBehaviour
 {
     public static unlockBox instance;
     public bool boxOpened = false;
+    public bool canInteract;
     public Animator animator;
     public GameObject matches;
+    public Collider triggerCollider;
 
     private void Awake()
     {
@@ -16,7 +18,6 @@ public class unlockBox : MonoBehaviour
         {
             if (instance != this)
             {
-                Debug.Log("Multiple Inventory Instances.");
                 Destroy(this);
             }
         }
@@ -24,7 +25,6 @@ public class unlockBox : MonoBehaviour
 
     private void Start()
     {
-        matches = GameObject.Find("Matches Pick Up");
         matches.SetActive(false);
     }
 
@@ -32,9 +32,35 @@ public class unlockBox : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            UIController.instance.ActivateDialog("[Press 'E'] to open box");
+            canInteract = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            canInteract = false;
+        }
+    }
+
+    void Update()
+    {
+        if (canInteract && InputManager.instance.ePressed)
+        {
+            UIController.instance.DeactivateDialog();
+            StartCoroutine(DelayCode());
             animator.SetTrigger("unlockBox");
             boxOpened = true;
-            matches.SetActive(true);
+            Destroy(triggerCollider);
+            canInteract = false;
         }
+    }
+
+    IEnumerator DelayCode()
+    {
+        yield return new WaitForSeconds(1.5f);
+        matches.SetActive(true);
     }
 }
