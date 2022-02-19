@@ -80,6 +80,10 @@ public class LaserBeam
 
             // above gives a new direction that we can use to cast another array
             CastRay(pos, dir, laser);
+        } else if (hitInfo.collider.gameObject.CompareTag("LaserTarget"))
+        {
+            Debug.Log("Winner Winner Chicken Dinner!");
+            EnableLasers.instance.DisableLasers();
         }
         else // raycasat doesn't hit a mirror, add the hitpoint to laser indidces list and update the laser
         {

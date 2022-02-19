@@ -5,8 +5,13 @@ using UnityEngine;
 public class LightCandle : MonoBehaviour
 {
     public static LightCandle instance;
-    public bool CandleLit = false;
-    public Inventory playerInventory;
+    public bool candleLit;
+    public bool canInteract;
+    public bool hasMatches;
+    public string itemName;
+    public GameObject candle;
+    public ParticleSystem candleflames;
+    public Collider triggerCollider;
 
     private void Awake()
     {
@@ -15,7 +20,6 @@ public class LightCandle : MonoBehaviour
         {
             if (instance != this)
             {
-                Debug.Log("Multiple Inventory Instances.");
                 Destroy(this);
             }
         }
@@ -25,38 +29,49 @@ public class LightCandle : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            
-            if (CandleLit)
+            for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
             {
-                return;
-            }
-
-            playerInventory = Inventory.instance;
-
-            for (int i = 0; i < 20; i++)
-            {
-                if (playerInventory.allInventorySlotInfo[i].Name == "Matches")
+                if (Inventory.instance.allInventorySlotInfo[i].Name == itemName)
                 {
-                    Debug.Log("Trying to light candle");
-                    GameObject candle = GameObject.Find("Puzzle 1 Candle");
-                    ParticleSystem candleflames = GameObject.Find("SM_Prop_Candles_01_Preset").GetComponent<ParticleSystem>();
-
-                    candle.GetComponent<Light>().range = 5.0f;
-                    candle.GetComponent<Light>().intensity = 3.0f;
-                    candleflames.Play(true);
-                    CandleLit = true;
-                    playerInventory.allInventorySlotInfo[i].Name = null;
-                    playerInventory.allInventorySlotInfo[i].Description = null;
-                    playerInventory.allInventorySlotInfo[i].Icon = null;
-                    playerInventory.allInventorySlotInfo[i].ItemType = 0;
-                    Debug.Log("Candle lit. Removed matches from player inventory.");
+                    hasMatches = true;
                     break;
                 }
             }
-            if (!CandleLit)
+            if (hasMatches)
             {
-                Debug.Log("Pick up matches to light candle");
+                UIController.instance.ActivateDialog("[Press 'E'] to light candles");
             }
+            else
+            {
+                UIController.instance.ActivateDialog("I need to find matches to light the candles");
+            }
+            canInteract = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            canInteract = false;
+            UIController.instance.DeactivateDialog();
+        }
+    }
+
+    void Update()
+    {
+        if (canInteract && InputManager.instance.ePressed && hasMatches)
+        {
+            UIController.instance.DeactivateDialog();
+            candleflames.GetComponent<ParticleSystem>();
+            candle.GetComponent<Light>().range = 5.0f;
+            candle.GetComponent<Light>().intensity = 3.0f;
+            candleflames.Play(true);
+            candleLit = true;
+            hasMatches = false;
+            Inventory.instance.RemoveItem(itemName);
+            Debug.Log("Candle lit. Removed matches from player inventory.");
+            Destroy(triggerCollider);
         }
     }
 }
