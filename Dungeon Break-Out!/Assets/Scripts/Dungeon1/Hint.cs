@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class Hint : MonoBehaviour
 {
-    private GameObject glowHint;
+    public static Hint instance;
+    //private GameObject glowHint;
     private SkinnedMeshRenderer visibility;
-    private int num_items = 0;
     public Inventory playerInventory;
     public List<string> playerItemsName;
-    public bool puzzle1Complete;
-    public bool puzzle2Complete;
-    public bool puzzle3Complete;
+    public bool hasGem;
+    public bool matchesUsed;
+    public bool keyUsed;
+    public List<GameObject> hintList = new List<GameObject>();
+
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(this);
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -27,25 +40,29 @@ public class Hint : MonoBehaviour
                 }
             }
 
-            if (!puzzle1Complete)
+            if (!playerItemsName.Contains("Gem") && !EnableLasers.instance.usedGem)
             {
                 Puzzle1Hints();
             }
-            else if (!puzzle2Complete)
+            else if (!RunePuzzle.instance.puzzleComplete)
             {
-                Puzzle2Hints();
+                ShowHint("Rune_Hint_LightRay_Cube");
+                ShowHint("Portal_Hint_LightRay_Cube");
             }
-            else if (puzzle1Complete && puzzle2Complete)
+            else if (!EnableLasers.instance.usedGem && RunePuzzle.instance.puzzleComplete)
             {
-                // showhint of laser start thing
+                ShowHint("Pole_Hint_LightRay_Cube");
             }
-            else if (!puzzle3Complete)
+
+            else if (!EnableLasers.instance.puzzleComplete)
             {
-                // showhint of all laser pads
+                ShowHint("Mirror1_Hint_LightRay_Cube");
+                ShowHint("Mirror2_Hint_LightRay_Cube");
+                ShowHint("Mirror3_Hint_LightRay_Cube");
             }
             else
             {
-                // UI 'sorry no more hints to give'
+                UIController.instance.ActivateDialog("Sorry, no more hints to give");
             }
 
 
@@ -64,7 +81,11 @@ public class Hint : MonoBehaviour
 
     void Puzzle1Hints()
     {
-        if ((unlockBox.instance.boxOpened == false || playerItemsName.Contains("Matches") == false))
+        if (unlockBox.instance.boxOpened == false)
+        {
+            ShowHint("Box_Hint_LightRay_Cube");
+        }
+        else if (playerItemsName.Contains("Matches") == false && matchesUsed == false)
         {
             ShowHint("Box_Hint_LightRay_Cube");
         }
@@ -72,7 +93,7 @@ public class Hint : MonoBehaviour
         {
             ShowHint("Candle_Hint_LightRay_Cube");
         }
-        else if (playerItemsName.Contains("Iron Key") == false)
+        else if (playerItemsName.Contains("Iron Key") == false && keyUsed == false)
         {
             ShowHint("Key_Hint_LightRay_Cube");
         }
@@ -80,33 +101,39 @@ public class Hint : MonoBehaviour
         {
             ShowHint("Jail_Hint_LightRay_Cube");
         }
-        else if (unlockdoor.instance.jail_opened == true)
+        else if (unlockdoor.instance.jail_opened == true && playerItemsName.Contains("Gem") == false)
         {
             ShowHint("Gem_Hint_LightRay_Cube");
         }
-        else if (playerItemsName.Contains("Gem") == true)
-        {
-            puzzle1Complete = true;
-        }
-    }
-
-    void Puzzle2Hints()
-    {
-        // showhint of rune wall and portal
     }
 
     void ShowHint(string hintObjectString)
     {
+        var glowHint = new GameObject();
         glowHint = GameObject.Find(hintObjectString);
-        visibility = glowHint.GetComponent<SkinnedMeshRenderer>();
-        visibility.enabled = true;
-        Debug.Log("Showing hint");
+        if (glowHint)
+        {
+            visibility = glowHint.GetComponent<SkinnedMeshRenderer>();
+            visibility.enabled = true;
+            Debug.Log("Showing hint");
+            hintList.Add(glowHint)  ;
+        }
+        else
+        {
+            Debug.Log("No game object named " + hintObjectString);
+        }
+
     }
 
     IEnumerator DelayCode()
     {
         yield return new WaitForSeconds(1f);
-        visibility.enabled = false;
-        Debug.Log("hint hidden");
+        foreach (GameObject hint in hintList)
+        {
+            var visibility = hint.GetComponent<SkinnedMeshRenderer>();
+            visibility.enabled = false;
+            Debug.Log("hint hidden");
+        }
+        hintList.Clear();
     }
 }

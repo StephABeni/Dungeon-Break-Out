@@ -70,6 +70,7 @@ public class unlockdoor : MonoBehaviour
             jail_opened = true;
             canInteract = false;
             hasKey = false;
+            Hint.instance.keyUsed = true;
         }
     }
 

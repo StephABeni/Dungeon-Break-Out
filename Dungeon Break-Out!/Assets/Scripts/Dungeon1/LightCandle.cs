@@ -80,6 +80,7 @@ public class LightCandle : MonoBehaviour
             candleLit = true;
             canInteract = false;
             hasMatches = false;
+            Hint.instance.matchesUsed = true;
         }
     }
 

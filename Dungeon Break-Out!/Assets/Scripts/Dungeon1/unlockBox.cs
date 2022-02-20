@@ -60,7 +60,7 @@ public class unlockBox : MonoBehaviour
 
     IEnumerator DelayCode()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         matches.SetActive(true);
     }
 }
