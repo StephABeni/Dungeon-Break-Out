@@ -8,8 +8,20 @@ TagManager:
   - Hint
   - Mirror
   - TutorialPuzzle1
+
+  - tomb_skull
+  - tomb_sword
+  - tomb_circle
+  - tomb_cube
+  - rune1
+  - rune2
+  - rune3
+  - rune4
+
   - LaserTarget
   - Rune
+  - rollingBall
+
   layers:
   - Default
   - TransparentFX

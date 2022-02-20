@@ -6,16 +6,18 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [Range(100, 1000)]
-    public int FillSpeed;
+    public int maxTime;
+    public float currentTime;
 
     private Image image;
     private Text text;
 
     private void Awake()
     {
+        currentTime = maxTime;
         text = gameObject.transform.GetComponentInChildren<Text>();
         image = gameObject.transform.GetComponentInChildren<Image>();
+        image.fillAmount = 1f;
     }
 
     //Update is called once per frame
@@ -23,8 +25,9 @@ public class Timer : MonoBehaviour
     {
         if (image.fillAmount > 0)
         {
-            image.fillAmount -= 1.0f/FillSpeed * Time.deltaTime;
-            text.text = image.fillAmount.ToString("P");
+            currentTime -= Time.deltaTime;
+            image.fillAmount = currentTime/maxTime;
+            text.text = Math.Round(currentTime).ToString() + " seconds.";
         }
         else
         {
