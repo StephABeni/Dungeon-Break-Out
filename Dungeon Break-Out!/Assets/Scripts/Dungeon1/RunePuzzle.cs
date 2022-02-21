@@ -41,7 +41,7 @@ public class RunePuzzle : MonoBehaviour
     // check if puzzle is completed
     void Update()
     {
-        if (puzzleComplete != true)
+        if (!puzzleComplete)
         {
             count = 0;
             for (int i = 0; i < 8; i++)
@@ -62,8 +62,9 @@ public class RunePuzzle : MonoBehaviour
 
     void EndPuzzle()
     {
-        //target.GetComponent<MeshRenderer>().enabled = true;
-        StartCoroutine(DelayCode());
+        this.GetComponent<AudioSource>().Play();
+        StartCoroutine(DelaySoundStop());
+        StartCoroutine(DelayAnimations());
         
         foreach (GameObject child in runes)
         {
@@ -88,12 +89,18 @@ public class RunePuzzle : MonoBehaviour
         child.gameObject.SetActive(false);
     }
 
-    IEnumerator DelayCode()
+    IEnumerator DelayAnimations()
     {
         yield return new WaitForSeconds(2f);
         dustFX.SetActive(true);
         runeAnimator.SetTrigger("runeDisappear");
         shelfAnimator.SetTrigger("shelfDisappear");
         targetAnimator.SetTrigger("showTarget");
+    }
+
+    IEnumerator DelaySoundStop()
+    {
+        yield return new WaitForSeconds(9f);
+        this.GetComponent<AudioSource>().Stop();
     }
 }
