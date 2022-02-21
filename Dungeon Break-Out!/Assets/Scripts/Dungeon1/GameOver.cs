@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         Destroy(CharacterMovement.instance);
         Destroy(GameObject.Find("Main Camera"));
@@ -13,7 +12,15 @@ public class GameOver : MonoBehaviour
         Destroy(ProgressBarScript.instance);
         Destroy(UIController.instance);
         Destroy(TutorialManager.instance);
+        Destroy(GameObject.Find("Camera State Controller"));
+        Destroy(GameObject.Find("Player UI"));
     }
+    // Start is called before the first frame update
+    void Start()
+    {
+        AudioManager.instance.ChangeBackgroundMusic(0);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -23,6 +30,8 @@ public class GameOver : MonoBehaviour
 
     public void Replay()
     {
+        Destroy(GameObject.Find("GameManager"));
         Destroy(GameManager.instance);
+        Destroy(AudioManager.instance);
     }
 }
