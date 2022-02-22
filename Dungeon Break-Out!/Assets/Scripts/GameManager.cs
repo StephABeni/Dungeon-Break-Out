@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene == "CharacterSelect" || currentScene == "StartPage") {
+        if (currentScene == "CharacterSelect" || currentScene == "StartPage" || currentScene == "GameOverPage") {
             cursorLocked = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentScene != "CharacterSelect" && !InputManager.instance.tabPressed)
+        if (currentScene != "CharacterSelect" && !InputManager.instance.tabPressed && currentScene != "GameOverPage")
         {
             CharacterMovement.instance.HandleAllMovement();
         }

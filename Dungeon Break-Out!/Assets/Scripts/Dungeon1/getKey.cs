@@ -15,7 +15,6 @@ public class getKey : MonoBehaviour
         {
             if (instance != this)
             {
-                Debug.Log("Multiple Inventory Instances.");
                 Destroy(this);
             }
         }

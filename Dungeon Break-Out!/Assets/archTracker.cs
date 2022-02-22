@@ -18,7 +18,7 @@ public class archTracker : MonoBehaviour
     {
         //if (archEffect.activeInHierarchy != isCorrect)
         //{
-            archEffect.SetActive(isComplete);
+            //archEffect.SetActive(isComplete);
         //}
     }
 
