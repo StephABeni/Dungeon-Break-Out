@@ -15,17 +15,6 @@ public class RunePuzzle : MonoBehaviour
     public Animator shelfAnimator;
     public Animator targetAnimator;
 
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-        else
-        {
-            if (instance != this)
-            {
-                Destroy(this);
-            }
-        }
-    }
 
     // hide traget until puzzle is completed
     void Start()

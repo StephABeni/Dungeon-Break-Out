@@ -40,26 +40,30 @@ public class Hint : MonoBehaviour
                 }
             }
 
+            // show puzzle 1 hints
             if (!playerItemsName.Contains("Gem") && !EnableLasers.instance.usedGem)
             {
                 Puzzle1Hints();
             }
+            // show puzzle 2 hint
             else if (!RunePuzzle.instance.puzzleComplete)
             {
                 ShowHint("Rune_Hint_LightRay_Cube");
                 ShowHint("Portal_Hint_LightRay_Cube");
             }
+            // show start of puzzle 3 (light pole)
             else if (!EnableLasers.instance.usedGem && RunePuzzle.instance.puzzleComplete)
             {
                 ShowHint("Pole_Hint_LightRay_Cube");
             }
-
+            // show mirror hints (puzzle 3)
             else if (!EnableLasers.instance.puzzleComplete)
             {
                 ShowHint("Mirror1_Hint_LightRay_Cube");
                 ShowHint("Mirror2_Hint_LightRay_Cube");
                 ShowHint("Mirror3_Hint_LightRay_Cube");
             }
+            // puzzles complete
             else
             {
                 UIController.instance.ActivateDialog("Sorry, no more hints to give");

@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    public Vector3 spawnLocation;
+    private LevelLoader levelLoader;
+    public string sceneName;
+    public int newSong;
+
     private void Awake()
     {
-        Destroy(CharacterMovement.instance);
-        Destroy(GameObject.Find("Main Camera"));
-        Destroy(GameManager.instance.player);
-        Destroy(ProgressBarScript.instance);
-        Destroy(UIController.instance);
-        Destroy(TutorialManager.instance);
-        Destroy(GameObject.Find("Camera State Controller"));
-        Destroy(GameObject.Find("Player UI"));
+        levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
         AudioManager.instance.ChangeBackgroundMusic(4);
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameManager.instance.player.SetActive(false);
     }
 
     public void Replay()
     {
-        //Destroy(GameObject.Find("Background Music Audio"));
-        Destroy(GameObject.Find("GameManager"));
-        Destroy(GameManager.instance);
-        Destroy(AudioManager.instance);
+        GameManager.instance.player.SetActive(true);
+        CharacterMovement.instance.SetCurrentPosition(spawnLocation, true);
+        levelLoader.LoadLevel(sceneName);
+        if (newSong > 0)
+        {
+            levelLoader.ChangeMusic(newSong);
+        }
     }
 }

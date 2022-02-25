@@ -12334,7 +12334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1470849295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13018,12 +13018,14 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
+  thirdPersonCam: {fileID: 0}
   walkSpeed: 4
   runSpeed: 8
   rotationSpeed: 15
   gravity: 0
   inAirTimer: 0
   telekinesisFollow: {fileID: 0}
+  gravityOn: 0
 --- !u!114 &1550206574
 MonoBehaviour:
   m_ObjectHideFlags: 0
