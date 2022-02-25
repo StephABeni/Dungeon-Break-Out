@@ -20,8 +20,6 @@ public class archPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //for (int i = 0; i < archTrackers.Count; i++)
-        //{
         archTracker curTracker = archTrackers.Where(x => x.triggerEntered).FirstOrDefault();
 
         if (curTracker != default(archTracker))
@@ -35,7 +33,7 @@ public class archPuzzle : MonoBehaviour
                 }
                 else
                 {
-                    archTrackers.All(x => x.isComplete = false);
+                    archTrackers.ForEach(x => x.isComplete = false);
                     puzzleState = 0;
                 }
             }
