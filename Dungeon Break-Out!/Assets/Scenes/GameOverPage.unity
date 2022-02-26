@@ -494,6 +494,7 @@ MonoBehaviour:
   spawnLocation: {x: 0, y: 1, z: 0}
   sceneName: Room1
   newSong: 2
+  timer: {fileID: 0}
 --- !u!4 &672370151
 Transform:
   m_ObjectHideFlags: 0
@@ -1465,6 +1466,7 @@ MonoBehaviour:
   spawnLocation: {x: 0, y: 0, z: 0}
   sceneName: Room1
   newSong: 2
+  timer: {fileID: 0}
 --- !u!1 &1826152740
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,13 +6,9 @@ public class GameOver : MonoBehaviour
 {
     public Vector3 spawnLocation;
     private LevelLoader levelLoader;
+    private Timer timer;
     public string sceneName;
     public int newSong;
-
-    private void Awake()
-    {
-        levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +21,12 @@ public class GameOver : MonoBehaviour
     {
         GameManager.instance.player.SetActive(true);
         CharacterMovement.instance.SetCurrentPosition(spawnLocation, true);
+        levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+        timer = GameObject.Find("Timer").GetComponent<Timer>();
+        timer.currentTime = 120;
+        timer = GameObject.Find("Timer Bar").GetComponent<Timer>();
+        timer.currentTime = 120;
+        timer.showGameOverScene = false;
         levelLoader.LoadLevel(sceneName);
         if (newSong > 0)
         {

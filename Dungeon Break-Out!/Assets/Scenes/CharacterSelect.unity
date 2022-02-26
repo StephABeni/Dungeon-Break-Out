@@ -3447,6 +3447,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 120
   currentTime: 120
+  showGameOverScene: 0
+  sceneName: GameOverPage
+  newSong: 0
 --- !u!114 &332450627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24859,8 +24862,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952169a802d2cdc458088599f02a1e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 5
-  currentTime: 0
+  maxTime: 120
+  currentTime: 120
+  showGameOverScene: 0
+  sceneName: GameOverPage
+  newSong: 0
 --- !u!1 &1813643745
 GameObject:
   m_ObjectHideFlags: 0
