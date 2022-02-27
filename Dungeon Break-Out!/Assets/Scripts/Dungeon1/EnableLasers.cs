@@ -23,6 +23,8 @@ public class EnableLasers : MonoBehaviour
     public bool canInteract;
     public bool usedGem;
     public bool puzzleComplete = false;
+    public AudioSource portals;
+    public AudioSource laserSound;
 
     private void Awake()
     {
@@ -99,6 +101,9 @@ public class EnableLasers : MonoBehaviour
         if (canInteract && InputManager.instance.ePressed && RunePuzzle.instance.puzzleComplete)
         {
             UIController.instance.DeactivateDialog();
+            this.GetComponent<AudioSource>().Play();
+            laserSound.GetComponent<AudioSource>().Play();
+
             laser.SetActive(true);
 
             blueLights.SetActive(true);
@@ -124,6 +129,8 @@ public class EnableLasers : MonoBehaviour
         GameManager.instance.EnableMovement(true);
         UIController.instance.DeactivateDialog();
 
+        laserSound.GetComponent<AudioSource>().Stop();
+
         laser.SetActive(false);
 
         blueLights.SetActive(false);
@@ -138,10 +145,14 @@ public class EnableLasers : MonoBehaviour
         mirrorPad2.GetComponent<SphereCollider>().enabled = false;
         mirrorPad3.GetComponent<SphereCollider>().enabled = false;
 
+        portals.GetComponent<AudioSource>().volume = 1;
+        portals.GetComponent<AudioSource>().Play();
+        StartCoroutine(FadeAudioSource.StartFade(portals.GetComponent<AudioSource>(), 11, 0));
         targetAnimator.SetTrigger("hideTarget");
         dustFX.SetActive(true);
         largePortalAnimator.SetTrigger("openLargePortal");
         smallPortalAnimator.SetTrigger("openSmallPortal");
+        
     }
 
     int ItemSlotNumber(string item)

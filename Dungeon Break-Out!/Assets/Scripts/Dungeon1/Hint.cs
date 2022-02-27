@@ -118,6 +118,7 @@ public class Hint : MonoBehaviour
         if (glowHint)
         {
             visibility = glowHint.GetComponent<SkinnedMeshRenderer>();
+            this.GetComponent<AudioSource>().Play();
             visibility.enabled = true;
             Debug.Log("Showing hint");
             hintList.Add(glowHint)  ;

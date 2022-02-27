@@ -73,6 +73,7 @@ public class LightCandle : MonoBehaviour
         {
             UIController.instance.DeactivateDialog();
             candleflames.GetComponent<ParticleSystem>();
+            this.GetComponent<AudioSource>().Play();
             candle.GetComponent<Light>().range = 5.0f;
             candle.GetComponent<Light>().intensity = 3.0f;
             candleflames.Play(true);
