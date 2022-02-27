@@ -17,6 +17,7 @@ public class TestGameOver : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            CharacterMovement.instance.gravityOn = false;
             levelLoader.LoadLevel(sceneName);
             if (newSong > 0)
             {
