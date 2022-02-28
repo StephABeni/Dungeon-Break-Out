@@ -51,6 +51,7 @@ public class unlockBox : MonoBehaviour
         {
             UIController.instance.DeactivateDialog();
             StartCoroutine(DelayCode());
+            this.GetComponent<AudioSource>().Play();
             animator.SetTrigger("unlockBox");
             boxOpened = true;
             Destroy(triggerCollider);

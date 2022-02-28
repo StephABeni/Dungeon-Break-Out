@@ -34,6 +34,8 @@ public class CharacterMovement : MonoBehaviour
 
     private bool viewSwitched;
 
+    public bool gravityOn;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -94,6 +96,11 @@ public class CharacterMovement : MonoBehaviour
 
     private void HandleGravity()
     {
+        if (!gravityOn)
+        {
+            return;
+        }
+
         if (!IsGrounded())
         {
             //Debug.Log("My Pos:" + gameObject.transform.position);

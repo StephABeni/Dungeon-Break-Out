@@ -27,6 +27,7 @@ public class RunePuzzle : MonoBehaviour
         }
     }
 
+
     // hide traget until puzzle is completed
     void Start()
     {
@@ -63,7 +64,7 @@ public class RunePuzzle : MonoBehaviour
     void EndPuzzle()
     {
         this.GetComponent<AudioSource>().Play();
-        StartCoroutine(DelaySoundStop());
+        StartCoroutine(FadeAudioSource.StartFade(this.GetComponent<AudioSource>(), 8, 0));
         StartCoroutine(DelayAnimations());
         
         foreach (GameObject child in runes)
@@ -96,11 +97,5 @@ public class RunePuzzle : MonoBehaviour
         runeAnimator.SetTrigger("runeDisappear");
         shelfAnimator.SetTrigger("shelfDisappear");
         targetAnimator.SetTrigger("showTarget");
-    }
-
-    IEnumerator DelaySoundStop()
-    {
-        yield return new WaitForSeconds(9f);
-        this.GetComponent<AudioSource>().Stop();
     }
 }
