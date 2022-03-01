@@ -65,6 +65,7 @@ public class unlockdoor : MonoBehaviour
         if (canInteract && InputManager.instance.ePressed && hasKey)
         {
             UIController.instance.DeactivateDialog();
+            this.GetComponent<AudioSource>().Play();
             animator.SetTrigger("unlockdoor");
             Inventory.instance.RemoveItem(itemName);
             jail_opened = true;

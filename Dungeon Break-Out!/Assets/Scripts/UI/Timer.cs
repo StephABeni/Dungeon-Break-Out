@@ -12,8 +12,14 @@ public class Timer : MonoBehaviour
     private Image image;
     private Text text;
 
+    private LevelLoader levelLoader;
+    public bool showGameOverScene;
+    public string sceneName;
+    public int newSong;
+
     private void Awake()
     {
+        
         currentTime = maxTime;
         text = gameObject.transform.GetComponentInChildren<Text>();
         image = gameObject.transform.GetComponentInChildren<Image>();
@@ -23,15 +29,19 @@ public class Timer : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        if (image.fillAmount > 0)
+        if (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
             image.fillAmount = currentTime/maxTime;
             text.text = Math.Round(currentTime).ToString() + " seconds.";
         }
-        else
+        else if (currentTime < 0 && !showGameOverScene)
         {
-            UIController.instance.GameOver.SetActive(true);
+            levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+            showGameOverScene = true;
+            levelLoader.LoadLevel("GameOverPage");
+            levelLoader.ChangeMusic(0);
+            
         }
     }
 }
