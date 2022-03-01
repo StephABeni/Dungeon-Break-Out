@@ -8,6 +8,9 @@ TagManager:
   - Hint
   - Mirror
   - TutorialPuzzle1
+  - rollingBall
+  - Rune
+  - LaserTarget
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - Water
   - UI
   - Telekinesis
-  - 
-  - 
+  - Tooltip
+  - Outside
   - 
   - 
   - 
