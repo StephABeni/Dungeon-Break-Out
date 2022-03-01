@@ -8,7 +8,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject enterToContinue;
     public Text titleText;
     public Text descriptionText;
-    public int currentStage = 0;
+    public int currentStage = -1;
     public bool taskComplete = false;
 
     public bool tutorialPuzzle1Complete;
@@ -38,14 +38,20 @@ public class TutorialManager : MonoBehaviour
 
     private void TutorialStage1()
     {
-        if (currentStage < 6)
-        {
+        if (currentStage < 6) {
             tutorialPopUp.SetActive(true);
 
-            if (currentStage == 0)
-            { //walk
+            if (currentStage == -1)
+            { //timer
+                titleText.text = "Timer";
+                descriptionText.text = "You've found yourself in a strange dungeon! How you got here is anyone's guess... " +
+                    "The green bar in the top left represents how long you have to escape before it's GAME OVER--but don't worry. " +
+                    "Until you leave this tutorial room through the portal, you have infinite time to explore and get used to things.";
+                taskComplete = true;
+            }
+            if (currentStage == 0) { //walk
                 titleText.text = "How To: Walk";
-                descriptionText.text = "You've found yourself in a strange dungeon! How you got here is anyone's guess..." +
+                descriptionText.text = "Now, onto the controls!" +
                     "\n\nUse the WASD keys to walk around and try and find a way out.";
                 if (InputManager.instance.movementInput != Vector2.zero)
                     taskComplete = true;
@@ -139,7 +145,7 @@ public class TutorialManager : MonoBehaviour
             if (currentStage == 10) {
                 titleText.text = "Interacting With The World";
                 descriptionText.text = "Now that you have an item in your inventory, you will be able to interact with something you weren't able to before." +
-                    "Figure out where the crystal goes and place it.";
+                    " Figure out where the crystal goes and place it.";
                 if (tutorialGemPlaced) {
                     taskComplete = true;
                 }
@@ -153,7 +159,8 @@ public class TutorialManager : MonoBehaviour
             }
             if (currentStage == 12) {
                 titleText.text = "Get out of here!";
-                descriptionText.text = "The way across has opened up! Only a measly door stands in your way now. You already know everything you need to move forward from here.";
+                descriptionText.text = "The way across has opened up! Only a measly door stands in your way now. You already know everything you need to move forward from here. " +
+                    "\n\nDon't forget... the timer starts as soon as you walk through that portal!";
                 if (GameManager.instance.currentScene != "Tutorial") {
                     currentStage++;
                 }

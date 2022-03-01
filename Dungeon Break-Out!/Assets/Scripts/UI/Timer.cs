@@ -29,11 +29,15 @@ public class Timer : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        if (currentTime > 0)
-        {
+        if (GameManager.instance.currentScene == "Tutorial") {
+            text.text = "";
+            return;
+        }
+
+        if (currentTime > 0){
             currentTime -= Time.deltaTime;
             image.fillAmount = currentTime/maxTime;
-            text.text = Math.Round(currentTime).ToString() + " seconds.";
+            text.text = Math.Round(currentTime).ToString() + " second(s) remaining";
         }
         else if (currentTime < 0 && !showGameOverScene)
         {

@@ -8,6 +8,7 @@ public class portal : MonoBehaviour
     public string sceneName;
     public int newSong;
     public Vector3 spawnLocation;
+    public float spawnRotation;
     private LevelLoader levelLoader;
 
     private void Awake()
@@ -20,6 +21,7 @@ public class portal : MonoBehaviour
         if(other.tag == "Player")
         {
             CharacterMovement.instance.SetCurrentPosition(spawnLocation, true);
+            CharacterMovement.instance.SetCurrentRotation(spawnRotation, true);
             levelLoader.LoadLevel(sceneName);
             if(newSong > 0) {
                 levelLoader.ChangeMusic(newSong);

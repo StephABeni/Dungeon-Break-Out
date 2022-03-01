@@ -43,8 +43,7 @@ public class UIController : MonoBehaviour
         Time.timeScale = inputManager.tabPressed ? 0 : 1;
         if(GameManager.instance.currentScene != "StartPage" && GameManager.instance.currentScene != "CharacterSelect")
         {
-            if(GameManager.instance.currentScene != "Tutorial")
-                TimerUI.SetActive(true);
+            TimerUI.SetActive(true);
             Tutorial.SetActive(true);
         } else {
             TimerUI.SetActive(false);
