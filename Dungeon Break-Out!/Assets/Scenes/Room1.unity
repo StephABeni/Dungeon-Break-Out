@@ -10428,7 +10428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634749193}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.23, y: 0.052740097, z: 0.516}
+  m_LocalPosition: {x: -0.23, y: 0.052740097, z: 1.322}
   m_LocalScale: {x: 0.50000006, y: 1.5, z: 1.5000001}
   m_Children: []
   m_Father: {fileID: 413952535}
@@ -10449,6 +10449,7 @@ MonoBehaviour:
   sceneName: Room2
   newSong: 3
   spawnLocation: {x: 0, y: 0, z: 0}
+  spawnRotation: 0
 --- !u!135 &1634749196
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11156,6 +11157,7 @@ MonoBehaviour:
   sceneName: Dungeon1
   newSong: 1
   spawnLocation: {x: -8, y: 3, z: -21}
+  spawnRotation: 0
 --- !u!135 &1757281607
 SphereCollider:
   m_ObjectHideFlags: 0
