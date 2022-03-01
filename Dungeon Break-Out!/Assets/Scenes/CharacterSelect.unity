@@ -269,19 +269,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -588,19 +576,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -1409,19 +1385,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -1577,19 +1541,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -3126,19 +3078,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -4347,19 +4287,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -4515,19 +4443,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -5232,19 +5148,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -6959,19 +6863,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -12977,19 +12869,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -13892,19 +13772,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -13998,6 +13866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 962115835}
+  - component: {fileID: 962115836}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -14026,6 +13895,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -250}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &962115836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962115834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e621bbab64bb7440bbf718f0cddcd7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickPopUp: {fileID: 0}
+  enterToContinue: {fileID: 1150231775}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -14841,19 +14726,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -15239,19 +15112,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -17035,19 +16896,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -17559,7 +17408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405579970}
-  m_LocalRotation: {x: 0.049460895, y: -0.000000002148165, z: 1.0638037e-10, w: 0.9987761}
+  m_LocalRotation: {x: 0.049460895, y: 0.000000002148165, z: -1.0638037e-10, w: 0.9987761}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18342,19 +18191,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -18787,19 +18624,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -24854,19 +24679,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -25299,19 +25112,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -25857,19 +25658,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []
@@ -26265,19 +26054,7 @@ MonoBehaviour:
       m_Calls: []
   onDoubleClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717472823}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: DoubleClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAssign:
     m_PersistentCalls:
       m_Calls: []

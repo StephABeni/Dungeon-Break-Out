@@ -31,17 +31,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void DoubleClick()
-    {
-        TutorialManager.instance.currentStage = 20;
-        //tutorialPopUp.SetActive(true);
-        //titleText.text = "Drakes";
-        //descriptionText.text = "You've found yourself in a strange dungeon! How you got here is anyone's guess..." +
-        //    "\n\nUse the WASD keys to walk around and try and find a way out.";
-        Debug.Log("HEY");
-        //EnterToContinue();
-    }
-
     public void AddItem(UIItemInfo itemInfo)
     {
         allInventorySlotInfo.Add(itemInfo);

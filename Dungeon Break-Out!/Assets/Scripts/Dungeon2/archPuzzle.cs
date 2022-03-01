@@ -11,6 +11,8 @@ public class archPuzzle : MonoBehaviour
     public Animator openDoor;
     public AudioSource doorCreak;
     bool puzzleComplete;
+    public GameObject logPuzzle;
+    public bool IsSolved { get { return puzzleState == 5; } }
 
     private void Start()
     {
@@ -41,8 +43,7 @@ public class archPuzzle : MonoBehaviour
             // still inside of the current doorframe
         }
 
-
-        if (puzzleState == 5)
+        if (this.IsSolved && logPuzzle.GetComponent<MovePost1>().IsSolved)
         {
             openDoor.SetTrigger("unlockdoor");
             if (!puzzleComplete)
