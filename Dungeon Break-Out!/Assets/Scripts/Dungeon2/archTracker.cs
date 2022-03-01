@@ -9,16 +9,12 @@ public class archTracker : MonoBehaviour
     public int order;
     public bool triggerEntered;
 
-    public void test()
-    {
-        Debug.Log("TEST");
-    }
 
     void Update()
     {
         //if (archEffect.activeInHierarchy != isCorrect)
         //{
-            //archEffect.SetActive(isComplete);
+            archEffect.SetActive(isComplete);
         //}
     }
 

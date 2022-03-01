@@ -20,21 +20,4 @@ public class ProgressBarScript : MonoBehaviour
             }
         }
     }
-
-/*    // Start is called before the first frame update
-    void Start()
-    {
-        targetProgress = slider.value + 1.0f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (slider.value < targetProgress)
-        {
-            slider.value += FillSpeed * Time.deltaTime;
-        }
-
-
-    }*/
 }
