@@ -6,6 +6,7 @@ public class TutorialBridge : MonoBehaviour
 {
     public bool canInteract;
     public GameObject gem;
+    public GameObject FX;
     public Animator bridgeAnimator;
     public Animator leverAnimator;
     public AudioSource bridgeAudio;
@@ -48,6 +49,13 @@ public class TutorialBridge : MonoBehaviour
         yield return new WaitForSeconds(2f);
         bridgeAnimator.SetTrigger("raise");
         bridgeAudio.Play();
+        FX.SetActive(true);
+        StartCoroutine(TurnOffFX());
         TutorialManager.instance.bridgeRaised = true;
+    }
+
+    IEnumerator TurnOffFX() {
+        yield return new WaitForSeconds(5f);
+        FX.SetActive(false);
     }
 }
