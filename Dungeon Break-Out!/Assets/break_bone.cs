@@ -13,21 +13,22 @@ public class break_bone : MonoBehaviour
     }
 
     // Update is called once per frame
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") 
+        if (other.tag == "Player")
         {
-            total_item = Inventory.instance.allInventorySlotInfo.Count;
-            if (broken == false) 
+            for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
             {
-                for (int i = 0; i < total_item; i++)
+                if (Inventory.instance.allInventorySlotInfo[i] != null
+                    && Inventory.instance.allInventorySlotInfo[i].Name == "hammer")
                 {
-                    if (Inventory.instance.allInventorySlotInfo[i].Name == "hammer")
-                    {
-                        broken = true;
-                    }
+                    Debug.Log("hammer found!");
+                    broken = true;
+                    UIController.instance.DeactivateDialog();
+                    break;
                 }
             }
         }
-    }
+     }
 }
