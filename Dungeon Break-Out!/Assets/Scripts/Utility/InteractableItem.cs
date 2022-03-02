@@ -40,6 +40,9 @@ public class InteractableItem : MonoBehaviour
                 case 3:
                     Break();
                     break;
+                case 4:
+                    Bone();
+                    break;
                 case 5:
                     Open();
                     break;
@@ -59,10 +62,29 @@ public class InteractableItem : MonoBehaviour
 
     public void Break()
     {
-        gameObject.SetActive(false);
         replacingObject.SetActive(true);
+        gameObject.SetActive(false);
         canInteract = false;
         UIController.instance.DeactivateDialog();
+    }
+
+    public void Bone()
+    {
+
+        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
+         {
+            if (Inventory.instance.allInventorySlotInfo[i] != null
+                && Inventory.instance.allInventorySlotInfo[i].Name == "hammer")
+            {
+                replacingObject.SetActive(true);
+                gameObject.SetActive(false);
+                canInteract = false;
+                UIController.instance.DeactivateDialog();
+                break;
+            }
+        }
+        
+
     }
 
     public void PickUp()
