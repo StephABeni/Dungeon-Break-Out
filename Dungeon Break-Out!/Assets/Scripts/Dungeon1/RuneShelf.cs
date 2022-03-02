@@ -8,11 +8,17 @@ public class RuneShelf : MonoBehaviour
     public string correctRune;
     public bool correct = false;
 
+    private void Awake()
+    {
+        this.GetComponentInChildren<ParticleSystem>().Stop();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == correctRune)
         {
+            this.GetComponentInChildren<ParticleSystem>().Play();
             correct = true;
         }
     }
@@ -21,6 +27,7 @@ public class RuneShelf : MonoBehaviour
     {
         if (correct)
         {
+            this.GetComponentInChildren<ParticleSystem>().Stop();
             correct = false;
         }
     }
