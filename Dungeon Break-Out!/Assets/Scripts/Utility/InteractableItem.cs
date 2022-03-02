@@ -97,17 +97,12 @@ public class InteractableItem : MonoBehaviour
 
     public void Open()
     {
-        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++) {
-            if (Inventory.instance.allInventorySlotInfo[i] != null
-                && Inventory.instance.allInventorySlotInfo[i].Name == keyName) {
-                successfulInteraction = true;
-                UIController.instance.DeactivateDialog();
-                break;
-            }
-        }
-        if (!successfulInteraction) {
+        successfulInteraction = Inventory.instance.HasItem(keyName);
+
+        if (successfulInteraction)
+            UIController.instance.DeactivateDialog();
+        else  
             UIController.instance.ActivateDialog(itemInfo.Name + " won't open... ");
-        }
     }
 
     private void OnTriggerEnter(Collider other)
