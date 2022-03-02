@@ -27,6 +27,7 @@ public class RunePuzzle : MonoBehaviour
         }
     }
 
+
     // hide traget until puzzle is completed
     void Start()
     {
@@ -41,7 +42,7 @@ public class RunePuzzle : MonoBehaviour
     // check if puzzle is completed
     void Update()
     {
-        if (puzzleComplete != true)
+        if (!puzzleComplete)
         {
             count = 0;
             for (int i = 0; i < 8; i++)
@@ -62,21 +63,16 @@ public class RunePuzzle : MonoBehaviour
 
     void EndPuzzle()
     {
-        //target.GetComponent<MeshRenderer>().enabled = true;
-        dustFX.SetActive(true);
-        runeAnimator.SetTrigger("runeDisappear");
-        shelfAnimator.SetTrigger("shelfDisappear");
-        targetAnimator.SetTrigger("showTarget");
-
-        
+        this.GetComponent<AudioSource>().Play();
+        StartCoroutine(FadeAudioSource.StartFade(this.GetComponent<AudioSource>(), 8, 0));
+        StartCoroutine(DelayAnimations());
         
         foreach (GameObject child in runes)
         {
             StartCoroutine(FadeOutMaterial(5f, child));
-            
         }
     }
-
+    // https://stackoverflow.com/questions/54042904/how-to-fade-out-disapear-a-gameobject-slowly
     IEnumerator FadeOutMaterial(float fadeSpeed, GameObject child)
     {
         Debug.Log(child.name);
@@ -92,5 +88,14 @@ public class RunePuzzle : MonoBehaviour
         }
         rend.material.color = new Color(matColor.r, matColor.g, matColor.b, 0f);
         child.gameObject.SetActive(false);
+    }
+
+    IEnumerator DelayAnimations()
+    {
+        yield return new WaitForSeconds(2f);
+        dustFX.SetActive(true);
+        runeAnimator.SetTrigger("runeDisappear");
+        shelfAnimator.SetTrigger("shelfDisappear");
+        targetAnimator.SetTrigger("showTarget");
     }
 }

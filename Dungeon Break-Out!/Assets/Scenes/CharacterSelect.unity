@@ -3444,8 +3444,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952169a802d2cdc458088599f02a1e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 120
-  currentTime: 120
+  maxTime: 500
+  currentTime: 500
+  showGameOverScene: 0
+  sceneName: GameOverPage
+  newSong: 0
 --- !u!114 &332450627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9592,6 +9595,7 @@ MonoBehaviour:
   gravity: 0.1
   inAirTimer: 0
   telekinesisFollow: {fileID: 864640280}
+  gravityOn: 1
 --- !u!114 &717370421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24764,6 +24768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1810207012}
+  - component: {fileID: 1810207013}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -24792,6 +24797,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1810207013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810207011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952169a802d2cdc458088599f02a1e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTime: 500
+  currentTime: 500
+  showGameOverScene: 0
+  sceneName: GameOverPage
+  newSong: 0
 --- !u!1 &1813643745
 GameObject:
   m_ObjectHideFlags: 0

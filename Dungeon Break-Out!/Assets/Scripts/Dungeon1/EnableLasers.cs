@@ -14,6 +14,17 @@ public class EnableLasers : MonoBehaviour
     public GameObject mirrorPad1;
     public GameObject mirrorPad2;
     public GameObject mirrorPad3;
+    public GameObject dustFX;
+    public Animator targetAnimator;
+    public Animator largePortalAnimator;
+    public Animator smallPortalAnimator;
+    public Collider triggerCollider;
+    public string itemName;
+    public bool canInteract;
+    public bool usedGem;
+    public bool puzzleComplete = false;
+    public AudioSource portals;
+    public AudioSource laserSound;
 
     private void Awake()
     {
@@ -42,6 +53,8 @@ public class EnableLasers : MonoBehaviour
         mirrorPad2.GetComponent<SphereCollider>().enabled = false;
         mirrorPad3.GetComponent<SphereCollider>().enabled = false;
 
+        dustFX.SetActive(false);
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -49,69 +62,74 @@ public class EnableLasers : MonoBehaviour
         if (other.tag == "Player")
         {
 
-            if (lasersOn)
+            if (ItemSlotNumber(itemName) >= 0 && RunePuzzle.instance.puzzleComplete)
             {
-                return;
+                UIController.instance.ActivateDialog("[Press 'E'] to place Gem");
+                canInteract = true;
             }
-
-            playerInventory = Inventory.instance;
-
-            // loop through player inventory to find Gem
-            for (int i = 0; i < 20; i++)
+            else if (!RunePuzzle.instance.puzzleComplete)
             {
-                if (playerInventory.allInventorySlotInfo[i].Name == "Gem")
-                {
-                    if (RunePuzzle.instance.puzzleComplete)
-                    {
-                        // activate puzzle components
-                        laser.SetActive(true);
-
-                        blueLights.SetActive(true);
-
-                        electricity.SetActive(true);
-
-                        mirrors.SetActive(true);
-
-                        mirrorPad1.GetComponent<SphereCollider>().enabled = true;
-                        mirrorPad2.GetComponent<SphereCollider>().enabled = true;
-                        mirrorPad3.GetComponent<SphereCollider>().enabled = true;
-
-                        lasersOn = true;
-
-                        playerInventory.allInventorySlotInfo[i].Name = null;
-                        playerInventory.allInventorySlotInfo[i].Description = null;
-                        playerInventory.allInventorySlotInfo[i].Icon = null;
-                        playerInventory.allInventorySlotInfo[i].ItemType = 0;
-                        Debug.Log("Lasers on. Removed Gem from player inventory.");
-                        break;
-                    } else
-                    {
-                        // if player hasn't completed the rune puzzle
-                        UIController.instance.ActivateDialog("I need something to point the laser at.\nMaybe I should complete another puzzle");
-                    }
-                }
+                UIController.instance.ActivateDialog("I need something to point the laser at.\nMaybe I should complete another puzzle");
             }
-
-            if (!lasersOn)
+            else
             {
-                // if player hasn't obtained gem
-                UIController.instance.ActivateDialog("Looks like I need a powerful stone to power this thing");
+                UIController.instance.ActivateDialog("I need to find a Gem to power this device");
             }
+            
         }
     }
 
     // turn off any UI pop ups
     private void OnTriggerExit(Collider other)
     {
+        canInteract = false;
         UIController.instance.DeactivateDialog();
+
+        if (lasersOn)
+        {
+            int num = ItemSlotNumber(itemName);
+            Inventory.instance.allInventorySlotInfo[num].Name = null;
+            Inventory.instance.allInventorySlotInfo[num].Icon = null;
+            Inventory.instance.allInventorySlotInfo[num].Description = null;
+            Destroy(triggerCollider);
+        }
+
+    }
+
+    void Update()
+    {
+        if (canInteract && InputManager.instance.ePressed && RunePuzzle.instance.puzzleComplete)
+        {
+            UIController.instance.DeactivateDialog();
+            this.GetComponent<AudioSource>().Play();
+            laserSound.GetComponent<AudioSource>().Play();
+
+            laser.SetActive(true);
+
+            blueLights.SetActive(true);
+
+            electricity.SetActive(true);
+
+            mirrors.SetActive(true);
+
+            mirrorPad1.GetComponent<SphereCollider>().enabled = true;
+            mirrorPad2.GetComponent<SphereCollider>().enabled = true;
+            mirrorPad3.GetComponent<SphereCollider>().enabled = true;
+
+            lasersOn = true;
+            usedGem = true;
+            Inventory.instance.RemoveItem(itemName);
+        }
     }
 
     // disable all components after puzzle has been completed
     public void DisableLasers()
     {
-        
+        puzzleComplete = true;
         GameManager.instance.EnableMovement(true);
         UIController.instance.DeactivateDialog();
+
+        laserSound.GetComponent<AudioSource>().Stop();
 
         laser.SetActive(false);
 
@@ -126,5 +144,26 @@ public class EnableLasers : MonoBehaviour
         mirrorPad1.GetComponent<SphereCollider>().enabled = false;
         mirrorPad2.GetComponent<SphereCollider>().enabled = false;
         mirrorPad3.GetComponent<SphereCollider>().enabled = false;
+
+        portals.GetComponent<AudioSource>().volume = 1;
+        portals.GetComponent<AudioSource>().Play();
+        StartCoroutine(FadeAudioSource.StartFade(portals.GetComponent<AudioSource>(), 11, 0));
+        targetAnimator.SetTrigger("hideTarget");
+        dustFX.SetActive(true);
+        largePortalAnimator.SetTrigger("openLargePortal");
+        smallPortalAnimator.SetTrigger("openSmallPortal");
+        
+    }
+
+    int ItemSlotNumber(string item)
+    {
+        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
+        {
+            if (Inventory.instance.allInventorySlotInfo[i].Name == item)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }
