@@ -842,7 +842,7 @@ Transform:
   - {fileID: 471176802}
   - {fileID: 1181670726}
   m_Father: {fileID: 1136506660}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &87688386
 SphereCollider:
@@ -4299,7 +4299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInfo:
     ID: 0
-    Name: 
+    Name: bone
     Pushed: 0
     Icon: {fileID: 0}
     Description: 
@@ -4317,7 +4317,7 @@ MonoBehaviour:
     Durability: 0
     RequiredLevel: 0
   canInteract: 0
-  dialogText: I can break it with a hammer...
+  dialogText: '[Press ''E'']  Break '
   replacingObject: {fileID: 87688384}
   keyName: 
   successfulInteraction: 0
@@ -10856,8 +10856,8 @@ Transform:
   m_LocalPosition: {x: -13.821901, y: -1.4865923, z: -12.241759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 413952535}
   - {fileID: 87688385}
+  - {fileID: 413952535}
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11960,7 +11960,7 @@ MonoBehaviour:
     Durability: 0
     RequiredLevel: 0
   canInteract: 0
-  dialogText: '[Press E] Collect'
+  dialogText: '[Press E] Collect '
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
