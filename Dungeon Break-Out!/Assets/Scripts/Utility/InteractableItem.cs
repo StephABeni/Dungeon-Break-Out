@@ -70,21 +70,12 @@ public class InteractableItem : MonoBehaviour
 
     public void Bone()
     {
-
-        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
-         {
-            if (Inventory.instance.allInventorySlotInfo[i] != null
-                && Inventory.instance.allInventorySlotInfo[i].Name == "hammer")
-            {
-                replacingObject.SetActive(true);
-                gameObject.SetActive(false);
-                canInteract = false;
-                UIController.instance.DeactivateDialog();
-                break;
-            }
+        if (Inventory.instance.HasItem("hammer")) {
+            Break();
+        } else {
+            UIController.instance.ActivateDialog("I'll need something like a hammer to break this...");
         }
-        
-
+              
     }
 
     public void PickUp()

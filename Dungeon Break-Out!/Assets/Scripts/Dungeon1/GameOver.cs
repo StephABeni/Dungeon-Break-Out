@@ -13,7 +13,7 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.ChangeBackgroundMusic(4);
+        AudioManager.instance.ChangeBackgroundMusic(0);
         clearInventory();
         GameManager.instance.player.SetActive(false);
     }
@@ -24,9 +24,9 @@ public class GameOver : MonoBehaviour
         CharacterMovement.instance.SetCurrentPosition(spawnLocation, true);
         levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
         timer = GameObject.Find("Timer").GetComponent<Timer>();
-        timer.currentTime = 120;
+        timer.currentTime = 2000;
         timer = GameObject.Find("Timer Bar").GetComponent<Timer>();
-        timer.currentTime = 120;
+        timer.currentTime = 2000;
         timer.showGameOverScene = false;
         levelLoader.LoadLevel(sceneName);
         if (newSong > 0)
