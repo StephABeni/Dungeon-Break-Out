@@ -21,7 +21,7 @@ public class AimLaser : MonoBehaviour
         }
     }
 
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -42,7 +42,7 @@ public class AimLaser : MonoBehaviour
             UIController.instance.ActivateDialog("Use ['W', 'A', 'S', 'D'] keys to aim mirror\nPress ['E'] to exit");
             GameManager.instance.EnableMovement(false);
             rotateActive = true;
-            
+
         }
         // if player deactivates rotating mirror
         else if (canInteract == true && InputManager.instance.ePressed && rotateActive == true)
@@ -73,5 +73,11 @@ public class AimLaser : MonoBehaviour
                 child.transform.Rotate(0, 0, -speed);
             }
         }
+        StartCoroutine(DelayInput());
+    }
+
+    IEnumerator DelayInput()
+    {
+        yield return new WaitForSeconds(.1f);
     }
 }
