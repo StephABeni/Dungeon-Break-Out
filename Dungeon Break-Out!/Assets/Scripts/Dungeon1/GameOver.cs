@@ -14,6 +14,7 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         AudioManager.instance.ChangeBackgroundMusic(4);
+        clearInventory();
         GameManager.instance.player.SetActive(false);
     }
 
@@ -31,6 +32,20 @@ public class GameOver : MonoBehaviour
         if (newSong > 0)
         {
             levelLoader.ChangeMusic(newSong);
+        }
+    }
+
+    private void clearInventory()
+    {
+        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
+        {
+            if (Inventory.instance.allInventorySlotInfo[i].Name != null)
+            {
+                Inventory.instance.RemoveItem(Inventory.instance.allInventorySlotInfo[i].Name);
+                Inventory.instance.allInventorySlotInfo[i].Name = null;
+                Inventory.instance.allInventorySlotInfo[i].Icon = null;
+                Inventory.instance.allInventorySlotInfo[i].Description = null;
+            }
         }
     }
 }
