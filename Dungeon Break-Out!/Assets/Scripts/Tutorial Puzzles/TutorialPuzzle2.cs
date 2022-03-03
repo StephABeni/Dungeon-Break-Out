@@ -14,6 +14,7 @@ public class TutorialPuzzle2 : MonoBehaviour
         if(Door.successfulInteraction)
         {
             openDoor.SetTrigger("unlockdoor");
+            Inventory.instance.RemoveItem("Tutorial Key");
             if (!puzzleComplete)
             {
                 PlayDoorCreak();
