@@ -33,4 +33,18 @@ public class GameOver : MonoBehaviour
             levelLoader.ChangeMusic(newSong);
         }
     }
+
+    private void clearInventory()
+    {
+        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
+        {
+            if (Inventory.instance.allInventorySlotInfo[i].Name != null)
+            {
+                Inventory.instance.RemoveItem(Inventory.instance.allInventorySlotInfo[i].Name);
+                Inventory.instance.allInventorySlotInfo[i].Name = null;
+                Inventory.instance.allInventorySlotInfo[i].Icon = null;
+                Inventory.instance.allInventorySlotInfo[i].Description = null;
+            }
+        }
+    }
 }
