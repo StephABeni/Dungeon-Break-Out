@@ -13,7 +13,7 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.ChangeBackgroundMusic(4);
+        AudioManager.instance.ChangeBackgroundMusic(0);
         clearInventory();
         GameManager.instance.player.SetActive(false);
     }
