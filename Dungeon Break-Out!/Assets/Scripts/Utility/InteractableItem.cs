@@ -1,4 +1,5 @@
 using DuloGames.UI;
+using System.Collections;
 using UnityEngine;
 
 public class InteractableItem : MonoBehaviour
@@ -10,6 +11,8 @@ public class InteractableItem : MonoBehaviour
     public GameObject replacingObject;
     public string keyName;
     public bool successfulInteraction;
+    private bool inProgress;
+    public GameObject gem;
 
     private void Awake()
     {
@@ -27,8 +30,9 @@ public class InteractableItem : MonoBehaviour
 
     private void Update()
     {
-        if (canInteract && InputManager.instance.ePressed)
+        if (canInteract && InputManager.instance.ePressed && !inProgress)
         {
+            inProgress = true;
             switch (itemInfo.ItemType)
             {
                 case 1:
@@ -47,6 +51,8 @@ public class InteractableItem : MonoBehaviour
                     Debug.Log("You inspect " + itemInfo.Name);
                     break;
             }
+
+            inProgress = false;
         }
     }
 
@@ -59,11 +65,27 @@ public class InteractableItem : MonoBehaviour
 
     public void Break()
     {
-        gameObject.SetActive(false);
+        if (gameObject.name == "SM_Prop_Vase_02")
+        {
+            //canInteract = false;
+
+            GameManager.instance.EnableMovement(false);
+            CharacterAnimator.instance.animator.SetTrigger("pickup");
+            StartCoroutine(DelayPositionChange());
+        }
+
         replacingObject.SetActive(true);
-        canInteract = false;
+        gameObject.SetActive(false);
+
         UIController.instance.DeactivateDialog();
     }
+
+    IEnumerator DelayPositionChange()
+    {
+        yield return new WaitForSeconds(5.0f);
+        GameManager.instance.EnableMovement(true);
+    }
+
 
     public void PickUp()
     {
@@ -75,15 +97,18 @@ public class InteractableItem : MonoBehaviour
 
     public void Open()
     {
-        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++) {
+        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
+        {
             if (Inventory.instance.allInventorySlotInfo[i] != null
-                && Inventory.instance.allInventorySlotInfo[i].Name == keyName) {
+                && Inventory.instance.allInventorySlotInfo[i].Name == keyName)
+            {
                 successfulInteraction = true;
                 UIController.instance.DeactivateDialog();
                 break;
             }
         }
-        if (!successfulInteraction) {
+        if (!successfulInteraction)
+        {
             UIController.instance.ActivateDialog(itemInfo.Name + " won't open... ");
         }
     }
