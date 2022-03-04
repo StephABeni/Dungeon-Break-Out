@@ -74,4 +74,14 @@ public class Inventory : MonoBehaviour
         foreach (UIItemSlot itemSlot in allInventorySlots)
             allInventorySlotInfo.Add(itemSlot.GetItemInfo());
     }
+
+    public bool HasItem(string itemName) {
+        for (int i = 0; i < allInventorySlotInfo.Count; i++) {
+            if (allInventorySlotInfo[i] != null
+                && allInventorySlotInfo[i].Name == itemName) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

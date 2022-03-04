@@ -180,6 +180,14 @@ public class CharacterMovement : MonoBehaviour
             StartCoroutine(DelayPositionChange(position));
     }
 
+    public void SetCurrentRotation(float yRotation, bool delayChange) {
+        Quaternion target = Quaternion.Euler(0f, yRotation, 0f);
+        if (!delayChange)
+            gameObject.transform.rotation = target;
+        else
+            StartCoroutine(DelayRotationChange(target));
+    }
+
     public Vector3 GetCurrentPosition()
     {
         return transform.position;
@@ -188,8 +196,12 @@ public class CharacterMovement : MonoBehaviour
     IEnumerator DelayPositionChange(Vector3 position)
     {
         yield return new WaitForSeconds(0.9f);
-        Debug.Log("Changing Position");
         gameObject.transform.position = position;
+    }
+
+    IEnumerator DelayRotationChange(Quaternion rotation) {
+        yield return new WaitForSeconds(0.9f);
+        gameObject.transform.rotation = rotation;
     }
 
     IEnumerator DelayCameraChange() {

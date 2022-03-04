@@ -494,7 +494,6 @@ MonoBehaviour:
   spawnLocation: {x: 0, y: 1, z: 0}
   sceneName: Room1
   newSong: 2
-  timer: {fileID: 0}
 --- !u!4 &672370151
 Transform:
   m_ObjectHideFlags: 0
@@ -827,7 +826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1105.1162, y: -148}
+  m_AnchoredPosition: {x: -822, y: -148}
   m_SizeDelta: {x: 578, y: 222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1202891568
@@ -1466,7 +1465,6 @@ MonoBehaviour:
   spawnLocation: {x: 0, y: 0, z: 0}
   sceneName: Room1
   newSong: 2
-  timer: {fileID: 0}
 --- !u!1 &1826152740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,7 +1583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1054.8838, y: -147.99994}
+  m_AnchoredPosition: {x: 776, y: -147.99994}
   m_SizeDelta: {x: 578, y: 222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984382692

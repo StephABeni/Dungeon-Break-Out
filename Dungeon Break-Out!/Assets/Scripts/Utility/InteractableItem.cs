@@ -44,6 +44,9 @@ public class InteractableItem : MonoBehaviour
                 case 3:
                     Break();
                     break;
+                case 4:
+                    Bone();
+                    break;
                 case 5:
                     Open();
                     break;
@@ -76,6 +79,7 @@ public class InteractableItem : MonoBehaviour
 
         replacingObject.SetActive(true);
         gameObject.SetActive(false);
+        canInteract = false;
 
         UIController.instance.DeactivateDialog();
     }
@@ -86,6 +90,15 @@ public class InteractableItem : MonoBehaviour
         GameManager.instance.EnableMovement(true);
     }
 
+    public void Bone()
+    {
+        if (Inventory.instance.HasItem("hammer")) {
+            Break();
+        } else {
+            UIController.instance.ActivateDialog("I'll need something like a hammer to break this...");
+        }
+              
+    }
 
     public void PickUp()
     {
@@ -97,20 +110,12 @@ public class InteractableItem : MonoBehaviour
 
     public void Open()
     {
-        for (int i = 0; i < Inventory.instance.allInventorySlotInfo.Count; i++)
-        {
-            if (Inventory.instance.allInventorySlotInfo[i] != null
-                && Inventory.instance.allInventorySlotInfo[i].Name == keyName)
-            {
-                successfulInteraction = true;
-                UIController.instance.DeactivateDialog();
-                break;
-            }
-        }
-        if (!successfulInteraction)
-        {
+        successfulInteraction = Inventory.instance.HasItem(keyName);
+
+        if (successfulInteraction)
+            UIController.instance.DeactivateDialog();
+        else  
             UIController.instance.ActivateDialog(itemInfo.Name + " won't open... ");
-        }
     }
 
     private void OnTriggerEnter(Collider other)
