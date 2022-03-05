@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovePost1 : MonoBehaviour
 {
     private bool canInteract;
-    public int currentSlot;
+    private int currentSlot;
     public GameObject statuePuzzle;
 
     public bool IsSolved { get { return currentSlot == 2; } }
@@ -34,7 +34,7 @@ public class MovePost1 : MonoBehaviour
     private void Move()
     {
         currentSlot++;
-        currentSlot = currentSlot % slots.Length;
+        //currentSlot = currentSlot % slots.Length;
         gameObject.transform.position = slots[currentSlot];
         UIController.instance.DeactivateDialog();
     }
