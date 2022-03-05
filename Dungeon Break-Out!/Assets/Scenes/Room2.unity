@@ -1167,6 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statuePuzzle: {fileID: 683383655}
+  archesPuzzle: {fileID: 86831888}
 --- !u!136 &92728403
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3574,7 +3575,7 @@ Transform:
   m_Children:
   - {fileID: 1915449623}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &335081163
 PrefabInstance:
@@ -10416,7 +10417,7 @@ Transform:
   - {fileID: 683383654}
   - {fileID: 825579872}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &968128580
 PrefabInstance:
@@ -12102,7 +12103,7 @@ Transform:
   - {fileID: 25783403}
   - {fileID: 1738871110}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1182267995
 PrefabInstance:
@@ -19355,7 +19356,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 80298ed4ca82b734780c8ca71cb35db2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.329
+  m_Volume: 0.478
   m_Pitch: 1
   Loop: 1
   Mute: 0
