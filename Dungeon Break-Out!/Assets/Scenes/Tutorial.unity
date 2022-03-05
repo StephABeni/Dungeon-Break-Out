@@ -6000,6 +6000,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: Tutorial Key
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!1001 &679337165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12765,7 +12766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Room1
   newSong: 2
-  spawnLocation: {x: -6, y: 2, z: 11}
+  spawnLocation: {x: -1.93, y: 0.88, z: 6.53}
   spawnRotation: 180
 --- !u!1 &1352051592
 GameObject:
@@ -19573,6 +19574,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!64 &581564314507387293
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19644,6 +19646,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!135 &645766650617130141
 SphereCollider:
   m_ObjectHideFlags: 0
