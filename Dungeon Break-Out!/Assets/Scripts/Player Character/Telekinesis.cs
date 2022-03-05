@@ -10,7 +10,7 @@ public class Telekinesis : MonoBehaviour
     InputManager inputManager;
     Transform cameraObject;
     public Animator stateDrivenCamera;
-    public float moveForce = 150f;
+    public float moveForce = 10f;
     public GameObject FX;
     public GameObject instantiatedFX;
     public LayerMask TKLayer;
@@ -91,8 +91,19 @@ public class Telekinesis : MonoBehaviour
     {
         if(Vector3.Distance(currentlyHeldObject.transform.position, holdParent.position) > 0.1f)
         {
-            Vector3 movedirection = (holdParent.position - currentlyHeldObject.transform.position);
-            currentlyHeldObject.GetComponent<Rigidbody>().AddForce(movedirection * moveForce);
+            RaycastHit hit;
+            if (Physics.Raycast(cameraObject.position, cameraObject.forward, out hit,
+                Vector3.Distance(cameraObject.position, holdParent.position), ~TKLayer)) {
+                if (hit.point.y <= .05f) {
+                    hit.point = new Vector3(hit.point.x, 0.5f, hit.point.z);
+                }
+                Vector3 movedirection = (hit.point - currentlyHeldObject.transform.position);
+                currentlyHeldObject.GetComponent<Rigidbody>().AddForce(movedirection * moveForce);
+            }
+            else {
+                Vector3 movedirection = (holdParent.position - currentlyHeldObject.transform.position);
+                currentlyHeldObject.GetComponent<Rigidbody>().AddForce(movedirection * moveForce);
+            }
         }
     }
 

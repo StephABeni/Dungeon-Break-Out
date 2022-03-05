@@ -2274,7 +2274,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269856786}
-  m_LocalRotation: {x: -0.0000000024767364, y: 0.9977144, z: -0.067572005, w: -0.00000003656952}
+  m_LocalRotation: {x: -0.000000002662988, y: 0.9977144, z: -0.067572005, w: -0.000000039319563}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9538,7 +9538,7 @@ MonoBehaviour:
   holdParent: {fileID: 297091506}
   currentlyHeldObject: {fileID: 0}
   stateDrivenCamera: {fileID: 269235613}
-  moveForce: 150
+  moveForce: 10
   FX: {fileID: 188748, guid: 9844404222ea7574cbdd3fe075ea2560, type: 3}
   instantiatedFX: {fileID: 0}
   TKLayer:
@@ -24263,7 +24263,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795706242}
-  m_LocalRotation: {x: -0.0000000021620041, y: 0.9987761, z: -0.049460895, w: -0.000000043657888}
+  m_LocalRotation: {x: -0.0000000020556197, y: 0.9987761, z: -0.04946089, w: -0.000000041509644}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -24797,7 +24797,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876905677}
-  m_LocalRotation: {x: -0.0000000037464485, y: -0.99632025, z: 0.08570875, w: -0.000000043550543}
+  m_LocalRotation: {x: -0.0000000022263231, y: 0.99632025, z: -0.08570874, w: -0.000000025879865}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -30714,7 +30714,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 180
     m_SpeedMode: 0
-    m_MaxSpeed: 150
+    m_MaxSpeed: 110
     m_AccelTime: 0.05
     m_DecelTime: 0.05
     m_InputAxisName: Mouse X

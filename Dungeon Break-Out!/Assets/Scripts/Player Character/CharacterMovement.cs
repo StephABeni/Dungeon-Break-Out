@@ -136,11 +136,11 @@ public class CharacterMovement : MonoBehaviour
             viewSwitched = true;
             //Horizontal rotation, move entire avatar
             Quaternion desiredRotation = transform.rotation * Quaternion.AngleAxis(inputManager.lookInput.x, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime * 0.3f);
 
             //vertical rotation, move only telekinesis follow
             desiredRotation = telekinesisFollow.transform.rotation * Quaternion.AngleAxis(-inputManager.lookInput.y, Vector3.right);
-            telekinesisFollow.transform.rotation = Quaternion.Slerp(telekinesisFollow.transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime);
+            telekinesisFollow.transform.rotation = Quaternion.Slerp(telekinesisFollow.transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime * 0.3f);
 
 
             Vector3 angles = telekinesisFollow.transform.localEulerAngles;
@@ -150,7 +150,7 @@ public class CharacterMovement : MonoBehaviour
 
             //Clamp the Up/Down rotation
             if (angle > 180 && angle < 320) { angles.x = 320; }
-            else if (angle < 180 && angle > 50) { angles.x = 50; }
+            else if (angle < 180 && angle > 25) { angles.x = 25; }
 
             telekinesisFollow.transform.localEulerAngles = angles;
         } else {
