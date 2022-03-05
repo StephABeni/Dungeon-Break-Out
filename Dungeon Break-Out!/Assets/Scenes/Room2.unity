@@ -6540,7 +6540,7 @@ MonoBehaviour:
     Name: 
     Pushed: 0
     Icon: {fileID: 21300000, guid: 00878257e9cdec54589fe2314b18bdd5, type: 3}
-    Description: 
+    Description: There's another banner for the banner puzzle
     Quality: 0
     EquipType: 0
     ItemType: 1
@@ -10105,7 +10105,7 @@ MonoBehaviour:
     Name: 
     Pushed: 0
     Icon: {fileID: 21300000, guid: b1725372fc13f884a8d0686dacb31af0, type: 3}
-    Description: 
+    Description: There's another banner for the banner puzzle
     Quality: 0
     EquipType: 0
     ItemType: 1
@@ -10650,7 +10650,7 @@ MonoBehaviour:
     Name: 
     Pushed: 0
     Icon: {fileID: 21300000, guid: b1725372fc13f884a8d0686dacb31af0, type: 3}
-    Description: 
+    Description: There's another banner for the banner puzzle
     Quality: 0
     EquipType: 0
     ItemType: 1
@@ -14748,7 +14748,7 @@ MonoBehaviour:
     Name: 
     Pushed: 0
     Icon: {fileID: 21300000, guid: 00878257e9cdec54589fe2314b18bdd5, type: 3}
-    Description: 
+    Description: There's another banner for the banner puzzle
     Quality: 0
     EquipType: 0
     ItemType: 1
@@ -17504,7 +17504,7 @@ MonoBehaviour:
     Name: 
     Pushed: 0
     Icon: {fileID: 21300000, guid: b1725372fc13f884a8d0686dacb31af0, type: 3}
-    Description: 
+    Description: There's another banner for the banner puzzle
     Quality: 0
     EquipType: 0
     ItemType: 1
@@ -18115,6 +18115,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1738871113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738871111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f0b1c9ac7979843b5059ca82d36e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containedScene: Room2
 --- !u!1001 &1760041895
 PrefabInstance:
   m_ObjectHideFlags: 0
