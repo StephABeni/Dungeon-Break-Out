@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hint : MonoBehaviour
 {
     public static Hint instance;
-    //private GameObject glowHint;
+    public GameObject tutorialPopUp;
     private SkinnedMeshRenderer visibility;
     public Inventory playerInventory;
     public List<string> playerItemsName;
@@ -26,10 +26,19 @@ public class Hint : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        tutorialPopUp.SetActive(true);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            if (tutorialPopUp.activeInHierarchy == true)
+            {
+                tutorialPopUp.SetActive(false);
+            }
             playerInventory = Inventory.instance;
 
             for (int i = 0; i < 20; i++)
