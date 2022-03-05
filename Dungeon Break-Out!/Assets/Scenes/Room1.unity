@@ -871,8 +871,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Room2
   newSong: 1
-  spawnLocation: {x: 0.91, y: 0.83, z: -4.13}
-  spawnRotation: 0
+  spawnLocation: {x: -1.94, y: 0.81, z: 6.5}
+  spawnRotation: 180
 --- !u!65 &87688388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1780,6 +1780,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!114 &170248938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3246,6 +3247,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!135 &304369051
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4171,6 +4173,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!135 &412789222
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4321,6 +4324,7 @@ MonoBehaviour:
   replacingObject: {fileID: 87688384}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!1 &419017677
 GameObject:
   m_ObjectHideFlags: 0
@@ -7150,6 +7154,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!135 &687988315
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11964,6 +11969,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!1001 &1292851244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13046,6 +13052,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!135 &1397900847
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13165,6 +13172,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!135 &1405526886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15258,6 +15266,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!135 &1699841242
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16900,6 +16909,7 @@ MonoBehaviour:
   replacingObject: {fileID: 0}
   keyName: 
   successfulInteraction: 0
+  gem: {fileID: 0}
 --- !u!114 &1823553604
 MonoBehaviour:
   m_ObjectHideFlags: 0
