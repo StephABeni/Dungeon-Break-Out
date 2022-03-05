@@ -1166,7 +1166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc76696d838fca40901953bd07fd574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSlot: 0
   statuePuzzle: {fileID: 683383655}
 --- !u!136 &92728403
 CapsuleCollider:
@@ -20883,7 +20882,7 @@ MonoBehaviour:
     Name: 
     Pushed: 0
     Icon: {fileID: 21300000, guid: 436436bc6ee836646908ca3b94def33b, type: 3}
-    Description: Incribed, "During a full moon I escaped from my dark cave prison.
+    Description: Incribed, "One a winter night I escaped from my dark cave prison.
       I hid behind their flag pole. I then grabbed my shield and my sword. The guards
       stabbed at me with their spear. I then found a golden knight sitting upon his
       throne.
