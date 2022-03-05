@@ -135,7 +135,7 @@ public class CharacterMovement : MonoBehaviour
         {
             viewSwitched = true;
             //Horizontal rotation, move entire avatar
-            Quaternion desiredRotation = transform.rotation * Quaternion.AngleAxis(inputManager.lookInput.x, Vector3.up);
+            Quaternion desiredRotation = transform.rotation * Quaternion.AngleAxis(inputManager.lookInput.x * 0.5f, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, rotationSpeed * Time.deltaTime * 0.3f);
 
             //vertical rotation, move only telekinesis follow

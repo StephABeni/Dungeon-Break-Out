@@ -872,7 +872,7 @@ MonoBehaviour:
   sceneName: Room2
   newSong: 1
   spawnLocation: {x: -1.94, y: 0.81, z: 6.5}
-  spawnRotation: 0
+  spawnRotation: 180
 --- !u!65 &87688388
 BoxCollider:
   m_ObjectHideFlags: 0
