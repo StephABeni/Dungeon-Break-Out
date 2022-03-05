@@ -34,7 +34,7 @@ public class MovePost1 : MonoBehaviour
     private void Move()
     {
         currentSlot++;
-        //currentSlot = currentSlot % slots.Length;
+        currentSlot = currentSlot % slots.Length;
         gameObject.transform.position = slots[currentSlot];
         UIController.instance.DeactivateDialog();
     }
