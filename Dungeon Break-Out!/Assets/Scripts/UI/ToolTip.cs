@@ -11,6 +11,9 @@ public class ToolTip : MonoBehaviour
     public GameObject toolTipPopup;
     public Text toolTipTitle;
     public Text toolTipDescription;
+    public GameObject toolTipPopup2;
+    public Text toolTipTitle2;
+    public Text toolTipDescription2;
 
     private void Start()
     {
@@ -19,7 +22,8 @@ public class ToolTip : MonoBehaviour
 
     private void Update()
     {
-        if (!IsPointerOverUIElement(GetEventSystemRaycastResults())) {
+        if (!IsPointerOverUIElement(GetEventSystemRaycastResults()))
+        {
             HideToolTip();
         }
     }
@@ -30,10 +34,19 @@ public class ToolTip : MonoBehaviour
         for (int index = 0; index < eventSystemRaysastResults.Count; index++)
         {
             RaycastResult curRaysastResult = eventSystemRaysastResults[index];
-            if (curRaysastResult.gameObject.layer == TooltipLayer) {
+            if (curRaysastResult.gameObject.layer == TooltipLayer)
+            {
                 UIItemInfo slotInfo = curRaysastResult.gameObject.GetComponentInParent<UIItemSlot>().GetItemInfo();
-                if (slotInfo != null) {
-                    ShowToolTip(slotInfo);
+                if (slotInfo != null)
+                {
+                    if (slotInfo.Description.StartsWith("Incribed"))
+                    {
+                        ShowToolTip2(slotInfo);
+                    }
+                    else
+                    {
+                        ShowToolTip(slotInfo);
+                    }
                     return true;
                 }
             }
@@ -59,9 +72,17 @@ public class ToolTip : MonoBehaviour
         toolTipPopup.SetActive(true);
     }
 
+    private void ShowToolTip2(UIItemInfo tooltipInfo)
+    {
+        toolTipTitle2.text = tooltipInfo.Name;
+        toolTipDescription2.text = tooltipInfo.Description;
+        toolTipPopup2.SetActive(true);
+    }
+
     private void HideToolTip()
     {
         toolTipPopup.SetActive(false);
+        toolTipPopup2.SetActive(false);
     }
 
 

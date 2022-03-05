@@ -1,4 +1,5 @@
 using DuloGames.UI;
+using System.Collections;
 using UnityEngine;
 
 public class InteractableItem : MonoBehaviour
@@ -10,6 +11,8 @@ public class InteractableItem : MonoBehaviour
     public GameObject replacingObject;
     public string keyName;
     public bool successfulInteraction;
+    private static bool inProgress;
+    public GameObject gem;
 
     private void Awake()
     {
@@ -27,8 +30,9 @@ public class InteractableItem : MonoBehaviour
 
     private void Update()
     {
-        if (canInteract && InputManager.instance.ePressed)
+        if (canInteract && InputManager.instance.ePressed /*&& !inProgress*/)
         {
+            //inProgress = true;
             switch (itemInfo.ItemType)
             {
                 case 1:
@@ -50,6 +54,8 @@ public class InteractableItem : MonoBehaviour
                     Debug.Log("You inspect " + itemInfo.Name);
                     break;
             }
+
+            //inProgress = false;
         }
     }
 
@@ -62,20 +68,52 @@ public class InteractableItem : MonoBehaviour
 
     public void Break()
     {
-        replacingObject.SetActive(true);
-        gameObject.SetActive(false);
-        canInteract = false;
+
+        if (gameObject.name == "SM_Prop_Vase_02")
+        {
+
+            //canInteract = false;
+            StartCoroutine(DelayPositionChange());
+            CharacterAnimator.instance.animator.SetTrigger("pickup");
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            replacingObject.SetActive(true);
+
+        }
+
+
+
+        //Destroy(gameObject);
         UIController.instance.DeactivateDialog();
+
+    }
+
+    IEnumerator DelayPositionChange()
+    {
+        //gameObject.SetActive(false);
+        GameManager.instance.EnableMovement(false);
+        yield return new WaitForSeconds(5.0f);
+        GameManager.instance.EnableMovement(true);
+        gameObject.SetActive(false);
+        replacingObject.SetActive(true);
+
+        //Destroy(gameObject);
+        //canInteract = false;
     }
 
     public void Bone()
     {
-        if (Inventory.instance.HasItem("hammer")) {
+        if (Inventory.instance.HasItem("hammer"))
+        {
             Break();
-        } else {
+        }
+        else
+        {
             UIController.instance.ActivateDialog("I'll need something like a hammer to break this...");
         }
-              
+
     }
 
     public void PickUp()
@@ -92,7 +130,7 @@ public class InteractableItem : MonoBehaviour
 
         if (successfulInteraction)
             UIController.instance.DeactivateDialog();
-        else  
+        else
             UIController.instance.ActivateDialog(itemInfo.Name + " won't open... ");
     }
 
