@@ -8,7 +8,7 @@ public class MovePost1 : MonoBehaviour
     public int currentSlot;
     public GameObject statuePuzzle;
 
-    public bool IsSolved { get { return currentSlot == 2; } }
+    public bool IsSolved { get { return currentSlot == 3; } }
     private Vector3[] slots = { new Vector3(8.9999f, 1.2728f, -5.35f), new Vector3(8.9999f, 1.2728f, -5.85f), new Vector3(8.9999f, 1.2728f, -6.5f), new Vector3(8.9999f, 1.2728f, -7.0f) };
     private void Awake()
     {
